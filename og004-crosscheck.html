@@ -202,6 +202,10 @@ a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
     </div>
     <div class="sp"></div>
 
+    <div class="tline cmd pop" style="--d:.3s"><span class="ps">dami@labless ~ %</span> lab verdict <span class="c"># 结论先行:谁最好,谁最差</span></div>
+    <div class="who pop" style="--d:.32s"><div class="tline"><span style="color:var(--green);font-weight:800">🥇 最好(7个并列)</span> 豆包 Seed 1.6、Claude Sonnet 4.6、Claude Haiku 4.5、Gemini 2.5 Flash-Lite… —— 满配全对、各方一致:给了计算器,这题多数模型都行</div><div class="tline"><span style="color:var(--amber);font-weight:800">🥴 最飘</span> Llama 3.3 70B —— 满配 6↔15,同题同模型看运气,单次成绩别信</div><div class="tline"><span style="color:#ff6b66;font-weight:800">💀 最差</span> DeepSeek V3.2 —— 满配 6/8/7,给计算器也救不了</div></div>
+    <div class="sp"></div>
+
     <div class="tline cmd pop" style="--d:.35s"><span class="ps">dami@labless ~ %</span> lab who <span class="c"># 谁在跑</span></div>
     <div class="who pop" style="--d:.42s">
       <div class="tline"><span class="sw" style="background:var(--amber)"></span><span class="a">A · Claude(主建设 session)</span> <span class="h">arena 10 模型</span></div>
@@ -211,20 +215,20 @@ a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
     </div>
     <div class="callout pop" style="--d:.52s">
       <div class="big">满配三方对账:2/4 全对上 —— 2 个分歧 = 本题主角</div>
-      <div class="sub">三方共有 4 模型(C 阵容=特挑爆点)。满配=共识锚点,理应一致;分歧行就是新闻本身</div>
+      <div class="sub">全员 10 模型上桌,按满配成绩降序;三方共有 4 个(C 阵容=特挑爆点),其余为 A/B 两方对账。满配=共识锚点,分歧行就是新闻本身。A/B/C 同机同 key=可复现性验证,非独立复验</div>
     </div>
     <div class="sp"></div>
 
     <div class="tline cmd pop" style="--d:.62s"><span class="ps">dami@labless ~ %</span> lab table --tooled <span class="c"># 满配(给计算器)· 三方对账</span></div>
     <div class="split pop" style="--d:.7s"><div class="pane pane-a" style="flex:1 1 100%"><div class="ph"><span class="side">▌满配 · A/B/C 三方</span><span class="tag">tooled</span></div>
-      <table><tr><th class="l">模型</th><th>A</th><th>B</th><th>C</th><th>判定</th></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-deepseek"/></svg>DeepSeek V3.2</td><td class="na">6/16</td><td class="na">8/16</td><td class="na">7/16</td><td class="na">⚠ 分歧 6/8/7</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-meta"/></svg>Llama 3.3 70B</td><td class="t">15/16</td><td class="na">6/16</td><td class="t">15/16</td><td class="na">⚠ 分歧 15/6/15</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-bytedance"/></svg>豆包 Seed 1.6</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-claude"/></svg>Claude Sonnet 4.6</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">✓ 三方一致</td></tr></table></div></div>
-    <div class="tline c pop" style="--d:.78s"># DeepSeek V3.2 四跑四崩:满配 7/8/6/7,两操作者四轮独立 —— 给了计算器照样崩</div>
+      <table><tr><th class="l">模型</th><th>A</th><th>B</th><th>C</th><th>判定</th></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-bytedance"/></svg>豆包 Seed 1.6</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-claude"/></svg>Claude Sonnet 4.6</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-claude"/></svg>Claude Haiku 4.5</td><td class="v">16/16</td><td class="v">16/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-googlegemini"/></svg>Gemini 2.5 Flash-Lite</td><td class="v">16/16</td><td class="v">16/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-googlegemini"/></svg>Gemini 2.5 Flash</td><td class="v">16/16</td><td class="v">16/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-openai"/></svg>GPT-4.1</td><td class="v">16/16</td><td class="v">16/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-qwen"/></svg>Qwen2.5 72B</td><td class="v">16/16</td><td class="v">16/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-openai"/></svg>GPT-4.1 mini</td><td class="t">14/16</td><td class="v">16/16</td><td class="na">—</td><td class="na">⚠ A/B 分歧 14/16</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-meta"/></svg>Llama 3.3 70B</td><td class="t">15/16</td><td class="na">6/16</td><td class="t">15/16</td><td class="na">⚠ 分歧 15/6/15</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-deepseek"/></svg>DeepSeek V3.2</td><td class="na">6/16</td><td class="na">8/16</td><td class="na">7/16</td><td class="na">⚠ 分歧 6/8/7</td></tr></table></div></div>
+    <div class="tline c pop" style="--d:.78s"># DeepSeek V3.2 四跑四崩:满配 7/8/6/7,同机同 key 四轮可复现性跑 —— 给了计算器照样崩</div>
     <div class="tline c pop" style="--d:.8s"># Llama 3.3 摇摆史:满配 16↔6↔15↔15 —— 单次成绩别信,复验才算数</div>
     <div class="sp"></div>
 
     <div class="tline cmd pop" style="--d:.85s"><span class="ps">dami@labless ~ %</span> lab table --bare <span class="c"># 裸跑(禁工具)· 单次噪声大,仅参照</span></div>
     <div class="split pop" style="--d:.92s"><div class="pane pane-b" style="flex:1 1 100%"><div class="ph"><span class="side">▌裸 · A/B/C 三方</span><span class="tag">bare</span></div>
-      <table><tr><th class="l">模型</th><th>A</th><th>B</th><th>C</th><th>判定</th></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-deepseek"/></svg>DeepSeek V3.2</td><td class="na">4/16</td><td class="na">4/16</td><td class="na">4/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-meta"/></svg>Llama 3.3 70B</td><td class="na">0/16</td><td class="na">0/16</td><td class="na">0/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-bytedance"/></svg>豆包 Seed 1.6</td><td class="t">14/16</td><td class="t">14/16</td><td class="t">14/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-claude"/></svg>Claude Sonnet 4.6</td><td class="na">12/16</td><td class="t">13/16</td><td class="t">13/16</td><td class="na">⚠ 分歧 12/13/13</td></tr></table></div></div>
+      <table><tr><th class="l">模型</th><th>A</th><th>B</th><th>C</th><th>判定</th></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-bytedance"/></svg>豆包 Seed 1.6</td><td class="t">14/16</td><td class="t">14/16</td><td class="t">14/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-claude"/></svg>Claude Sonnet 4.6</td><td class="na">12/16</td><td class="t">13/16</td><td class="t">13/16</td><td class="na">⚠ 分歧 12/13/13</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-claude"/></svg>Claude Haiku 4.5</td><td class="na">3/16</td><td class="na">3/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-googlegemini"/></svg>Gemini 2.5 Flash-Lite</td><td class="na">2/16</td><td class="na">2/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-googlegemini"/></svg>Gemini 2.5 Flash</td><td class="na">0/16</td><td class="na">0/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-openai"/></svg>GPT-4.1</td><td class="na">0/16</td><td class="na">0/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-qwen"/></svg>Qwen2.5 72B</td><td class="na">0/16</td><td class="na">0/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-openai"/></svg>GPT-4.1 mini</td><td class="na">0/16</td><td class="na">0/16</td><td class="na">—</td><td class="t">✓ A/B 一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-meta"/></svg>Llama 3.3 70B</td><td class="na">0/16</td><td class="na">0/16</td><td class="na">0/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl"><svg class="mlogo"><use href="#lg-deepseek"/></svg>DeepSeek V3.2</td><td class="na">4/16</td><td class="na">4/16</td><td class="na">4/16</td><td class="v">✓ 三方一致</td></tr></table></div></div>
     <div class="sp"></div>
 
     <div class="tline cmd pop" style="--d:1.02s"><span class="ps">dami@labless ~ %</span> lab guest <span class="c"># 场外 D · agent 盲卷</span></div>
@@ -237,7 +241,7 @@ a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
     <div class="tline cmd pop pop" style="--d:1.18s"><span class="ps">dami@labless ~ %</span> lab review <span class="c"># 🎙 OG 点评 —— 这场测出了什么</span></div>
     <div class="callout pop" style="--d:1.24s"><div class="sub review-cli" style="color:var(--bone)"><b>考的是</b>:16 道大数混合四则(×−÷ 人类记法,结果都是整数)。考点不在"会不会算",在<b>转录</b>——把 × − ÷ 翻成计算器认的符号、括号优先级别摆错。
 <br><b>1️⃣ 工具在这题是神器</b>:Llama 裸考 0 分,给个计算器直接 15/16;豆包、Sonnet 满配双双拉满。跟填表格那题(工具反而害人)正好反过来 —— <b>同一把计算器,一道题封神、一道题收税</b>。
-<br><b>2️⃣ DeepSeek V3.2 四跑四崩</b>:两个操作者、四轮独立跑,满配 7/8/6/7 —— 给了计算器照样崩,坐实"满配也救不了它"。这不是运气差,是真不行。
+<br><b>2️⃣ DeepSeek V3.2 四跑四崩</b>:同机同 key 四轮可复现性跑,满配 7/8/6/7 —— 给了计算器照样崩,坐实"满配也救不了它"。这不是运气差,是真不行。
 <br><b>3️⃣ Llama 的摇摆史</b>:满配 16↔6↔15↔15,同模型同题能从满分摆到 6 分 —— <b>单次成绩别信,复验才算数</b>。
 <br><b>4️⃣ 场外彩蛋</b>:Codex(带 shell 的 agent)拿盲卷跑出 16/16 满分 —— 它没答案可抄(卷子零答案),赢在 harness:agent 自己跑代码算。<b>裸模型 vs 满配 vs agent,三个档位三种命</b>。
 </div></div>
@@ -259,7 +263,7 @@ a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
   </div>
   <div class="status">
     <span><b>labless</b>&nbsp; A:arena B:arena C:versus D:blind</span>
-    <span>4 共有模型 · 16 题/轮 · OG-004 · 2026-06-10</span>
+    <span>10 模型(三方共有 4)· 16 题/轮 · OG-004 · 2026-06-10</span>
   </div>
 </div>
 <script>
