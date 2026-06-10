@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!-- labless.me 终端三方对账 · 由 gen_terminal_crosscheck.py 从真实跑分生成,勿手改 -->
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>labless.me 大数混合四则,大模型到底算不算得对? · 三方对账</title>
+<style>
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/fusion-pixel-12px-monospaced-sc/index.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/fusion-pixel-10px-monospaced-sc/index.css");
+
+:root{
+  --void:#060607;          /* 桌面底色 */
+  --screen:#0a0a0c;        /* 屏幕底色 */
+  --bone:#ece5d4;          /* 主前景 */
+  --dim:#7e818b;           /* 注释/弱化 */
+  --faint:#55585f;
+  --amber:#f4c542;         /* 琥珀荧光 = 品牌金 = A 侧 */
+  --cyan:#2de2e6;          /* B 侧 */
+  --green:#5ff0b0;         /* 占优/通过 */
+  --red:#ff6b66;           /* 落后/失败 */
+  --line:#2a2c34;
+  --line-soft:#3a3c44;
+  --pane-a:#363842;        /* A 浅 */
+  --pane-b:#040405;        /* B 深 */
+  --px12:'Fusion Pixel 12px Monospaced SC',ui-monospace,Menlo,monospace;
+  --px10:'Fusion Pixel 10px Monospaced SC',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+::selection{background:var(--amber);color:#0a0a0c}
+
+html{-webkit-font-smoothing:none;font-smooth:never;text-rendering:optimizeSpeed}
+body{
+  background:var(--void);
+  /* 老 Mac 桌面 50% 抖动灰:2px 棋盘格 */
+  background-image:
+    repeating-conic-gradient(rgba(236,229,212,.028) 0% 25%, transparent 0% 50%);
+  background-size:4px 4px;
+  color:var(--bone);
+  font:12px/1.8 var(--px12);
+  padding:34px 16px 60px;
+  display:flex;justify-content:center;
+}
+
+/* ── 终端窗口 ─────────────────────────────── */
+.crt{
+  width:100%;max-width:920px;
+  background:var(--screen);
+  border:2px solid var(--line-soft);
+  box-shadow:10px 10px 0 rgba(0,0,0,.55);
+  position:relative;
+}
+/* 扫描线 + 内晕影 */
+.crt::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:9;
+  background:
+    radial-gradient(120% 100% at 50% 0%, transparent 60%, rgba(0,0,0,.28) 100%),
+    repeating-linear-gradient(0deg, transparent 0 2px, rgba(0,0,0,.13) 2px 3px);
+}
+@keyframes poweron{0%{opacity:0}30%{opacity:.6}45%{opacity:.25}100%{opacity:1}}
+.crt{animation:poweron .5s steps(4) both}
+
+/* 标题栏 */
+.bar{
+  display:flex;align-items:center;gap:8px;
+  background:#15161a;border-bottom:2px solid var(--line);
+  padding:8px 12px;position:relative;z-index:2;
+}
+.bar .lt{width:10px;height:10px;flex:0 0 auto}
+.lt.r{background:#c14a45}.lt.y{background:#d9af3e}.lt.g{background:#4fa564}
+.bar .ttl{flex:1;text-align:center;color:var(--dim);font:12px var(--px12);letter-spacing:1px}
+
+.screen{padding:30px 34px 0;position:relative;z-index:1}
+
+/* ── 会话通用 ─────────────────────────────── */
+.tline{margin:0 0 4px}
+.boot{color:var(--faint)}
+.ps{color:var(--amber);text-shadow:0 0 7px rgba(244,197,66,.45)}
+.cmd{color:var(--bone);font-size:24px;line-height:1.5}
+.cmd .ps{font-size:24px}
+.cmd .c,.c{color:var(--dim)}
+.cmd .c{font-size:12px}
+.out{color:var(--bone)}
+.sp{height:18px}
+
+/* 逐行回放:steps 瞬现,无淡入 */
+.pop{opacity:0;animation:pop .01s steps(1) both;animation-delay:var(--d,0s)}
+@keyframes pop{to{opacity:1}}
+
+/* ── MOTD:像素狗 + 大字横幅 ───────────────── */
+.motd{display:flex;gap:26px;align-items:center;margin:14px 0 6px}
+.dog{color:var(--amber);flex:0 0 auto;filter:drop-shadow(0 0 8px rgba(244,197,66,.35))}
+@keyframes idle{0%,92%{transform:translateY(0)}96%{transform:translateY(-3px)}100%{transform:translateY(0)}}
+.dog svg{display:block;animation:idle 5s steps(2) infinite}
+.banner h1{
+  font:50px/1.06 var(--px10);font-weight:400;color:var(--amber);
+  letter-spacing:2px;text-shadow:0 0 12px rgba(244,197,66,.4);
+}
+.banner .t1{font:24px/1.6 var(--px12);color:var(--bone);margin-top:8px}
+.banner .t2{color:var(--dim);margin-top:2px}
+.banner .t2 b{color:var(--bone);font-weight:400}
+
+/* ── who 输出 ─────────────────────────────── */
+.who{font-size:24px;line-height:1.6}
+.who .sw{display:inline-block;width:14px;height:14px;vertical-align:-1px;margin-right:10px}
+.who .a{color:var(--amber)} .who .b{color:var(--cyan)}
+.who .h{color:var(--dim);font-size:12px;margin-left:12px}
+
+/* 警示框:致敬 CLI 公告样式 */
+.callout{
+  border-left:5px solid var(--amber);
+  background:rgba(244,197,66,.07);
+  padding:12px 16px;margin:14px 0 4px;
+}
+.callout .big{color:var(--amber);font-size:24px;line-height:1.5}
+.callout .sub{color:var(--dim);margin-top:2px}
+
+/* ── A/B 分屏 ─────────────────────────────── */
+.split{display:flex;gap:14px;margin:12px 0 6px;align-items:stretch}
+.pane{flex:1 1 0;min-width:0;border:1px solid var(--line)}
+.pane .ph{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:7px 10px;border-bottom:1px solid var(--line);
+  font-size:12px;letter-spacing:.5px;
+}
+.pane-a{background:var(--pane-a);border-top:3px solid var(--amber)}
+.pane-b{background:var(--pane-b);border-top:3px solid var(--cyan)}
+.pane-a .ph{color:var(--amber);background:rgba(244,197,66,.06)}
+.pane-b .ph{color:var(--cyan);background:rgba(45,226,230,.05)}
+.pane .ph .side{font-size:12px}
+.pane .ph .tag{color:var(--dim)}
+
+table{width:100%;border-collapse:collapse;font:12px/1.5 var(--px12)}
+th,td{padding:6px 8px;text-align:right;white-space:nowrap}
+th{color:var(--dim);font-weight:400;border-bottom:1px solid var(--line-soft);letter-spacing:1px}
+td{border-bottom:1px dashed var(--line)}
+tr:last-child td{border-bottom:none}
+th.l,td.l{text-align:left}
+td.rk{color:var(--faint);width:26px}
+td.mdl{color:var(--bone);overflow:hidden;text-overflow:ellipsis;max-width:150px}
+td.v{color:var(--green)}
+td.t{color:var(--bone)}
+td.na{color:var(--faint)}
+tr.champ td{background:rgba(244,197,66,.08)}
+tr.champ td.rk,tr.champ td.mdl{color:var(--amber)}
+.up{color:var(--green)} .dn{color:var(--red)} .eq{color:var(--faint)}
+.w-ar{width:16px;padding-left:0}
+
+/* ── 尾注 / 活提示符 ───────────────────────── */
+.repro .out{color:var(--green)}
+.repro .c{display:block}
+a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
+.live{display:flex;align-items:baseline;margin:6px 0 0;font-size:24px;cursor:text}
+.live .typed{color:var(--bone);white-space:pre}
+.cursor{
+  display:inline-block;width:13px;height:24px;vertical-align:-4px;
+  background:var(--amber);box-shadow:0 0 9px rgba(244,197,66,.6);
+  animation:blink 1.06s steps(2,start) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+#kbd{position:absolute;opacity:0;pointer-events:none}
+.hint{color:var(--faint);margin:2px 0 26px}
+
+/* tmux 状态条 */
+.status{
+  display:flex;justify-content:space-between;gap:10px;
+  background:var(--amber);color:#0a0a0c;
+  font:12px/1 var(--px12);padding:7px 12px;margin-top:8px;
+  position:relative;z-index:2;
+}
+.status b{font-weight:400;background:#0a0a0c;color:var(--amber);padding:1px 5px}
+
+@media (max-width:760px){
+  body{padding:14px 8px 40px}
+  .screen{padding:20px 14px 0}
+  .split{flex-direction:column}
+  .banner h1{font-size:30px}
+  .cmd,.cmd .ps,.who,.callout .big,.live{font-size:18px}
+  .cursor{height:18px;width:10px}
+  .motd{gap:16px}
+}
+</style></head>
+<body>
+<div class="crt">
+  <div class="bar"><span class="lt r"></span><span class="lt y"></span><span class="lt g"></span>
+    <span class="ttl">dami@labless: ~/lab — zsh — 96×54</span></div>
+  <div class="screen" id="screen">
+    <div class="tline boot pop" style="--d:.05s">Last login: Wed Jun 10 13:05:11 on ttys007 · 北京时间</div>
+    <div class="tline cmd pop" style="--d:.15s"><span class="ps">dami@labless ~ %</span> lab crosscheck --three-way</div>
+    <div class="motd pop" style="--d:.25s">
+      <div class="dog" id="dog"></div>
+      <div class="banner"><h1>LABLESS.ME</h1>
+        <div class="t1">OG-004 · 大数混合四则,大模型到底算不算得对?</div>
+        <div class="t2">三方跨操作者对账 + 场外 agent · <b># don't trust, reproduce.</b></div></div>
+    </div>
+    <div class="sp"></div>
+
+    <div class="tline cmd pop" style="--d:.35s"><span class="ps">dami@labless ~ %</span> lab who <span class="c"># 谁在跑</span></div>
+    <div class="who pop" style="--d:.42s">
+      <div class="tline"><span class="sw" style="background:var(--amber)"></span><span class="a">A · Claude(主建设 session)</span> <span class="h">arena 10 模型</span></div>
+      <div class="tline"><span class="sw" style="background:var(--cyan)"></span><span class="b">B · Codex gpt-5.5(fork 独立跑)</span> <span class="h">arena 10 模型</span></div>
+      <div class="tline"><span class="sw" style="background:var(--green)"></span><span style="color:var(--green);font-weight:800">C · Claude(本 session)</span> <span class="h">versus 4 模型 · 直奔爆点复验</span></div>
+      <div class="tline"><span class="sw" style="background:var(--pink,#ff6bd5)"></span><span style="color:#ff6bd5;font-weight:800">D · Codex(agent 盲卷,场外)</span> <span class="h">收 16 题零答案盲卷,自带 shell</span></div>
+    </div>
+    <div class="callout pop" style="--d:.52s">
+      <div class="big">满配三方对账:2/4 全对上 —— 2 个分歧 = 本题主角</div>
+      <div class="sub">三方共有 4 模型(C 阵容=特挑爆点)。满配=共识锚点,理应一致;分歧行就是新闻本身</div>
+    </div>
+    <div class="sp"></div>
+
+    <div class="tline cmd pop" style="--d:.62s"><span class="ps">dami@labless ~ %</span> lab table --tooled <span class="c"># 满配(给计算器)· 三方对账</span></div>
+    <div class="split pop" style="--d:.7s"><div class="pane pane-a" style="flex:1 1 100%"><div class="ph"><span class="side">▌满配 · A/B/C 三方</span><span class="tag">tooled</span></div>
+      <table><tr><th class="l">模型</th><th>A</th><th>B</th><th>C</th><th>判定</th></tr><tr><td class="l mdl">DeepSeek V3.2 <span class="c"># 四跑四崩 7/8/6/7</span></td><td class="na">6/16</td><td class="na">8/16</td><td class="na">7/16</td><td class="na">⚠ 分歧 6/8/7</td></tr><tr><td class="l mdl">Llama 3.3 70B <span class="c"># 摇摆史 16↔6↔15↔15</span></td><td class="t">15/16</td><td class="na">6/16</td><td class="t">15/16</td><td class="na">⚠ 分歧 15/6/15</td></tr><tr><td class="l mdl">豆包 Seed 1.6</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl">Claude Sonnet 4.6</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">16/16</td><td class="v">✓ 三方一致</td></tr></table></div></div>
+    <div class="sp"></div>
+
+    <div class="tline cmd pop" style="--d:.85s"><span class="ps">dami@labless ~ %</span> lab table --bare <span class="c"># 裸跑(禁工具)· 单次噪声大,仅参照</span></div>
+    <div class="split pop" style="--d:.92s"><div class="pane pane-b" style="flex:1 1 100%"><div class="ph"><span class="side">▌裸 · A/B/C 三方</span><span class="tag">bare</span></div>
+      <table><tr><th class="l">模型</th><th>A</th><th>B</th><th>C</th><th>判定</th></tr><tr><td class="l mdl">DeepSeek V3.2</td><td class="na">4/16</td><td class="na">4/16</td><td class="na">4/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl">Llama 3.3 70B</td><td class="na">0/16</td><td class="na">0/16</td><td class="na">0/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl">豆包 Seed 1.6</td><td class="t">14/16</td><td class="t">14/16</td><td class="t">14/16</td><td class="v">✓ 三方一致</td></tr><tr><td class="l mdl">Claude Sonnet 4.6</td><td class="na">12/16</td><td class="t">13/16</td><td class="t">13/16</td><td class="na">⚠ 分歧 12/13/13</td></tr></table></div></div>
+    <div class="sp"></div>
+
+    <div class="tline cmd pop" style="--d:1.02s"><span class="ps">dami@labless ~ %</span> lab guest <span class="c"># 场外 D · agent 盲卷</span></div>
+    <div class="callout pop" style="--d:1.08s">
+      <div class="big" style="color:#ff6bd5">D · Codex(agent)盲卷 16/16 满分</div>
+      <div class="sub">卷子零答案(防开卷断言过)→ 判分自动抓它的 session log 对真值 —— 它赢在 harness:agent 自己跑代码算。裸模型 vs 满配 vs agent,三个档位三种命</div>
+    </div>
+    <div class="sp"></div>
+
+    <div class="tline cmd pop pop" style="--d:1.18s"><span class="ps">dami@labless ~ %</span> lab review <span class="c"># 🎙 OG 点评 —— 这场测出了什么</span></div>
+    <div class="callout pop" style="--d:1.24s"><div class="sub" style="color:var(--bone);font-size:13px;line-height:2"><b>考的是</b>:16 道大数混合四则(×−÷ 人类记法,结果都是整数)。考点不在"会不会算",在<b>转录</b>——把 × − ÷ 翻成计算器认的符号、括号优先级别摆错。
+<br><b>1️⃣ 工具在这题是神器</b>:Llama 裸考 0 分,给个计算器直接 15/16;豆包、Sonnet 满配双双拉满。跟填表格那题(工具反而害人)正好反过来 —— <b>同一把计算器,一道题封神、一道题收税</b>。
+<br><b>2️⃣ DeepSeek V3.2 四跑四崩</b>:两个操作者、四轮独立跑,满配 7/8/6/7 —— 给了计算器照样崩,坐实"满配也救不了它"。这不是运气差,是真不行。
+<br><b>3️⃣ Llama 的摇摆史</b>:满配 16↔6↔15↔15,同模型同题能从满分摆到 6 分 —— <b>单次成绩别信,复验才算数</b>。
+<br><b>4️⃣ 场外彩蛋</b>:Codex(带 shell 的 agent)拿盲卷跑出 16/16 满分 —— 它没答案可抄(卷子零答案),赢在 harness:agent 自己跑代码算。<b>裸模型 vs 满配 vs agent,三个档位三种命</b>。
+</div></div>
+    <div class="sp"></div>
+
+    <div class="tline cmd pop repro-cmd" style="--d:1.34s"><span class="ps">dami@labless ~ %</span> lab repro</div>
+    <div class="repro pop" style="--d:1.4s">
+      <div class="tline out">$ git clone <a href="https://github.com/tototo1999/og2go-lab">github.com/tototo1999/og2go-lab</a></div>
+      <div class="tline out">$ python lab.py doctor && python lab.py versus --case mixed_arith</div>
+      <div class="tline c"># 你跑出来的就是第 4 方 E。对上=共识更厚;对不上=你立功了</div>
+    </div>
+    <div class="sp"></div>
+
+    <div class="live pop" style="--d:1.5s" id="liveline">
+      <span class="ps" style="font-size:inherit">dami@labless ~ %&nbsp;</span><span class="typed" id="typed"></span><span class="cursor"></span>
+      <input id="kbd" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="tline hint pop" style="--d:1.56s"># 这里能敲:help · who · repro · answers · clear</div>
+  </div>
+  <div class="status">
+    <span><b>labless</b>&nbsp; A:arena B:arena C:versus D:blind</span>
+    <span>4 共有模型 · 16 题/轮 · OG-004 · 2026-06-10</span>
+  </div>
+</div>
+<script>
+/* ── 像素小烧杯 logo(网格 → SVG)──────────────── */
+const GRID = [
+"....XXXXXXXX....",
+".....X....X.....",
+".....X....X.....",
+".....X..R.X.....",
+".....X....X.....",
+"....X.R....X....",
+"....X......X....",
+"...X........X...",
+"...X........X...",
+"..X..........X..",
+"..XRRRRRRRRRRX..",
+".XRRRRRRRRRRRRX.",
+".XRRRRRRRRRRRRX.",
+".XRRRRRRRRRRRRX.",
+".XXXXXXXXXXXXXX.",
+];
+(function(){
+  const P=6, w=GRID[0].length*P, h=GRID.length*P;
+  let r='';
+  GRID.forEach((row,y)=>{ [...row].forEach((ch,x)=>{
+    if(ch==='.') return;
+    const f=ch==='R'?'var(--red)':'currentColor';
+    r+=`<rect x="${x*P}" y="${y*P}" width="${P}" height="${P}" fill="${f}"/>`;
+  });});
+  document.getElementById('dog').innerHTML =
+    `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" shape-rendering="crispEdges" aria-label="labless 像素小烧杯">${r}</svg>`;
+})();
+
+
+/* ── 活提示符:能敲几个真命令 ────────────────── */
+const kbd=document.getElementById('kbd'), typed=document.getElementById('typed'),
+      live=document.getElementById('liveline'), screen=document.getElementById('screen');
+const echoes=[];
+document.querySelector('.crt').addEventListener('click',()=>kbd.focus());
+kbd.addEventListener('input',()=>typed.textContent=kbd.value);
+const CMDS={
+  help:`可用命令:\n  who     谁在打\n  repro   怎么复现\n  clear   清屏\n  help    你正在看`,
+  who:`A · Claude Code(我们) —— 浅色窗格\nB · Codex gpt-5.5 · fork@iamdami2026-cpu —— 深色窗格`,
+  answers:`标准答案页:answers_mixed_arith.html(每题可展开)`,
+  repro:`$ git clone https://github.com/tototo1999/og2go-lab\n$ python lab.py doctor && python lab.py run`,
+};
+kbd.addEventListener('keydown',e=>{
+  if(e.key!=='Enter')return;
+  const v=kbd.value.trim(); kbd.value=''; typed.textContent='';
+  const mk=(t,cls)=>{const d=document.createElement('div');d.className='tline '+(cls||'out');
+    d.style.whiteSpace='pre-wrap';d.textContent=t;screen.insertBefore(d,live);echoes.push(d);return d};
+  const c=document.createElement('div');c.className='tline cmd';
+  c.innerHTML='<span class="ps">dami@labless ~ %</span> ';c.append(v);screen.insertBefore(c,live);echoes.push(c);
+  if(v==='')return;
+  if(v==='clear'){echoes.forEach(n=>n.remove());echoes.length=0;return}
+  if(CMDS[v]) mk(CMDS[v]);
+  else mk(`zsh: command not found: ${v}`,'out');
+  live.scrollIntoView({block:'end'});
+});
+</script>
+</body></html>
