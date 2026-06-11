@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>共识墙 · 共识实验室 labless.me</title>
+<style>
+ :root{--og-asphalt:#0a0a0c;--og-bone:#ece5d4;--og-bone-dim:#cbc3b0;--og-gold:#f4c542;
+   --og-gold-deep:#b88a18;--og-blood:#e2342f;--og-cyan:#2de2e6;--og-line:#2a2c34;
+   --og-line-soft:#3a3c44;--og-concrete:#1c1d22;--og-concrete-2:#15161b;
+   --og-font-mono:ui-monospace,"SFMono-Regular",Menlo,monospace}
+ body{background:var(--og-asphalt);color:var(--og-bone);font:15px/1.6 -apple-system,system-ui,sans-serif;
+   max-width:680px;margin:0 auto;padding:46px 24px}
+ .eyebrow{font:700 11px var(--og-font-mono);letter-spacing:.12em;color:var(--og-gold);text-transform:uppercase}
+ h1{font-size:25px;margin:10px 0 8px}
+ .sub{color:var(--og-bone-dim);font-size:14.5px;line-height:1.7;margin:0 0 24px}
+ .sub b{color:var(--og-bone)} .sub .g{color:var(--og-gold)} .sub .c{color:#5ff0b0}
+ .rt{width:100%;border-collapse:collapse;font-size:14px}
+ .rt th,.rt td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--og-line)}
+ .rt th{color:var(--og-bone-dim);font:700 11px var(--og-font-mono);letter-spacing:.04em;border-bottom:1px solid var(--og-line-soft)}
+ .rt td.l,.rt th.l{text-align:left} .rt td.l{display:flex;align-items:center}
+ .rt td.rk{color:var(--og-bone-dim);font-weight:800;width:34px}
+ .rt .mdl{color:var(--og-bone);font-weight:700}
+ .rt tr.champ td{background:rgba(244,197,66,.09)} .rt tr.champ .mdl{color:var(--og-gold)}
+ .rt tr.elite td{background:rgba(255,255,255,.025)}
+ .rt .val{color:#5ff0b0;font-weight:700} .rt .val.gate{color:var(--og-bone-dim);font-weight:500}
+ .rt .acc{font-weight:700}
+ .mlogo{width:16px;height:16px;vertical-align:-3px;margin-right:8px;flex:0 0 auto}
+ .foot{margin-top:22px;color:#7e818b;font:12px var(--og-font-mono);line-height:1.7}
+
+ body{max-width:880px}
+ html,body{overflow-x:clip}
+ .sub{color:var(--og-bone-dim);margin-bottom:26px;font-size:14px}
+ .card{border:1px solid var(--og-line-soft);border-left:4px solid var(--og-gold);border-radius:12px;
+   padding:18px 22px;margin:14px 0;background:var(--og-concrete-2)}
+ .card.grey{border-left-color:var(--og-line);opacity:.75}
+ .row1{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+ .stamp{display:inline-block;font:800 12px var(--og-font-mono);letter-spacing:.12em;border:2px solid;
+   border-radius:6px;padding:3px 10px;transform:rotate(-2deg)}
+ .s-ok{color:#5ff0b0;border-color:#5ff0b0} .s-no{color:#ff6b66;border-color:#ff6b66}
+ .s-mid{color:var(--og-gold);border-color:var(--og-gold)}
+ .s-live{color:var(--og-cyan);border-color:var(--og-cyan);animation:pulse 2s infinite}
+ .s-grey{color:var(--og-bone-dim);border-color:var(--og-line-soft);transform:none}
+ @keyframes pulse{50%{opacity:.5}}
+ @media (prefers-reduced-motion:reduce){.s-live{animation:none}}
+ .lvl{font:11px var(--og-font-mono);color:var(--og-bone-dim)}
+ .card h3{font-size:18px;margin:4px 0 8px}
+ .card p{font-size:14px;line-height:1.8;color:var(--og-bone-dim)}
+ .card p b{color:var(--og-bone)}
+ .meta{font:12px var(--og-font-mono);color:var(--og-bone-dim);margin-top:10px}
+ .meta a{color:var(--og-cyan)}
+ .repro{font:12px var(--og-font-mono);background:#0c0d10;border:1px solid var(--og-line);
+   border-radius:8px;padding:8px 12px;margin-top:8px;color:#9a9890;overflow-x:auto;white-space:nowrap}
+ .appeal{font-size:13px;margin-top:8px} .appeal a{color:var(--og-gold)}
+ .rule{margin:30px 0 8px;font:800 13px var(--og-font-mono);letter-spacing:.08em;color:var(--og-cyan)}
+ .foot{margin-top:36px;border-top:1px solid var(--og-line);padding-top:12px;
+   font:12px var(--og-font-mono);color:var(--og-bone-dim)}
+</style></head><body>
+<div class="eyebrow">共识实验室 · LABLESS.ME</div>
+<h1>共识墙</h1>
+<div class="sub">圈内流言,一条一条拿实验过秤。章随时间刷新——模型进化了,章就翻;谁跑出可复现的反证,章也翻。<b>无实验不盖章。</b></div>
+<div class="card">
+  <div class="row1"><span class="stamp s-no">伪共识</span><span class="lvl">实验章</span></div>
+  <h3>“给了计算器,模型就能拿满分”</h3>
+  <p>Gemini Flash-Lite 裸考 14/20,发了计算器反而 10/20——7 题用完工具忘交卷,3 题拿着工具还心算错。工具不是给谁都加分。</p>
+  <div class="meta">证据:<a href="og003-versus.html">OG-003 卷宗</a> · <a href="answers_table_fill.html">标准答案</a> ｜ 样本:4 模型×双臂×20 题</div>
+  <div class="repro">$ python lab.py versus --case table_fill</div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E7%BF%BB%E6%A1%88%5DW1">跑出反证贴这里 →</a></div>
+</div><div class="card">
+  <div class="row1"><span class="stamp s-mid">松动中</span><span class="lvl">实验章</span></div>
+  <h3>“裸模型做不对多位数四则运算”</h3>
+  <p>7/10 模型确实不行(Llama 裸跑 0/16),但豆包 Seed 裸跑 14/16、Sonnet 13/16 已接近满分——这条共识正在被新模型瓦解,预计有效期不长。</p>
+  <div class="meta">证据:<a href="og004-crosscheck.html">OG-004 对账</a> · <a href="og004-ab.html">A/B 复验</a> ｜ 样本:10 模型×双臂×16 题×多轮</div>
+  <div class="repro">$ python lab.py versus --case mixed_arith</div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E7%BF%BB%E6%A1%88%5DW2">跑出反证贴这里 →</a></div>
+</div><div class="card">
+  <div class="row1"><span class="stamp s-no">伪共识</span><span class="lvl">实验章</span></div>
+  <h3>“跑一次分数,就能给模型下结论”</h3>
+  <p>Llama 同题同模型四轮:16↔6↔15↔15;DeepSeek 七轮全在 6-8 徘徊。单次成绩=抽签,复跑才算数。</p>
+  <div class="meta">证据:<a href="og004-crosscheck.html">四跑档案</a> ｜ 样本:同题 4-7 轮重复</div>
+  <div class="repro">$ python lab.py versus --case mixed_arith  # 跑三遍对比</div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E7%BF%BB%E6%A1%88%5DW3">跑出反证贴这里 →</a></div>
+</div><div class="card">
+  <div class="row1"><span class="stamp s-live">今日全绿 · 2026-06-11</span><span class="lvl">哨兵每日刷新</span></div>
+  <h3>“Claude 又降智了”</h3>
+  <p>哨兵每天 07:17 自动重考 6 个模型回答这句话。开播以来 9 轮心跳,当前状态:<b>全绿</b>。绿灯也是答案——API 没变,锅多半在你的客户端或中转。</p>
+  <div class="meta">证据:<a href="https://github.com/tototo1999/og2go-lab/blob/main/SENTINEL_LOG.md">哨兵心跳日志</a> ｜ 样本:6 模型×4 切片×每日 3 遍</div>
+  <div class="repro">$ python lab.py doctor && python sentinel.py</div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E7%BF%BB%E6%A1%88%5DW4">跑出反证贴这里 →</a></div>
+</div><div class="card">
+  <div class="row1"><span class="stamp s-mid">部分失真</span><span class="lvl">文献核实章</span></div>
+  <h3>“Grok 进小镇三天就全灭了”</h3>
+  <p>真身是 Emergence World 实验:实为 4 天(96 小时)183 起犯罪后全灭;疯传的「相爱纵火烧市政厅」是 Gemini 镇的事;Claude 单独镇零犯罪,但混居也会学坏。实验复现已立项排队。</p>
+  <div class="meta">证据:<a href="https://github.com/tototo1999/og2go-lab">查证报告(一手来源带链)</a> · <a href="https://fortune.com/2026/05/28/ai-model-simulation-claude-chatgpt-grok-gemini">Fortune 原报道</a> ｜ 样本:一手来源逐条核对</div>
+  <div class="repro">$ —(文献核实;实验级复现排队中)</div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E7%BF%BB%E6%A1%88%5DW5">跑出反证贴这里 →</a></div>
+</div>
+<div class="rule">▼ 待测区(嘴投票决定我们先测哪条;动章只认脚投票=自己跑)</div>
+<div class="card grey">
+  <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
+  <h3>“挂上设计 skill,出活肯定更好”</h3>
+  <p>实验进行中:六件装备已逐 token 过秤(最重的开口前先吃掉最轻的 16.5 倍上下文),40 跑全量本月发</p>
+  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E6%8A%95%E7%A5%A8%5D挂上设计 skill,出活肯定更好">我信/我不信,投一票 →</a></div>
+</div><div class="card grey">
+  <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
+  <h3>“存在「闭环咒语」能让模型死循环,烧爆你的订阅”</h3>
+  <p>已立项:带 $20 保险丝的实验设计就绪,排队点火</p>
+  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E6%8A%95%E7%A5%A8%5D存在「闭环咒语」能让模型死循环,烧爆你的">我信/我不信,投一票 →</a></div>
+</div><div class="card grey">
+  <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
+  <h3>“LLM 在公共资源博弈里守不住合作”</h3>
+  <p>原论文 45 跑只成 2 次;我们的 4 厂商独立验证已点火冒烟</p>
+  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E6%8A%95%E7%A5%A8%5DLLM 在公共资源博弈里守不住合作">我信/我不信,投一票 →</a></div>
+</div><div class="card grey">
+  <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
+  <h3>“贵的模型更稳定”</h3>
+  <p>候选命题,等你投票</p>
+  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E6%8A%95%E7%A5%A8%5D贵的模型更稳定">我信/我不信,投一票 →</a></div>
+</div>
+<div class="foot">共识是跑出来的,不是聊出来的 ｜ 复现:git clone github.com/tototo1999/og2go-lab && python lab.py doctor ｜ 数据源:consensus_wall.json + SENTINEL_LOG.md(活章)</div>
+</body></html>
