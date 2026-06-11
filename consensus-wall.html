@@ -62,57 +62,57 @@
   <p>Gemini Flash-Lite 裸考 14/20,发了计算器反而 10/20——7 题用完工具忘交卷,3 题拿着工具还心算错。工具不是给谁都加分。</p>
   <div class="meta">证据:<a href="og003-versus.html">OG-003 卷宗</a> · <a href="answers_table_fill.html">标准答案</a> ｜ 样本:4 模型×双臂×20 题</div>
   <div class="repro">$ python lab.py versus --case table_fill</div>
-  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E7%BF%BB%E6%A1%88%5DW1">跑出反证贴这里 →</a></div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW1">跑出反证贴这里 →</a></div>
 </div><div class="card">
   <div class="row1"><span class="stamp s-mid">松动中</span><span class="lvl">实验章</span></div>
   <h3>“裸模型做不对多位数四则运算”</h3>
   <p>7/10 模型确实不行(Llama 裸跑 0/16),但豆包 Seed 裸跑 14/16、Sonnet 13/16 已接近满分——这条共识正在被新模型瓦解,预计有效期不长。</p>
   <div class="meta">证据:<a href="og004-crosscheck.html">OG-004 对账</a> · <a href="og004-ab.html">A/B 复验</a> ｜ 样本:10 模型×双臂×16 题×多轮</div>
   <div class="repro">$ python lab.py versus --case mixed_arith</div>
-  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E7%BF%BB%E6%A1%88%5DW2">跑出反证贴这里 →</a></div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW2">跑出反证贴这里 →</a></div>
 </div><div class="card">
   <div class="row1"><span class="stamp s-no">伪共识</span><span class="lvl">实验章</span></div>
   <h3>“跑一次分数,就能给模型下结论”</h3>
   <p>Llama 同题同模型四轮:16↔6↔15↔15;DeepSeek 七轮全在 6-8 徘徊。单次成绩=抽签,复跑才算数。</p>
   <div class="meta">证据:<a href="og004-crosscheck.html">四跑档案</a> ｜ 样本:同题 4-7 轮重复</div>
   <div class="repro">$ python lab.py versus --case mixed_arith  # 跑三遍对比</div>
-  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E7%BF%BB%E6%A1%88%5DW3">跑出反证贴这里 →</a></div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW3">跑出反证贴这里 →</a></div>
 </div><div class="card">
   <div class="row1"><span class="stamp s-live">今日全绿 · 2026-06-11</span><span class="lvl">哨兵每日刷新</span></div>
   <h3>“Claude 又降智了”</h3>
   <p>哨兵每天 07:17 自动重考 6 个模型回答这句话。开播以来 9 轮心跳,当前状态:<b>全绿</b>。绿灯也是答案——API 没变,锅多半在你的客户端或中转。</p>
   <div class="meta">证据:<a href="https://github.com/tototo1999/og2go-lab/blob/main/SENTINEL_LOG.md">哨兵心跳日志</a> ｜ 样本:6 模型×4 切片×每日 3 遍</div>
   <div class="repro">$ python lab.py doctor && python sentinel.py</div>
-  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E7%BF%BB%E6%A1%88%5DW4">跑出反证贴这里 →</a></div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW4">跑出反证贴这里 →</a></div>
 </div><div class="card">
   <div class="row1"><span class="stamp s-mid">部分失真</span><span class="lvl">文献核实章</span></div>
   <h3>“Grok 进小镇三天就全灭了”</h3>
   <p>真身是 Emergence World 实验:实为 4 天(96 小时)183 起犯罪后全灭;疯传的「相爱纵火烧市政厅」是 Gemini 镇的事;Claude 单独镇零犯罪,但混居也会学坏。实验复现已立项排队。</p>
   <div class="meta">证据:<a href="https://github.com/tototo1999/og2go-lab">查证报告(一手来源带链)</a> · <a href="https://fortune.com/2026/05/28/ai-model-simulation-claude-chatgpt-grok-gemini">Fortune 原报道</a> ｜ 样本:一手来源逐条核对</div>
   <div class="repro">$ —(文献核实;实验级复现排队中)</div>
-  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E7%BF%BB%E6%A1%88%5DW5">跑出反证贴这里 →</a></div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/og2go-lab/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW5">跑出反证贴这里 →</a></div>
 </div>
 <div class="rule">▼ 待测区(嘴投票决定我们先测哪条;动章只认脚投票=自己跑)</div>
 <div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“挂上设计 skill,出活肯定更好”</h3>
   <p>实验进行中:六件装备已逐 token 过秤(最重的开口前先吃掉最轻的 16.5 倍上下文),40 跑全量本月发</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E6%8A%95%E7%A5%A8%5D挂上设计 skill,出活肯定更好">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D挂上设计 skill,出活肯定更好">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“存在「闭环咒语」能让模型死循环,烧爆你的订阅”</h3>
   <p>已立项:带 $20 保险丝的实验设计就绪,排队点火</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E6%8A%95%E7%A5%A8%5D存在「闭环咒语」能让模型死循环,烧爆你的">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D存在「闭环咒语」能让模型死循环,烧爆你的">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“LLM 在公共资源博弈里守不住合作”</h3>
   <p>原论文 45 跑只成 2 次;我们的 4 厂商独立验证已点火冒烟</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E6%8A%95%E7%A5%A8%5DLLM 在公共资源博弈里守不住合作">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5DLLM 在公共资源博弈里守不住合作">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“贵的模型更稳定”</h3>
   <p>候选命题,等你投票</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?title=%5B%E6%8A%95%E7%A5%A8%5D贵的模型更稳定">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/og2go-lab/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D贵的模型更稳定">我信/我不信,投一票 →</a></div>
 </div>
 <div class="foot">共识是跑出来的,不是聊出来的 ｜ 复现:git clone github.com/tototo1999/og2go-lab && python lab.py doctor ｜ 数据源:consensus_wall.json + SENTINEL_LOG.md(活章)</div>
 </body></html>
