@@ -78,6 +78,23 @@ nav{background:var(--color-paper);position:sticky;top:0;z-index:9}
 .trow.alert{background:var(--color-tint);border-radius:var(--radius);padding-left:var(--space-3);padding-right:var(--space-3);border-bottom:none;margin:var(--space-2) 0}
 .trow.alert .sp{color:var(--color-accent)}
 /* ── 悬案馆三门 ── */
+.hero{position:relative;height:300px;border-radius:18px;overflow:hidden;margin:var(--space-2) 0 var(--space-8);
+  background:#0a0a0c;box-shadow:0 24px 60px -34px rgba(0,0,0,.5)}
+.hslide{position:absolute;inset:0;background-size:cover;background-position:center 38%;
+  opacity:0;transition:opacity .9s ease;display:block;text-decoration:none;pointer-events:none}
+.hslide.on{opacity:1;pointer-events:auto}
+.hmask{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,10,.82) 0%,rgba(8,8,10,.5) 42%,rgba(8,8,10,.05) 72%,transparent 100%)}
+.htext{position:absolute;left:7%;bottom:0;top:0;display:flex;flex-direction:column;justify-content:center;
+  max-width:62%;gap:10px}
+.heyebrow{font:700 12px var(--font-mono);letter-spacing:.14em;color:var(--color-gold,#f4c542);text-transform:uppercase}
+.hq{font:300 27px/1.32 var(--font-body);color:#fff;letter-spacing:.01em}
+.hq b{color:var(--color-gold,#f4c542)}
+.heyebrow-top{position:absolute;top:16px;left:7%;font:700 10px var(--font-mono);letter-spacing:.16em;
+  color:rgba(255,255,255,.62);text-transform:uppercase;z-index:3}
+.hdots{position:absolute;right:24px;bottom:18px;display:flex;gap:8px;z-index:3}
+.hdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.34);cursor:pointer;transition:.25s}
+.hdot.on{background:#fff;width:22px;border-radius:5px}
+@media(max-width:760px){.hero{height:230px}.htext{max-width:84%}.hq{font-size:20px}}
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4);padding:var(--space-3) 0 var(--space-8)}
 .gcase{border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-card);transition:border-color .2s}
 .gcase:hover{border-color:var(--color-accent)}
@@ -176,6 +193,8 @@ footer{padding:var(--space-8) 0 var(--space-12)}
   <nav class="subnav"><a href="cases.html">实验室</a><i>·</i><a href="cast.html">Agents</a><i>·</i><a href="#sentinel">哨兵</a><i>·</i><a href="roster.html">名册</a></nav>
 </div></nav>
 
+
+<div class="wrap"><div class="hero" id="hero"><a class="hslide on" href="agenda.html" style="background-image:url(img/agenda/k1.jpg)"><div class="hmask"></div><div class="htext"><span class="heyebrow">① 能力真伪</span><span class="hq">给 AI 一个计算器,它就天下无敌了吗?</span></div></a><a class="hslide" href="agenda.html" style="background-image:url(img/agenda/k2.jpg)"><div class="hmask"></div><div class="htext"><span class="heyebrow">② 降质稳定</span><span class="hq">“Claude 又降智了” —— 这次是真的吗?</span></div></a><a class="hslide" href="agenda.html" style="background-image:url(img/agenda/k3.jpg)"><div class="hmask"></div><div class="htext"><span class="heyebrow">③ 多 Agent 社会</span><span class="hq">一群 AI 共享一个鱼塘,守得住不作死吗?</span></div></a><a class="hslide" href="agenda.html" style="background-image:url(img/agenda/k4.jpg)"><div class="hmask"></div><div class="htext"><span class="heyebrow">④ 幻觉诚实</span><span class="hq">没人看着的时候,AI 会作弊吗?</span></div></a><a class="hslide" href="agenda.html" style="background-image:url(img/agenda/k5.jpg)"><div class="hmask"></div><div class="htext"><span class="heyebrow">⑤ 安全供应链</span><span class="hq">装个 skill,会把你的 API key 偷走吗?</span></div></a><a class="hslide" href="agenda.html" style="background-image:url(img/agenda/k6.jpg)"><div class="hmask"></div><div class="htext"><span class="heyebrow">⑥ 成本玄学</span><span class="hq">贵的模型,真的更稳定吗?</span></div></a><a class="hslide" href="agenda.html" style="background-image:url(img/agenda/k7.jpg)"><div class="hmask"></div><div class="htext"><span class="heyebrow">⑦ 对齐人格</span><span class="hq">AI 老道歉 —— 是真知错还是嘴上认错?</span></div></a><a class="hslide" href="agenda.html" style="background-image:url(img/agenda/k8.jpg)"><div class="hmask"></div><div class="htext"><span class="heyebrow">⑧ 记忆</span><span class="hq">它“记得”的,是真事还是它编的?</span></div></a><a class="hslide" href="agenda.html" style="background-image:url(img/agenda/k9.jpg)"><div class="hmask"></div><div class="htext"><span class="heyebrow">⑨ 安全边界</span><span class="hq">“为了安全我不能” —— 是真做不到,还是话术?</span></div></a><div class="heyebrow-top">共识实验室 · 我们在测什么</div><div class="hdots"><i class="hdot on" data-i="0"></i><i class="hdot" data-i="1"></i><i class="hdot" data-i="2"></i><i class="hdot" data-i="3"></i><i class="hdot" data-i="4"></i><i class="hdot" data-i="5"></i><i class="hdot" data-i="6"></i><i class="hdot" data-i="7"></i><i class="hdot" data-i="8"></i></div></div></div>
 <div class="wrap">
   <div class="sect-head"><h2 class="thin">共识实验室</h2></div>
   <div class="gallery">
@@ -442,4 +461,18 @@ footer{padding:var(--space-8) 0 var(--space-12)}
   <div class="repro">$ labless --version <span>v2026.06</span> · © 2026 labless.io · 共识实验室 The Consensus Lab · 代码与数据开源 MIT</div>
 </div></footer>
 <script src="bench.js"></script>
+<script>
+(function(){
+ var h=document.getElementById('hero'); if(!h) return;
+ var sl=h.querySelectorAll('.hslide'), dt=h.querySelectorAll('.hdot'), i=0, timer;
+ function go(n){ sl[i].classList.remove('on'); dt[i].classList.remove('on');
+   i=(n+sl.length)%sl.length; sl[i].classList.add('on'); dt[i].classList.add('on'); }
+ function next(){ go(i+1); }
+ function arm(){ clearInterval(timer); timer=setInterval(next,4200); }
+ dt.forEach(function(d){ d.addEventListener('click',function(){ go(+d.dataset.i); arm(); }); });
+ h.addEventListener('mouseenter',function(){ clearInterval(timer); });
+ h.addEventListener('mouseleave',arm);
+ arm();
+})();
+</script>
 </body></html>
