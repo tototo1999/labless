@@ -90,6 +90,11 @@ nav{border-bottom:1px solid var(--color-border);background:var(--color-paper);po
 .sect-head h2{font:700 22px var(--font-body)}
 .sect-head b{font:13px var(--font-mono)}
 .sect-head a{font:600 14px var(--font-body);color:var(--color-accent)}
+.sect-head h2.thin{font:300 21px/1.2 var(--font-body);letter-spacing:.04em}
+.subnav{display:flex;align-items:center;gap:10px;font:300 13px var(--font-body)}
+.subnav a{color:var(--color-ink);font-weight:300}
+.subnav a:hover{color:var(--color-accent)}
+.subnav i{font-style:normal;color:#c9c6bd;font-size:10px}
 /* ── 实验台:小独立屏平铺(原生,无iframe,屏内不抢滚轮) ── */
 .benchfloor{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--space-4);margin:var(--space-4) 0 var(--space-2)}
 .btile{display:flex;flex-direction:column;gap:5px;min-width:0}
@@ -163,7 +168,8 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
 </div></nav>
 
 <div class="wrap">
-  <div class="sect-head"><h2 style="font-size:17px">共识实验室</h2></div>
+  <div class="sect-head"><h2 class="thin">共识实验室</h2>
+    <nav class="subnav"><a href="cases.html">悬案馆</a><i>·</i><a href="cast.html">人物谱</a><i>·</i><a href="#sentinel">哨兵</a><i>·</i><a href="roster.html">名册</a></nav></div>
   <div class="gallery">
     <a class="gcase" href="case-01.html"><div class="cv"><img src="img/yucun/s1.jpg" alt="月下渔村"><span class="tag">第一期 · 过秤中</span></div>
       <div class="gb"><h3>鱼塘谜案</h3><p>2024 顶会定论 vs 2026 初读相反:塘没崩,村民日记写着"把公地悲剧改造成永动机"。</p></div></a>
@@ -229,7 +235,7 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
 
 
 
-  <div class="sect-head"><h2>哨兵 · 6 模型每日体检</h2><a href="https://github.com/tototo1999/labless.me/blob/main/SENTINEL_LOG.md">心跳日志 →</a></div>
+  <div class="sect-head" id="sentinel"><h2>哨兵 · 6 模型每日体检</h2><a href="https://github.com/tototo1999/labless.me/blob/main/SENTINEL_LOG.md">心跳日志 →</a></div>
   <div class="thead"><span class="label">#</span><span></span><span class="label">Model · 今日读数(裸→满配)</span><span class="label" style="text-align:right">Status</span></div>
   <div class="trow">
       <div class="rk">1</div><div class="ic"><svg class="mlogo"><use href="#lg-deepseek"/></svg></div>
