@@ -98,10 +98,9 @@ async function castConsole(el, model){
       ln(feed,'','  <span class="bbr">⎿</span> 裸 '+b.b+' → 满配 '+b.t+' <span class="dim">'+b.e+'s $'+b.c.toFixed(4)+'</span>');
       cost+=b.c; if(costEl) costEl.textContent='$'+cost.toFixed(4);
       if(prog) prog.textContent='档 '+(i+1)+'/'+seq.length; setBar((i+1)/seq.length);
-      await sleep(420);
+      await sleep(140);
     }
-    ln(feed,'dim','* 一轮播毕,重洗再来');
-    await sleep(2600);
+    await sleep(700);
   }
 }
 function idle(el, model){
