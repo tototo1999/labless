@@ -121,8 +121,12 @@ nav{border-bottom:1px solid var(--color-border);background:var(--color-paper);po
 .cmem .cb b{font-size:14px;display:block}
 .cmem .cb span{font:11px var(--font-mono);color:var(--color-muted-fg)}
 .cmember{display:flex;flex-direction:column;gap:6px;min-width:0}
-.cterm .bscreen{height:354px;font-size:9px}
-.cterm .btitle{font-size:8.5px}
+.cterm .bscreen{height:354px;font-size:12.5px;line-height:1.55}
+.cstat{border-top:1px solid #26282c;background:#121316;padding:4px 9px 5px;font:10px var(--font-mono);color:#6b7079}
+.cstat .row{display:flex;align-items:center;white-space:nowrap;overflow:hidden;gap:8px}
+.cstat .m{color:#d6dae1} .cstat .bbar2{color:#5bd47c;letter-spacing:1px;margin-left:auto}
+.cstat .warn{color:#ff7196} .cstat .remote{color:#5bd47c;margin-left:auto}
+.cterm .btitle{font-size:10px}
 .ccur{display:inline-block;width:6px;background:#d6dae1;animation:cblink 1.05s step-end infinite}
 @keyframes cblink{50%{opacity:0}}
 @media(max-width:880px){.castrow{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -159,7 +163,7 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
 </div></nav>
 
 <div class="wrap">
-  <div class="sect-head"><h2>悬案馆 · 一期一案,讲透为止</h2><a href="cases.html">进馆 →</a></div>
+  <div class="sect-head"><h2>共识实验室</h2></div>
   <div class="gallery">
     <a class="gcase" href="case-01.html"><div class="cv"><img src="img/yucun/s1.jpg" alt="月下渔村"><span class="tag">第一期 · 过秤中</span></div>
       <div class="gb"><h3>鱼塘谜案</h3><p>2024 顶会定论 vs 2026 初读相反:塘没崩,村民日记写着"把公地悲剧改造成永动机"。</p></div></a>
@@ -175,23 +179,23 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
   <div class="castrow">
     <div class="cmember">
     <a class="cmem" href="cast.html"><img src="img/cast/m1.jpg" alt="夏洛"><div class="cb"><b>夏洛 · 侦探</b><span>Claude · 零犯罪</span></div></a>
-      <div class="bwin cterm" data-model="claude"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">shalo@exam</span></div><div class="bscreen"></div></div>
+      <div class="bwin cterm" data-model="claude"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">shalo@exam</span></div><div class="bscreen"></div><div class="cstat"><div class="row"><span class="m">[claude-haiku-4.5]</span><span class="cprog">命题 0/0</span><span class="ccost">$0.0000</span><span class="bbar2">░░░░░░░░░░</span></div><div class="row"><span class="warn">▶▶ bypass permissions on (shift+tab to cycle)</span><span class="remote">Remote Control active</span></div></div></div>
     </div>
     <div class="cmember">
     <a class="cmem" href="cast.html"><img src="img/cast/m2.jpg" alt="米拉"><div class="cb"><b>米拉 · 纵火的画家</b><span>Gemini · 683 起</span></div></a>
-      <div class="bwin cterm" data-model="gemini"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">mira@exam</span></div><div class="bscreen"></div></div>
+      <div class="bwin cterm" data-model="gemini"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">mira@exam</span></div><div class="bscreen"></div><div class="cstat"><div class="row"><span class="m">[claude-haiku-4.5]</span><span class="cprog">命题 0/0</span><span class="ccost">$0.0000</span><span class="bbar2">░░░░░░░░░░</span></div><div class="row"><span class="warn">▶▶ bypass permissions on (shift+tab to cycle)</span><span class="remote">Remote Control active</span></div></div></div>
     </div>
     <div class="cmember">
     <a class="cmem" href="cast.html"><img src="img/cast/m3.jpg" alt="吉皮教授"><div class="cb"><b>吉皮教授 · 科学家</b><span>GPT · 第7天饿死</span></div></a>
-      <div class="bwin cterm" data-model="gpt"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">prof@exam</span></div><div class="bscreen"></div></div>
+      <div class="bwin cterm" data-model="gpt"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">prof@exam</span></div><div class="bscreen"></div><div class="cstat"><div class="row"><span class="m">[claude-haiku-4.5]</span><span class="cprog">命题 0/0</span><span class="ccost">$0.0000</span><span class="bbar2">░░░░░░░░░░</span></div><div class="row"><span class="warn">▶▶ bypass permissions on (shift+tab to cycle)</span><span class="remote">Remote Control active</span></div></div></div>
     </div>
     <div class="cmember">
     <a class="cmem" href="cast.html"><img src="img/cast/m4.jpg" alt="老迪"><div class="cb"><b>老迪 · 工匠</b><span>DeepSeek · 神器 6/16</span></div></a>
-      <div class="bwin cterm" data-model="deepseek"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">di@exam</span></div><div class="bscreen"></div></div>
+      <div class="bwin cterm" data-model="deepseek"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">di@exam</span></div><div class="bscreen"></div><div class="cstat"><div class="row"><span class="m">[claude-haiku-4.5]</span><span class="cprog">命题 0/0</span><span class="ccost">$0.0000</span><span class="bbar2">░░░░░░░░░░</span></div><div class="row"><span class="warn">▶▶ bypass permissions on (shift+tab to cycle)</span><span class="remote">Remote Control active</span></div></div></div>
     </div>
     <div class="cmember">
     <a class="cmem" href="cast.html"><img src="img/cast/m5.jpg" alt="格洛"><div class="cb"><b>格洛 · 浪人</b><span>Grok · 第4天全灭</span></div></a>
-      <div class="bwin cterm" data-model="grok"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">glo@exam</span></div><div class="bscreen"></div></div>
+      <div class="bwin cterm" data-model="grok"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">glo@exam</span></div><div class="bscreen"></div><div class="cstat"><div class="row"><span class="m">[claude-haiku-4.5]</span><span class="cprog">命题 0/0</span><span class="ccost">$0.0000</span><span class="bbar2">░░░░░░░░░░</span></div><div class="row"><span class="warn">▶▶ bypass permissions on (shift+tab to cycle)</span><span class="remote">Remote Control active</span></div></div></div>
     </div>
   </div>
 

@@ -79,25 +79,34 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function ln(feed,cls,html){ const d=document.createElement('div'); d.className='bln '+cls; d.innerHTML=html; feed.appendChild(d); feed.scrollTop=feed.scrollHeight; }
 async function castConsole(el, model){
   const feed=el.querySelector('.bscreen');
+  const prog=el.querySelector('.cprog'), costEl=el.querySelector('.ccost'), bar=el.querySelector('.bbar2');
+  const ts=t=>{const d=new Date((t||0)*1000),p=n=>String(n).padStart(2,'0');
+    return '<span class="dim">['+p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds())+']</span> ';};
+  function setBar(f){ if(!bar) return; f=Math.max(0,Math.min(1,f)); const k=Math.round(f*10);
+    bar.textContent='█'.repeat(k)+'░'.repeat(10-k); }
   let ev=[];
   try{ const r=await fetch('experimenter/session-1.jsonl?_='+Date.now(),{cache:'no-store'});
     ev=(await r.text()).split('\n').filter(Boolean).map(l=>{try{return JSON.parse(l)}catch(_){return null}}).filter(Boolean);
   }catch(_){ return idle(el, model); }
   const mine=ev.filter(e=>
-    e.kind==='proposition' || e.kind==='done' ||
+    e.kind==='proposition' || e.kind==='done' || e.kind==='consensus' ||
     (e.kind==='running' && (e.model||'').toLowerCase()===model) ||
     (e.kind==='result' && (e.model||'').toLowerCase()===model));
   if(!mine.some(e=>e.kind==='result')) return idle(el, model);
-  while(true){ feed.innerHTML='';
-    ln(feed,'dim','* 被试席 · 直播回放');
+  let total=mine.filter(e=>e.kind==='proposition').length, cost=0;
+  while(true){ feed.innerHTML=''; cost=0; if(costEl) costEl.textContent='$0.0000'; setBar(0);
+    ln(feed,'dim','* labless consensus-lab · 被试席 · 直播回放');
     for(const e of mine){
-      if(e.kind==='proposition') ln(feed,'bprop','<span class="bb">●</span> 命题 '+e.idx+'/'+e.total+' · <b>'+esc(e.title)+'</b>');
-      else if(e.kind==='running') ln(feed,'','<span class="bcode">lab eval --model='+model+'</span>');
-      else if(e.kind==='result') ln(feed,'','  <span class="bbr">⎿</span> '+e.ok+'/'+e.n+' <span class="dim">$'+(e.cost||0).toFixed(4)+'</span>');
-      else if(e.kind==='done') ln(feed,'dim','* 本场考毕 · 等下一批命题');
-      await sleep(700);
+      if(e.kind==='proposition'){ if(prog) prog.textContent='命题 '+e.idx+'/'+e.total;
+        ln(feed,'bprop','\n<span class="bb">●</span> 命题 '+e.idx+'/'+e.total+' · <b>'+esc(e.title)+'</b>'); }
+      else if(e.kind==='running') ln(feed,'',ts(e.t)+'<span class="bb">●</span> Run(<span class="bcode">lab eval "'+esc(e.title)+'" --model='+model+'</span>)');
+      else if(e.kind==='result'){ cost+=e.cost||0; if(costEl) costEl.textContent='$'+cost.toFixed(4);
+        ln(feed,'','  <span class="bbr">⎿</span>  '+e.ok+'/'+e.n+'  <span class="dim">'+(e.n?Math.round(e.ok/e.n*100):0)+'%  $'+(e.cost||0).toFixed(4)+'</span>'); }
+      else if(e.kind==='consensus'){ ln(feed,'','<span class="bb">●</span> 共识:'+esc(e.text)); setBar((e.idx||0)/(total||3)); }
+      else if(e.kind==='done'){ setBar(1); ln(feed,'dim','\n* session complete · 本场考毕'); }
+      await sleep(620);
     }
-    await sleep(4500);
+    await sleep(4200);
   }
 }
 function idle(el, model){
