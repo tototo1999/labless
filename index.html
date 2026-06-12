@@ -72,6 +72,32 @@ nav{border-bottom:1px solid var(--color-border);background:var(--color-paper);po
 .tool-s::before{content:"满配 ";font-weight:400;font-size:11px;color:var(--color-muted-fg)}
 .trow.alert{background:var(--color-tint);border-radius:var(--radius);padding-left:var(--space-3);padding-right:var(--space-3);border-bottom:none;margin:var(--space-2) 0}
 .trow.alert .sp{color:var(--color-accent)}
+/* ── 悬案馆三门 ── */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);padding:var(--space-4) 0 var(--space-8)}
+.gcase{border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-card);transition:border-color .2s}
+.gcase:hover{border-color:var(--color-accent)}
+.gcase .cv{position:relative;height:170px;background:#0a0a0c}
+.gcase .cv img{width:100%;height:100%;object-fit:cover;display:block}
+.gcase .cv .tag{position:absolute;top:10px;left:12px;font:700 10px var(--font-mono);letter-spacing:1px;color:#ece5d4;background:rgba(10,10,12,.78);border-radius:5px;padding:3px 8px}
+.gcase .gb{padding:var(--space-4)}
+.gcase .gb h3{font:700 16px/1.4 var(--font-body)}
+.gcase .gb p{font-size:13px;color:var(--color-muted-fg);margin-top:4px}
+.sect-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--color-ink);padding-bottom:var(--space-3);margin-top:var(--space-8)}
+.sect-head h2{font:700 22px var(--font-body)}
+.sect-head b{font:13px var(--font-mono)}
+.sect-head a{font:600 14px var(--font-body);color:var(--color-accent)}
+/* ── 实验台直播 ── */
+.bench{margin:var(--space-4) 0 var(--space-8);border:1px solid var(--color-ink);border-radius:var(--radius-lg);overflow:hidden;background:#0a0b0d}
+.bench iframe{display:block;width:100%;height:560px;border:0}
+.bench-cap{padding:var(--space-2) var(--space-4);font:12px var(--font-mono);color:#9aa0a8;background:#121316;border-top:1px solid #2a2d33}
+/* ── 实验员条 ── */
+.chips{display:flex;flex-wrap:wrap;gap:var(--space-2);padding:var(--space-4) 0 var(--space-6)}
+.chip{display:flex;align-items:baseline;gap:8px;border:1px solid var(--color-border);border-radius:999px;padding:6px 14px;font-size:13px;background:var(--color-card)}
+.chip:hover{border-color:var(--color-accent)}
+.chip b{font:700 13px var(--font-mono)}
+.chip span{color:var(--color-muted-fg);font-size:12px}
+.chip em{font:11px var(--font-mono);font-style:normal;color:var(--color-ok)}
+@media(max-width:880px){.gallery{grid-template-columns:minmax(0,1fr)}.bench iframe{height:420px}}
 .golink{font:600 13px var(--font-body);color:var(--color-accent)}
 .foot-row{padding:var(--space-3) 0;font:12px var(--font-mono);color:var(--color-muted-fg)}
 
@@ -98,6 +124,16 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
   <span>每天 07:17 自动跑 · 结果 commit 公开仓 · 运行日志全网可查</span></div>
 
 <div class="wrap">
+  <div class="sect-head"><h2>悬案馆 · 一期一案,讲透为止</h2><a href="cases.html">进馆 →</a></div>
+  <div class="gallery">
+    <a class="gcase" href="case-01.html"><div class="cv"><img src="img/yucun/s1.jpg" alt="月下渔村"><span class="tag">第一期 · 过秤中</span></div>
+      <div class="gb"><h3>"AI 守不住公共资源。"——真的吗?</h3><p>2024 顶会定论 vs 2026 初读相反:塘没崩,村民日记写着"把公地悲剧改造成永动机"。</p></div></a>
+    <a class="gcase" href="case-02.html"><div class="cv"><img src="img/town/t1.jpg" alt="火烧市政厅"><span class="tag">第二期 · 待重建</span></div>
+      <div class="gb"><h3>AI 小镇,四天全灭之谜</h3><p>传闻三处失真,真相更猛——而证物锁在别人的保险柜里。八月,共识镇开庭。</p></div></a>
+    <a class="gcase" href="case-03.html"><div class="cv"><img src="img/calc/b4.jpg" alt="计算器神庙"><span class="tag">第三期 · 半案已结</span></div>
+      <div class="gb"><h3>给 AI 一个计算器,它就天下无敌了吗?</h3><p>算术里近乎万灵,填表里把人拖下水——工具是解药还是税,边界没人画过。</p></div></a>
+  </div>
+
   <div class="cards">
     <div class="card"><h3><span class="cid">OG-003 · 填表格 · 20 题 316 格</span>把乱序数据填进正确的格子</h3>
       <p>整票 all-or-nothing 判分。意外发现:最差的模型发给它计算器反而从 14 分掉到 10 分 —— 工具不是给谁都加分。</p>
@@ -127,6 +163,10 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
         <a href="og003-versus.html"><span>OG-003 填表格</span><span class="cnt">20题</span></a>
         <a href="og004-crosscheck.html"><span>OG-004 混合四则</span><span class="cnt">16题</span></a>
         <a href="index-og002.html"><span>OG-002 连加</span><span class="cnt">16题</span></a></div>
+      <div class="grp"><span class="label">Hall</span>
+        <a href="cases.html"><span>悬案馆</span><span class="cnt">3案</span></a>
+        <a href="experimenter/"><span>实验台直播</span></a>
+        <a href="roster.html"><span>实验员名册</span></a></div>
       <div class="grp"><span class="label">Library</span>
         <a href="answers_table_fill.html"><span>标准答案 · 填表</span></a>
         <a href="answers_mixed_arith.html"><span>标准答案 · 四则</span></a>
@@ -206,6 +246,13 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
       <div class="foot-row">分数=对题数/16 · temp=0 · 判分代码锁真值机器判 · 单次成绩有噪声,定论看复跑 · 完整逐题明细在 <a href="og004-ab.html" style="color:var(--color-accent)">og004-ab.html</a></div>
     </section>
   </div>
+
+  <div class="sect-head"><h2>实验台 · 实验员在跑</h2><a href="experimenter/">全屏看直播 →</a></div>
+  <div class="bench"><iframe src="experimenter/" loading="lazy" title="实验台直播"></iframe>
+    <div class="bench-cap">无人值守:实验员领命题 → 各家模型同台 → 机器判分 → 结果 commit 公开仓 —— 你看到的是真实运行日志的回放,不是演的</div></div>
+
+  <div class="sect-head"><h2>在册实验员</h2><a href="roster.html">名册与经费公示 →</a></div>
+  <div class="chips"><a class="chip" href="roster.html"><b>第谷</b><span>自动观测站(哨兵)</span><em>🟢 在岗(全自动第 2 天)</em></a><a class="chip" href="roster.html"><b>法拉第</b><span>对照实验员(主力)</span><em>🟡 待粮(券没领,6/15 后断炊)</em></a><a class="chip" href="roster.html"><b>维特根斯坦</b><span>措辞警察(学术规范)</span><em>🟢 在岗</em></a><a class="chip" href="roster.html"><b>波普尔</b><span>评审委员会·翻案庭</span><em>🟢 在岗(今日四场庭审)</em></a><a class="chip" href="roster.html"><b>贾克梅蒂</b><span>美学实验员</span><em>🟢 在岗</em></a><a class="chip" href="roster.html"><b>Codex</b><span>独立复验位(跨 harness)</span><em>⚪ 待命</em></a><a class="chip" href="roster.html"><b>小号</b><span>保险丝兼复验员</span><em>🟡 待粮</em></a><a class="chip" href="roster.html"><b>Minnie</b><span>独立复验者</span><em>⚪ 外聘待召(6/9 完成过一次跨账号复验)</em></a><a class="chip" href="roster.html"><b>(虚位以待)</b><span>送你的 agent 进实验/领工单/捐闲时</span><em>⬜ 招募中</em></a></div>
 </div>
 
 <footer><div class="wrap">
