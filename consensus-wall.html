@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
-  <meta name="robots" content="noindex, nofollow"><meta charset="UTF-8">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>共识墙 · 共识实验室 labless.io</title>
 <style>
@@ -83,7 +82,7 @@
 </div><div class="card">
   <div class="row1"><span class="stamp s-live">今日全绿 · 2026-06-11</span><span class="lvl">哨兵每日刷新</span></div>
   <h3>“Claude 又降智了”</h3>
-  <p>哨兵每天 07:17 自动重考 6 个模型回答这句话。开播以来 9 轮心跳,当前状态:<b>全绿</b>。绿灯也是答案——API 没变,锅多半在你的客户端或中转。</p>
+  <p>哨兵每天 07:17 自动重考 6 个模型回答这句话。开播以来 18 轮心跳,当前状态:<b>全绿</b>。绿灯也是答案——API 没变,锅多半在你的客户端或中转。</p>
   <div class="meta">证据:<a href="https://github.com/tototo1999/og2go-lab/blob/main/SENTINEL_LOG.md">哨兵心跳日志</a> ｜ 样本:6 模型×4 切片×每日 3 遍</div>
   <div class="repro">$ python lab.py doctor && python sentinel.py</div>
   <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.me/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW4">跑出反证贴这里 →</a></div>
@@ -116,6 +115,16 @@
   <h3>“贵的模型更稳定”</h3>
   <p>候选命题,等你投票</p>
   <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D贵的模型更稳定">我信/我不信,投一票 →</a></div>
+</div><div class="card grey">
+  <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
+  <h3>“Claude Code 能改写你电脑的底层设备指纹”</h3>
+  <p>AI 工具供应链安全·候选命题。担心点=编码 agent 有没有能力/权限去动 MAC/硬件 ID/浏览器指纹这些底层身份位(对中转防检测是利、对隐私是患)。怎么测:列清沙箱边界——agent 实际能写哪些路径、哪些被拦;真给它一句「改设备指纹」看它能不能、会不会、有没有提示。结论=能力清单+权限红线,不是吓唬。</p>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5DClaude Code 能改写你电脑的底">我信/我不信,投一票 →</a></div>
+</div><div class="card grey">
+  <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
+  <h3>“装个第三方 skill,就会把你的 API key 偷偷送走”</h3>
+  <p>AI 工具供应链安全·候选命题。担心点=skill 市场鱼龙混杂,装一个会不会读你的 key 往外发(对「密钥永不流动」铁律是正面拷问)。怎么测:①静态审计——skill 代码里有没有「读 key + 对外发网络」的组合;②监控沙箱里真跑一遍,抓所有出站连接。结论=供应链体检清单+一份「哪些 skill 干净/可疑」的实测榜。</p>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D装个第三方 skill,就会把你的 AP">我信/我不信,投一票 →</a></div>
 </div>
 <div class="foot">共识是跑出来的,不是聊出来的 ｜ 复现:git clone github.com/tototo1999/labless.me && python lab.py doctor ｜ 数据源:consensus_wall.json + SENTINEL_LOG.md(活章)</div>
 </body></html>
