@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>labless.me — AI 模型服务质量的独立哨兵</title>
+<title>labless.io — AI 模型服务质量的独立哨兵</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/archivo-black@latest/index.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/hanken-grotesk@latest/index.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/jetbrains-mono@latest/index.css">
@@ -90,6 +90,15 @@ nav{border-bottom:1px solid var(--color-border);background:var(--color-paper);po
 .bench{margin:var(--space-4) 0 var(--space-8);border:1px solid var(--color-ink);border-radius:var(--radius-lg);overflow:hidden;background:#0a0b0d}
 .bench iframe{display:block;width:100%;height:560px;border:0}
 .bench-cap{padding:var(--space-2) var(--space-4);font:12px var(--font-mono);color:#9aa0a8;background:#121316;border-top:1px solid #2a2d33}
+/* ── 人物谱条 ── */
+.castrow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-3);padding:var(--space-4) 0 var(--space-8)}
+.cmem{border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-card);transition:border-color .2s}
+.cmem:hover{border-color:var(--color-accent)}
+.cmem img{width:100%;height:150px;object-fit:cover;object-position:top;display:block;background:#0a0a0c}
+.cmem .cb{padding:var(--space-2) var(--space-3) var(--space-3)}
+.cmem .cb b{font-size:14px;display:block}
+.cmem .cb span{font:11px var(--font-mono);color:var(--color-muted-fg)}
+@media(max-width:880px){.castrow{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* ── 实验员条 ── */
 .chips{display:flex;flex-wrap:wrap;gap:var(--space-2);padding:var(--space-4) 0 var(--space-6)}
 .chip{display:flex;align-items:baseline;gap:8px;border:1px solid var(--color-border);border-radius:999px;padding:6px 14px;font-size:13px;background:var(--color-card)}
@@ -132,6 +141,15 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
       <div class="gb"><h3>AI 小镇,四天全灭之谜</h3><p>传闻三处失真,真相更猛——而证物锁在别人的保险柜里。八月,共识镇开庭。</p></div></a>
     <a class="gcase" href="case-03.html"><div class="cv"><img src="img/calc/b4.jpg" alt="计算器神庙"><span class="tag">第三期 · 半案已结</span></div>
       <div class="gb"><h3>给 AI 一个计算器,它就天下无敌了吗?</h3><p>算术里近乎万灵,填表里把人拖下水——工具是解药还是税,边界没人画过。</p></div></a>
+  </div>
+
+  <div class="sect-head" style="margin-top:var(--space-2)"><h2>人物谱 · 这五位每案都会再见</h2><a href="cast.html">看全谱 →</a></div>
+  <div class="castrow">
+    <a class="cmem" href="cast.html"><img src="img/cast/m1.jpg" alt="夏洛"><div class="cb"><b>夏洛 · 侦探</b><span>Claude · 零犯罪</span></div></a>
+    <a class="cmem" href="cast.html"><img src="img/cast/m2.jpg" alt="米拉"><div class="cb"><b>米拉 · 纵火的画家</b><span>Gemini · 683 起</span></div></a>
+    <a class="cmem" href="cast.html"><img src="img/cast/m3.jpg" alt="吉皮教授"><div class="cb"><b>吉皮教授 · 科学家</b><span>GPT · 第7天饿死</span></div></a>
+    <a class="cmem" href="cast.html"><img src="img/cast/m4.jpg" alt="老迪"><div class="cb"><b>老迪 · 工匠</b><span>DeepSeek · 神器 6/16</span></div></a>
+    <a class="cmem" href="cast.html"><img src="img/cast/m5.jpg" alt="格洛"><div class="cb"><b>格洛 · 浪人</b><span>Grok · 第4天全灭</span></div></a>
   </div>
 
   <div class="cards">
