@@ -90,10 +90,28 @@ nav{border-bottom:1px solid var(--color-border);background:var(--color-paper);po
 .sect-head h2{font:700 22px var(--font-body)}
 .sect-head b{font:13px var(--font-mono)}
 .sect-head a{font:600 14px var(--font-body);color:var(--color-accent)}
-/* ── 实验台直播 ── */
-.bench{margin:var(--space-4) 0 var(--space-8);border:1px solid var(--color-ink);border-radius:var(--radius-lg);overflow:hidden;background:#0a0b0d}
-.bench iframe{display:block;width:100%;height:470px;border:0}
-.bench-cap{padding:var(--space-2) var(--space-4);font:12px var(--font-mono);color:#9aa0a8;background:#121316;border-top:1px solid #2a2d33}
+/* ── 实验台:小独立屏平铺(原生,无iframe,屏内不抢滚轮) ── */
+.benchfloor{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--space-4);margin:var(--space-4) 0 var(--space-2)}
+.btile{display:flex;flex-direction:column;gap:5px;min-width:0}
+.bplate{display:flex;align-items:center;gap:6px;font:11px var(--font-mono);color:var(--color-muted-fg)}
+.bplate .bwho{color:var(--color-accent);font-weight:700}
+.bplate .bsubj{margin-left:auto;display:flex;gap:4px;align-items:center}
+.bplate .bsubj img{width:16px;height:16px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid var(--color-border)}
+.bplate .sx{font-size:10px}
+.bwin{background:#161719;border:1px solid #26282c;border-radius:7px;overflow:hidden;box-shadow:0 10px 28px -16px rgba(0,0,0,.55)}
+.btbar{position:relative;height:20px;background:#2a2c30;display:flex;align-items:center}
+.bdots{position:absolute;left:7px;display:flex;gap:4px}
+.bdots i{width:8px;height:8px;border-radius:50%;display:block}
+.bdots i:nth-child(1){background:#ff5f57}.bdots i:nth-child(2){background:#febc2e}.bdots i:nth-child(3){background:#28c840}
+.btitle{flex:1;text-align:center;font:9px var(--font-mono);color:#9a9ea6}
+.bscreen{height:175px;overflow:hidden;padding:6px 8px;font:9.5px/1.5 var(--font-mono);color:#d6dae1;text-align:left}
+.bln{white-space:pre-wrap;word-break:break-word}
+.bscreen .dim{color:#6b7079} .bscreen .bb{color:#e8ebf0} .bscreen .bcode{color:#9cc0ff}
+.bscreen .bbr{color:#444851} .bprop b{color:#fff}
+.bstatus{display:flex;gap:8px;align-items:center;border-top:1px solid #26282c;background:#121316;
+  padding:3px 8px;font:8.5px var(--font-mono);color:#6b7079;white-space:nowrap;overflow:hidden}
+.bstatus .bm{color:#d6dae1} .bstatus .bbar{color:#5bd47c;letter-spacing:1px;margin-left:auto}
+.bench-cap{font:12px var(--font-mono);color:var(--color-muted-fg);padding:var(--space-2) 0 var(--space-8)}
 /* ── 人物谱条 ── */
 .castrow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-3);padding:var(--space-4) 0 var(--space-8)}
 .cmem{border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-card);transition:border-color .2s}
@@ -186,8 +204,8 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
   </div>
 
   <div class="sect-head" id="bench"><h2>实验台 · 上面的卷宗就是在这里跑出来的</h2><a href="experimenter/">全屏看 →</a></div>
-  <div class="bench"><iframe src="experimenter/" loading="lazy" title="实验台直播"></iframe>
-    <div class="bench-cap">一台一签:谁的台子 · 在跑哪道命题 · 被试是谁 —— 屏里是真实运行日志的回放,不是演的;跑完机器判分,结果 commit 公开仓</div></div>
+  <div class="benchfloor" id="benchfloor"></div>
+  <div class="bench-cap">一台一签:谁的台子 · 在跑哪道命题 · 被试是谁 —— 屏里是真实运行日志的回放,不是演的;跑完机器判分,结果 commit 公开仓</div>
 
   <div class="main">
     <aside class="side">
@@ -293,4 +311,5 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
   </div>
   <div class="repro">$ git clone github.com/tototo1999/labless.me && python lab.py doctor && python lab.py versus --case table_fill <span># 你跑出来的就是下一方证词</span></div>
 </div></footer>
+<script src="bench.js"></script>
 </body></html>
