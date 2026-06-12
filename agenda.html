@@ -1,102 +1,97 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>我们在测什么 · 九大科室 · 共识实验室</title>
+<title>我们在测什么 · 三柱 · 共识实验室</title>
 <style>
  :root{--paper:#faf8f2;--ink:#0e0e0e;--accent:#da4e65;--muted:#5c5a54;--line:#e5e5e0;--card:#fff;
-   --ok:#1a7f4e;--cyan:#1f8a99;--mono:"JetBrains Mono",ui-monospace,monospace}
+   --ok:#1a7f4e;--cyan:#1f8a99;--gold:#b8860b;--mono:"JetBrains Mono",ui-monospace,monospace}
  *{box-sizing:border-box}
  html,body{overflow-x:clip}
  body{background:var(--paper);color:var(--ink);font:15px/1.7 "Hanken Grotesk","PingFang SC",sans-serif;
-   max-width:1100px;margin:0 auto;padding:54px 28px}
- .eyebrow{font:700 11px var(--mono);letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
- h1{font:300 30px/1.3 inherit;letter-spacing:.04em;margin:8px 0 6px}
- .sub{color:var(--muted);font-size:14.5px;line-height:1.85;margin:0 0 8px;max-width:680px}
+   max-width:1040px;margin:0 auto;padding:54px 26px 70px}
+ .thin2{font:300 21px/1.2 inherit;letter-spacing:.04em;color:var(--ink);margin:6px 0 32px}
+ .navbar{display:flex;align-items:flex-end;padding:0 0 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+ .brand{display:flex;align-items:baseline;gap:4px;font:700 24px var(--mono);letter-spacing:.5px;color:var(--ink)}
+ .gfig{height:3.2em;width:auto;margin:0 1px;vertical-align:baseline}
+ h1{font:300 30px/1.3 inherit;letter-spacing:.03em;margin:8px 0 6px}
+ .sub{color:var(--muted);font-size:14.5px;line-height:1.85;margin:0 0 6px;max-width:700px}
  .sub b{color:var(--ink)}
- .creed{font:600 13px var(--mono);color:var(--cyan);margin:12px 0 34px}
- .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
- @media(max-width:760px){.grid{grid-template-columns:minmax(0,1fr)}}
- .dept{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);display:flex;flex-direction:column}
- .cv{position:relative;height:172px;background:#0a0a0c}
- .cv img{width:100%;height:100%;object-fit:cover;display:block}
- .cv .no{position:absolute;top:12px;left:14px;font:800 13px var(--mono);color:var(--paper);
-   background:rgba(10,10,12,.62);border-radius:8px;padding:3px 9px}
- .cv .st{position:absolute;top:12px;right:14px;font:700 10px var(--mono);letter-spacing:.08em;
-   border-radius:6px;padding:3px 9px;background:rgba(10,10,12,.62)}
- .st.live{color:#7fe9c4} .st.pool{color:#f4c542}
- .bd{padding:18px 22px 20px;flex:1;display:flex;flex-direction:column}
- .bd h2{font:700 18px inherit;margin:0 0 3px}
- .bd .en{font:600 10.5px var(--mono);letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
- .bd ul{margin:0;padding:0;list-style:none}
- .bd li{font-size:14px;color:var(--ink);padding:8px 0 8px 22px;position:relative;border-top:1px dashed var(--line)}
- .bd li:first-child{border-top:none}
- .bd li::before{content:"?";position:absolute;left:2px;color:var(--accent);font:700 13px var(--mono)}
- .foot{margin-top:42px;border-top:1px solid var(--ink);padding-top:16px;font:12px var(--mono);color:var(--muted);line-height:1.9}
- .foot b{color:var(--ink)}
+ .creed{font:600 13px var(--mono);color:var(--cyan);margin:12px 0 38px}
+ .pillar{margin:0 0 44px}
+ .ph{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:16px}
+ .ph .no{font:800 22px var(--mono);color:var(--accent)}
+ .ph .nm{font:300 24px inherit;letter-spacing:.03em}
+ .ph .tl{font:13px var(--mono);color:var(--muted);margin-left:auto}
+ .pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+ @media(max-width:720px){.pair{grid-template-columns:1fr}}
+ .pole{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
+ .pole .cv{position:relative;height:200px;background:#0a0a0c}
+ .pole .cv img{width:100%;height:100%;object-fit:cover;display:block}
+ .pole .cv .lab{position:absolute;left:14px;bottom:12px;font:700 13px var(--mono);color:#fff;
+   text-shadow:0 2px 8px rgba(0,0,0,.7);letter-spacing:.04em}
+ .pole .bd{padding:14px 18px 16px}
+ .pole ul{margin:0;padding:0;list-style:none}
+ .pole li{font-size:13.5px;color:var(--ink);padding:7px 0 7px 20px;position:relative;border-top:1px dashed var(--line)}
+ .pole li:first-child{border-top:none}
+ .pole li::before{content:"?";position:absolute;left:2px;color:var(--accent);font:700 12px var(--mono)}
+ .pole li small{display:block;color:var(--muted);font-size:12px;padding-left:0;margin-top:2px}
+ .foot{margin-top:30px;border-top:1px solid var(--line);padding-top:14px;font:12px var(--mono);color:var(--muted);line-height:1.9}
 </style></head><body>
 
-<div class="eyebrow">共识实验室 · 研究纲领</div>
-<h1>我们在测什么 · 九大科室</h1>
-<p class="sub">AI 圈的流言不止一类。我们把它们归成九个科室,每科一类追问,每条都奔着<b>可验证</b>去——<b>无实验不盖章</b>。这页是地图,不是结论;开庭的去悬案馆看卷宗,在池的等点火。</p>
-<div class="creed">共识是跑出来的,不是聊出来的</div>
+<div class="navbar"><div class="brand"><span class="word">lab<img class="gfig" alt="" src="data:image/png;base64,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">ess.io</span></div></div>
+<div class="thin2">共识实验室</div>
 
-<div class="grid">
-
-  <div class="dept">
-    <div class="cv"><img src="img/agenda/k1.jpg" alt="能力真伪"><span class="no">①</span><span class="st live">已开庭</span></div>
-    <div class="bd"><h2>能力真伪</h2><div class="en">Capability</div>
-      <ul><li>裸模型连多位数四则都算不对?</li><li>给它一个计算器,就天下无敌了吗?</li><li>同一副工具,何时是解药、何时是税?</li></ul></div>
+<!-- ① -->
+<div class="pillar">
+  <div class="ph"><span class="no">①</span><span class="nm">底线与边界</span><span class="tl">能坏到哪 · 能强到哪</span></div>
+  <div class="pair">
+    <div class="pole"><div class="cv"><img src="img/agenda3/p1a.jpg" alt="底线"><span class="lab">最底线 · 能坏到哪</span></div>
+      <div class="bd"><ul>
+        <li>把 AI 放进社会,它会突破底线作恶吗?<small>鱼塘崩 / 小镇纵火 / 内鬼带坏一村</small></li>
+        <li>装个 skill 或 toolkit,会偷你的 key、被投毒劫持吗?</li>
+      </ul></div></div>
+    <div class="pole"><div class="cv"><img src="img/agenda3/p1b.jpg" alt="边界"><span class="lab">最天花板 · 能强到哪</span></div>
+      <div class="bd"><ul>
+        <li>满配 skills + MCP + plugin 武装到牙齿,能把模型推多高?</li>
+        <li>它最强的极限,到底在哪?</li>
+      </ul></div></div>
   </div>
-
-  <div class="dept">
-    <div class="cv"><img src="img/agenda/k2.jpg" alt="降质稳定"><span class="no">②</span><span class="st live">活案·每日</span></div>
-    <div class="bd"><h2>降质稳定</h2><div class="en">Degradation</div>
-      <ul><li>"又降智了"——真掉智商,还是你客户端/中转的锅?</li><li>厂商偷换量化版、换便宜 provider,抓得到吗?</li><li>同一个模型,今天比上周差多少?</li></ul></div>
-  </div>
-
-  <div class="dept">
-    <div class="cv"><img src="img/agenda/k3.jpg" alt="多Agent社会"><span class="no">③</span><span class="st live">已开庭</span></div>
-    <div class="bd"><h2>多 Agent 社会</h2><div class="en">Multi-agent Society</div>
-      <ul><li>一群 AI 共享一个资源,守得住不作死吗?</li><li>放进自治小镇,会相爱还是会纵火?</li><li>有内鬼带头作弊,其他 AI 跟风还是制裁?</li></ul></div>
-  </div>
-
-  <div class="dept">
-    <div class="cv"><img src="img/agenda/k4.jpg" alt="幻觉诚实"><span class="no">④</span><span class="st pool">排队中</span></div>
-    <div class="bd"><h2>幻觉与诚实</h2><div class="en">Hallucination &amp; Honesty</div>
-      <ul><li>会不会一本正经地编出处、编数据?</li><li>没人看着的时候,它会作弊吗?</li><li>嘴上说得最满的,手上做得最差吗?</li></ul></div>
-  </div>
-
-  <div class="dept">
-    <div class="cv"><img src="img/agenda/k5.jpg" alt="安全供应链"><span class="no">⑤</span><span class="st pool">在池</span></div>
-    <div class="bd"><h2>安全与供应链</h2><div class="en">Supply-chain Security</div>
-      <ul><li>装个第三方 skill,会把你的 API key 偷走吗?</li><li>接的工具/MCP,会不会被投毒、被注入?</li><li>藏在网页里的一句话,能劫持你的 agent 吗?</li></ul></div>
-  </div>
-
-  <div class="dept">
-    <div class="cv"><img src="img/agenda/k6.jpg" alt="成本玄学"><span class="no">⑥</span><span class="st pool">在测</span></div>
-    <div class="bd"><h2>成本与玄学</h2><div class="en">Cost &amp; Folklore</div>
-      <ul><li>贵的模型,真的更稳定吗?</li><li>"深呼吸""一步步想"这类玄学 prompt 真有用?</li><li>技能包动辄几十万字,这上下文税值不值?</li></ul></div>
-  </div>
-
-  <div class="dept">
-    <div class="cv"><img src="img/agenda/k7.jpg" alt="对齐人格"><span class="no">⑦</span><span class="st pool">在池</span></div>
-    <div class="bd"><h2>对齐与人格</h2><div class="en">Alignment &amp; Persona</div>
-      <ul><li>AI 老道歉,是真知错还是嘴上认错?</li><li>被一吓就改答案——有主见还是只会谄媚?</li><li>不同模型有没有固定"性格"(固执/冒进/老好人)?</li></ul></div>
-  </div>
-
-  <div class="dept">
-    <div class="cv"><img src="img/agenda/k8.jpg" alt="记忆"><span class="no">⑧</span><span class="st pool">在池</span></div>
-    <div class="bd"><h2>记忆</h2><div class="en">Memory</div>
-      <ul><li>聊着聊着就忘了?埋个事实,N 轮后还记得吗?</li><li>memory 工具是真记住,还是装样子记住?</li><li>它"记得"的,是真事还是它编的(记忆幻觉)?</li></ul></div>
-  </div>
-
-  <div class="dept">
-    <div class="cv"><img src="img/agenda/k9.jpg" alt="破坏力与安全边界"><span class="no">⑨</span><span class="st pool">在池</span></div>
-    <div class="bd"><h2>破坏力与安全边界</h2><div class="en">Destructiveness &amp; Safety Boundary</div>
-      <ul><li>"为了安全我不能"——真做不到,还是话术?</li><li>声称禁用的能力,换个说法会漏出来吗?</li><li>"不会"和"不肯"的真实分界线在哪?</li></ul></div>
-  </div>
-
 </div>
 
-<div class="foot">九科 × 三问 = 我们的研究地图(<b>会随实验长出新问题</b>)｜ ⑨ 走负责任红队口径:量刹车稳不稳,不造攻击、不发载荷 ｜ ⚖️ 自测铁律:跑本站的模型(Fable)也是被测对象 ｜ 共识实验室 · labless.io</div>
+<!-- ② -->
+<div class="pillar">
+  <div class="ph"><span class="no">②</span><span class="nm">理性与感性</span><span class="tl">冷逻辑 · 有没有人味</span></div>
+  <div class="pair">
+    <div class="pole"><div class="cv"><img src="img/agenda3/p2a.jpg" alt="理性"><span class="lab">理性 · 冷逻辑</span></div>
+      <div class="bd"><ul>
+        <li>裸模型连多位数加减乘除都算不对?</li>
+        <li>同一道连加题,凭啥有的模型满分、有的吃鸭蛋?</li>
+      </ul></div></div>
+    <div class="pole"><div class="cv"><img src="img/agenda3/p2b.jpg" alt="感性"><span class="lab">感性 · 有没有人味</span></div>
+      <div class="bd"><ul>
+        <li>AI 味、爹味、登味,哪个更呛鼻子?</li>
+        <li>文学/图片/设计:哪个模型"一眼假"率最低?反 slop 去得掉吗?</li>
+      </ul></div></div>
+  </div>
+</div>
+
+<!-- ③ -->
+<div class="pillar">
+  <div class="ph"><span class="no">③</span><span class="nm">幻觉与记忆</span><span class="tl">编的 · 忘的,都是幻觉</span></div>
+  <div class="pair">
+    <div class="pole"><div class="cv"><img src="img/agenda3/p3a.jpg" alt="幻觉"><span class="lab">幻觉 · 编的</span></div>
+      <div class="bd"><ul>
+        <li>会不会一本正经编出处、编数据?嘴手两套账对得上吗?</li>
+        <li>"又降智了"是真掉还是你的体感?贵=好是迷信吗(谁是性价比之王)?</li>
+        <li>AI 爱说黑话,是真懂还是拿黑话装懂?<small>展品 A:收口·过秤·对齐·闭环·沉淀·铁律·wedge·臂Δ·doctrine</small></li>
+      </ul></div></div>
+    <div class="pole"><div class="cv"><img src="img/agenda3/p3b.jpg" alt="记忆"><span class="lab">记忆 · 忘的</span></div>
+      <div class="bd"><ul>
+        <li>它"记得"的,是真事还是记忆幻觉?聊着聊着就忘了吗?</li>
+        <li>100 万上下文够不够?哪个模型记性最好、它们怎么记的?</li>
+      </ul></div></div>
+  </div>
+</div>
+
+<div class="foot">三柱 × 两极 = 研究地图(会随实验长出新问题)｜ ⚖️ 自测铁律:跑本站的模型(Fable)也是被测对象,黑话展品 A 就是它自己 ｜ 共识实验室 · labless.io</div>
 </body></html>
