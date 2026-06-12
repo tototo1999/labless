@@ -91,9 +91,9 @@ async function castConsole(el, model){
   while(true){
     const seq=shuffle(blocks);
     feed.innerHTML=''; let cost=0; if(costEl) costEl.textContent='$0.0000'; setBar(0);
-    ln(feed,'dim','* labless 哨兵体检流 · '+model+' 族 · 共 '+seq.length+' 条真档(乱序轮播)');
+    ln(feed,'dim','* labless 复现流 · '+model+' 族 · 共 '+seq.length+' 条真档(乱序轮播)');
     for(let i=0;i<seq.length;i++){ const b=seq[i];
-      ln(feed,'bprop','<span class="bb">●</span> 体检 <span class="dim">'+b.d+'</span> · <b>'+b.case+'</b>');
+      ln(feed,'bprop','<span class="bb">●</span> 复跑 <span class="dim">'+b.d+'</span> · <b>'+b.case+'</b>');
       ln(feed,'','<span class="bcode">lab eval --model='+b.m+'</span>');
       ln(feed,'','  <span class="bbr">⎿</span> 裸 '+b.b+' → 满配 '+b.t+' <span class="dim">'+b.e+'s $'+b.c.toFixed(4)+'</span>');
       cost+=b.c; if(costEl) costEl.textContent='$'+cost.toFixed(4);
