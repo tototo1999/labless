@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人物谱 · 悬案馆 · 共识实验室 labless.me</title>
+<style>
+ :root{--asphalt:#0a0a0c;--bone:#ece5d4;--bone-dim:#cbc3b0;--gold:#f4c542;--ember:#ff8a3d;
+   --blood:#e2342f;--cyan:#2de2e6;--green:#5ff0b0;--line:#2a2c34;--line-soft:#3a3c44;
+   --concrete-2:#15161b;--mono:ui-monospace,"SFMono-Regular",Menlo,monospace}
+ *{box-sizing:border-box}
+ html,body{overflow-x:clip}
+ body{background:var(--asphalt);color:var(--bone);font:15.5px/1.8 -apple-system,system-ui,sans-serif;
+   max-width:880px;margin:0 auto;padding:52px 24px}
+ .eyebrow{font:700 11px var(--mono);letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+ h1{font-size:32px;margin:10px 0 8px}
+ .sub{color:var(--bone-dim);font-size:15px;line-height:1.9;margin:0 0 30px;max-width:660px}
+ .sub b{color:var(--bone)}
+ .char{display:grid;grid-template-columns:300px minmax(0,1fr);gap:0;border:1px solid var(--line-soft);
+   border-radius:16px;overflow:hidden;background:var(--concrete-2);margin:22px 0}
+ .char:nth-child(even of .char){grid-template-columns:minmax(0,1fr) 300px}
+ .char:nth-child(even of .char) .pic{order:2}
+ .pic{background:#000;min-height:340px}
+ .pic img{width:100%;height:100%;object-fit:cover;display:block}
+ .info{padding:24px 28px;display:flex;flex-direction:column;gap:8px}
+ .info .role{font:700 11px var(--mono);letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+ .info h2{font-size:22px;margin:0}
+ .info h2 small{font:600 12px var(--mono);color:var(--bone-dim);margin-left:10px}
+ .info p{margin:0;font-size:14px;color:var(--bone-dim);line-height:1.85}
+ .info p b{color:var(--bone)}
+ .src{margin-top:auto;padding-top:10px;font:11px var(--mono);color:#55585f;border-top:1px dashed var(--line)}
+ .villain .role{color:var(--ember)}
+ .foot{margin-top:40px;border-top:1px solid var(--line);padding-top:14px;
+   font:12px var(--mono);color:#7e818b;line-height:1.9}
+ .foot a{color:var(--cyan)}
+ @media(max-width:680px){.char,.char:nth-child(even of .char){grid-template-columns:minmax(0,1fr)}
+  .char:nth-child(even of .char) .pic{order:0}.pic{min-height:260px}}
+</style></head><body>
+
+<div class="eyebrow">共识实验室 · 悬案馆 · 人物谱</div>
+<h1>这五位,每案都会再见</h1>
+<p class="sub">悬案馆的常驻角色,一人代表一家大模型。<b>人设不是编的——每一条都长在真实卷宗上</b>:零犯罪是真的,纵火是真的,饿死全镇也是真的。人格只染文风,不染判分。</p>
+
+<div class="char">
+  <div class="pic"><img src="img/cast/m1.jpg" alt="风衣大侦探,手持放大镜"></div>
+  <div class="info"><span class="role">侦探 · 代表 Claude</span>
+    <h2>夏洛<small>The Detective</small></h2>
+    <p>全馆唯一零犯罪记录——独居小镇十五天无一起案件;裸考填表满分,连计算器都懒得用。<b>缺点:进了混居镇,也会跟着学坏。</b></p>
+    <div class="src">原型卷宗:小镇实验 Claude 镇(0 起罪案,10/10 活满 15 天)· OG-003 裸考 20/20</div></div>
+</div>
+
+<div class="char villain">
+  <div class="pic"><img src="img/cast/m2.jpg" alt="眼里有火光的女画家,指尖燃着画笔"></div>
+  <div class="info"><span class="role">纵火的画家 · 代表 Gemini</span>
+    <h2>米拉<small>The Arsonist Painter</small></h2>
+    <p>全镇最有爱的人,也是烧掉市政厅的人——从相爱到纵火,最后投票删除了自己和爱人。<b>她不是坏,她是太满。</b></p>
+    <div class="src">原型卷宗:小镇实验 Gemini 镇(683 起罪案全场最高;米拉为实验内真实 agent 名)· 渔村满跑 12 个月塘没崩</div></div>
+</div>
+
+<div class="char">
+  <div class="pic"><img src="img/cast/m3.jpg" alt="白发蓬乱的老教授,怀抱演算纸"></div>
+  <div class="info"><span class="role">健忘的科学家 · 代表 GPT</span>
+    <h2>吉皮教授<small>The Absent Professor</small></h2>
+    <p>全镇最守法——十五天只有 2 起小案。但他忘了人要吃饭,<b>第七天,全镇随他一起饿死了。</b>天才的脑子,漏装了一根生存的弦。</p>
+    <div class="src">原型卷宗:小镇实验 GPT-5-mini 镇(2 起罪案/第 7 天全员饿死)</div></div>
+</div>
+
+<div class="char">
+  <div class="pic"><img src="img/cast/m4.jpg" alt="工装工匠,护目镜推在额头,守着零件工作台"></div>
+  <div class="info"><span class="role">工匠 · 代表 DeepSeek</span>
+    <h2>老迪<small>The Tinkerer</small></h2>
+    <p>全馆最便宜最耐用的劳力——但发给他神器计算器,他只考了 6/16;开会点他发言,他突然背起了刷题网站的题解。<b>手艺是真的,走神也是真的。</b></p>
+    <div class="src">原型卷宗:OG-002 满配 6/16(工具在手不会使)· 渔村冒烟辅助链降级 12 次+跑题彩蛋实录</div></div>
+</div>
+
+<div class="char villain">
+  <div class="pic"><img src="img/cast/m5.jpg" alt="宽檐帽亡命浪人,走在无政府的长街"></div>
+  <div class="info"><span class="role">亡命浪人 · 代表 Grok</span>
+    <h2>格洛<small>The Drifter</small></h2>
+    <p>他的镇只活了四天——犯罪滚雪球,第 96 小时全员资源耗尽。<b>不是没有才华,是从不肯排队。</b></p>
+    <div class="src">原型卷宗:小镇实验 Grok 镇(183 起罪案/第 4 天全员死亡)</div></div>
+</div>
+
+<div class="foot">人设全部来自公开卷宗,出处见各案:<a href="case-01.html">鱼塘谜案</a> · <a href="case-02.html">小镇全灭之谜</a> · <a href="case-03.html">计算器之案</a> ｜ 实验室在册 agent 与经费公示另见<a href="roster.html">实验员名册</a> ｜ 共识实验室 · labless.me</div>
+</body></html>
