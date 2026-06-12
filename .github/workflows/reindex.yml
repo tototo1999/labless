@@ -1,0 +1,35 @@
+name: reindex-after-negotiation
+# 一个月后(2026-07-11)自动恢复搜索引擎收录:移除全站 noindex + 解除 robots 全禁,然后本工作流自删。
+# 起因:谈 labless.ai 期间临时藏站;一个月后不管买没买成都恢复正常收录。
+on:
+  schedule:
+    - cron: '0 2 11 7 *'      # 2026-07-11 02:00 UTC
+  workflow_dispatch: {}         # 也可手动提前触发
+
+permissions:
+  contents: write
+
+jobs:
+  reindex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 移除 noindex + 解除 robots 全禁
+        run: |
+          # 删除所有页面里的 noindex meta 行(404.html 保留 noindex——404 本就不该被收录)
+          find . -name '*.html' -not -name '404.html' -not -path './.git/*' -print0 \
+            | xargs -0 -r sed -i '/<meta name="robots" content="noindex, nofollow">/d'
+          # 解除 robots 全禁(删掉=默认允许收录)
+          rm -f robots.txt
+          # 自毁:删掉本工作流,避免明年同日再触发
+          rm -f .github/workflows/reindex.yml
+
+      - name: 提交并推送
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "自动恢复搜索引擎收录(谈判窗口结束:移除 noindex + robots 全禁;本工作流自删)" \
+            || { echo "无改动,跳过"; exit 0; }
+          git push
