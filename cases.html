@@ -29,6 +29,9 @@
  .st.weigh{color:var(--green);border-color:var(--green)}
  .st.rebuild{color:var(--ember);border-color:var(--ember)}
  .st.half{color:var(--gold);border-color:var(--gold)}
+ .st.live{color:var(--cyan);border-color:var(--cyan);animation:pulse 2s infinite}
+ @keyframes pulse{50%{opacity:.45}}
+ @media (prefers-reduced-motion:reduce){.st.live{animation:none}}
  .body{padding:18px 24px 20px}
  .body h2{margin:0 0 8px;font-size:20px;line-height:1.5}
  .body p{margin:0;font-size:14px;color:var(--bone-dim);line-height:1.85}
@@ -70,6 +73,17 @@
   <div class="body">
     <h2>给 AI 一个计算器,它就天下无敌了吗?</h2>
     <p>裸考是一道悬崖:最强 14/16,五家挂零;发个计算器,七家直接满分——<b>但有一位拿着神器只考了 6/16,还有一位挂上工具反而掉了 4 分</b>。上半案已当庭宣判(两枚章落墙),下半案正悬:工具,什么时候是解药,什么时候是税。</p>
+    <div class="go">开卷 →</div>
+  </div>
+</a>
+
+
+<a class="case" href="case-04.html">
+  <div class="cover"><img src="img/sentry/w1.jpg" alt="雾夜全城灯火,哨塔探照灯扫过">
+    <span class="no">第四期 · 哨兵</span><span class="st live">活案 · 每日开庭</span></div>
+  <div class="body">
+    <h2>降智谜案</h2>
+    <p>"Claude 又降智了"——圈内复发率最高的流言,而且有前科(厂商自认过两次)。体感不可审计,时序可以:<b>哨兵每天 07:17 让 6 个模型重考同一套题</b>,答案挂墙,次日作废重验。全馆唯一永不结案的活案。</p>
     <div class="go">开卷 →</div>
   </div>
 </a>
