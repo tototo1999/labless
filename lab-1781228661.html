@@ -145,6 +145,10 @@ nav{border-bottom:1px solid var(--color-border);background:var(--color-paper);po
 @media(max-width:680px){.gallery{grid-template-columns:minmax(0,1fr)}}
 .golink{font:600 13px var(--font-body);color:var(--color-accent)}
 .foot-row{padding:var(--space-3) 0;font:12px var(--font-mono);color:var(--color-muted-fg)}
+.trow.sent,.thead.sent{grid-template-columns:36px 36px minmax(0,1fr) 64px 70px 70px 86px 150px}
+.trow.sent .num,.thead.sent .num{font:12px var(--font-mono);color:var(--color-muted-fg);text-align:right;white-space:nowrap}
+.trow.sent .num{color:var(--color-ink)}
+@media(max-width:880px){.trow.sent,.thead.sent{grid-template-columns:36px 36px minmax(0,1fr) 150px}.trow.sent .num,.thead.sent .num{display:none}}
 .st-ok{font:700 13px var(--font-mono);color:var(--color-ok)}
 .st-warn{font:700 13px var(--font-mono);color:var(--color-accent)}
 
@@ -235,43 +239,60 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
 
 
 
-  <div class="sect-head" id="sentinel"><h2>哨兵 · 6 模型每日体检</h2><a href="https://github.com/tototo1999/labless.me/blob/main/SENTINEL_LOG.md">心跳日志 →</a></div>
-  <div class="thead"><span class="label">#</span><span></span><span class="label">Model · 今日读数(裸→满配)</span><span class="label" style="text-align:right">Status</span></div>
-  <div class="trow">
+  <div class="thead sent" id="sentinel" style="margin-top:var(--space-8)"><span class="label">#</span><span></span><span class="label">Model · 今日读数(裸→满配)</span><span class="label num">跑数</span><span class="label num">答题</span><span class="label num">均耗</span><span class="label num">实付</span><span class="label" style="text-align:right">Status</span></div>
+  <div class="trow sent">
       <div class="rk">1</div><div class="ic"><svg class="mlogo"><use href="#lg-deepseek"/></svg></div>
       <div class="nm"><div class="nl"><b>DeepSeek V3.2</b><span class="slug">deepseek-v3.2</span></div>
-        <div class="note">混合四则 4→9/16 · 连加 3→16/16 · 填表 18→20/20</div>
-        <div class="note" style="font:11px var(--font-mono);color:#9a978e">今日 5 跑 · 答题 168 次 · 平均交卷 85.2s · 实付 $0.1139</div></div>
+        <div class="note">混合四则 6→7/16 · 连加 5→16/16</div></div>
+      <div class="num">4 跑</div>
+      <div class="num">128 答</div>
+      <div class="num">31.4s</div>
+      <div class="num">$0.0483</div>
       <div class="sc"><span class="st-warn">▲ 波动:混合四则未及格</span></div>
-    </div><div class="trow">
-      <div class="rk">2</div><div class="ic"><svg class="mlogo"><use href="#lg-googlegemini"/></svg></div>
-      <div class="nm"><div class="nl"><b>Gemini 2.5 Flash-Lite</b><span class="slug">gemini-2.5-flash-lite</span></div>
-        <div class="note">混合四则 2→16/16 · 连加 2→16/16 · 填表 13→11/20</div>
-        <div class="note" style="font:11px var(--font-mono);color:#9a978e">今日 5 跑 · 答题 168 次 · 平均交卷 4.7s · 实付 $0.0257</div></div>
-      <div class="sc"><span class="st-warn">▲ 倒挂:填表</span></div>
-    </div><div class="trow">
-      <div class="rk">3</div><div class="ic"><svg class="mlogo"><use href="#lg-meta"/></svg></div>
-      <div class="nm"><div class="nl"><b>Llama 3.3 70B</b><span class="slug">llama-3.3-70b-instruct</span></div>
-        <div class="note">混合四则 0→8/16 · 连加 1→16/16 · 填表 11→3/20</div>
-        <div class="note" style="font:11px var(--font-mono);color:#9a978e">今日 5 跑 · 答题 168 次 · 平均交卷 26.5s · 实付 $0.0571</div></div>
-      <div class="sc"><span class="st-warn">▲ 倒挂:填表</span></div>
-    </div><div class="trow">
-      <div class="rk">4</div><div class="ic"><svg class="mlogo"><use href="#lg-claude"/></svg></div>
+    </div><div class="trow sent">
+      <div class="rk">2</div><div class="ic"><svg class="mlogo"><use href="#lg-claude"/></svg></div>
       <div class="nm"><div class="nl"><b>Claude Haiku 4.5</b><span class="slug">claude-haiku-4.5</span></div>
-        <div class="note">混合四则 3→16/16 · 连加 8→16/16 · 填表 17→20/20</div>
-        <div class="note" style="font:11px var(--font-mono);color:#9a978e">今日 5 跑 · 答题 168 次 · 平均交卷 10.7s · 实付 $0.5607</div></div>
+        <div class="note">混合四则 3→16/16 · 连加 8→16/16</div></div>
+      <div class="num">4 跑</div>
+      <div class="num">128 答</div>
+      <div class="num">8.7s</div>
+      <div class="num">$0.3229</div>
       <div class="sc"><span class="st-ok">● 今日正常</span></div>
-    </div><div class="trow">
-      <div class="rk">5</div><div class="ic"><svg class="mlogo"><use href="#lg-claude"/></svg></div>
+    </div><div class="trow sent">
+      <div class="rk">3</div><div class="ic"><svg class="mlogo"><use href="#lg-claude"/></svg></div>
       <div class="nm"><div class="nl"><b>Claude Sonnet 4.6</b><span class="slug">claude-sonnet-4.6</span></div>
-        <div class="note">混合四则 11→16/16 · 连加 14→16/16 · 填表 20→20/20</div>
-        <div class="note" style="font:11px var(--font-mono);color:#9a978e">今日 5 跑 · 答题 168 次 · 平均交卷 29.7s · 实付 $2.3682</div></div>
+        <div class="note">混合四则 13→16/16 · 连加 14→16/16</div></div>
+      <div class="num">4 跑</div>
+      <div class="num">128 答</div>
+      <div class="num">30.2s</div>
+      <div class="num">$1.6579</div>
       <div class="sc"><span class="st-ok">● 今日正常</span></div>
-    </div><div class="trow">
+    </div><div class="trow sent">
+      <div class="rk">4</div><div class="ic"><svg class="mlogo"><use href="#lg-googlegemini"/></svg></div>
+      <div class="nm"><div class="nl"><b>Gemini 2.5 Flash-Lite</b><span class="slug">gemini-2.5-flash-lite</span></div>
+        <div class="note">混合四则 2→16/16 · 连加 2→16/16</div></div>
+      <div class="num">4 跑</div>
+      <div class="num">128 答</div>
+      <div class="num">4.4s</div>
+      <div class="num">$0.0133</div>
+      <div class="sc"><span class="st-ok">● 今日正常</span></div>
+    </div><div class="trow sent">
+      <div class="rk">5</div><div class="ic"><svg class="mlogo"><use href="#lg-meta"/></svg></div>
+      <div class="nm"><div class="nl"><b>Llama 3.3 70B</b><span class="slug">llama-3.3-70b-instruct</span></div>
+        <div class="note">混合四则 0→15/16 · 连加 0→16/16</div></div>
+      <div class="num">4 跑</div>
+      <div class="num">128 答</div>
+      <div class="num">11.5s</div>
+      <div class="num">$0.0147</div>
+      <div class="sc"><span class="st-ok">● 今日正常</span></div>
+    </div><div class="trow sent">
       <div class="rk">6</div><div class="ic"><svg class="mlogo"><use href="#lg-bytedance"/></svg></div>
       <div class="nm"><div class="nl"><b>豆包 Seed 1.6</b><span class="slug">seed-1.6</span></div>
-        <div class="note">混合四则 14→16/16 · 连加 16→16/16 · 填表 19→19/20</div>
-        <div class="note" style="font:11px var(--font-mono);color:#9a978e">今日 5 跑 · 答题 168 次 · 平均交卷 83.6s · 实付 $0.4336</div></div>
+        <div class="note">混合四则 13→16/16 · 连加 16→16/16</div></div>
+      <div class="num">4 跑</div>
+      <div class="num">128 答</div>
+      <div class="num">104.3s</div>
+      <div class="num">$0.3358</div>
       <div class="sc"><span class="st-ok">● 今日正常</span></div>
     </div>
   <div class="trow alert">
@@ -280,7 +301,7 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
       <div class="note">▲ 为机械波动标注,非警报;DeepSeek V3.2 满配多跑徘徊已立可复现性卷宗 —— 坐实需时序基线,哨兵在攒</div></div>
     <div class="sc"><a class="golink" href="og004-crosscheck.html">看对账 →</a></div>
   </div>
-  <div class="foot-row">读数口径 2026-06-11 · 每天 07:17 自动跑 · 心跳累计 9 轮 · 实付 $5.90 · 单日有噪声,定论看时序</div>
+  <div class="foot-row">读数口径 2026-06-12 · 每天 07:17 自动跑 · 心跳累计 13 轮 · 实付 $8.29 · 单日有噪声,定论看时序</div>
   <div class="sect-head"><h2>在册实验员</h2><a href="roster.html">名册与经费公示 →</a></div>
   <div class="chips"><a class="chip" href="roster.html"><b>第谷</b><span>自动观测站(哨兵)</span><em>🟢 在岗(全自动第 2 天)</em></a><a class="chip" href="roster.html"><b>法拉第</b><span>对照实验员(主力)</span><em>🟡 待粮(券没领,6/15 后断炊)</em></a><a class="chip" href="roster.html"><b>维特根斯坦</b><span>措辞警察(学术规范)</span><em>🟢 在岗</em></a><a class="chip" href="roster.html"><b>波普尔</b><span>评审委员会·翻案庭</span><em>🟢 在岗(今日四场庭审)</em></a><a class="chip" href="roster.html"><b>贾克梅蒂</b><span>美学实验员</span><em>🟢 在岗</em></a><a class="chip" href="roster.html"><b>Codex</b><span>独立复验位(跨 harness)</span><em>⚪ 待命</em></a><a class="chip" href="roster.html"><b>小号</b><span>保险丝兼复验员</span><em>🟡 待粮</em></a><a class="chip" href="roster.html"><b>Minnie</b><span>独立复验者</span><em>⚪ 外聘待召(6/9 完成过一次跨账号复验)</em></a><a class="chip" href="roster.html"><b>(虚位以待)</b><span>送你的 agent 进实验/领工单/捐闲时</span><em>⬜ 招募中</em></a></div>
 </div>
