@@ -80,33 +80,28 @@ function ln(feed,cls,html){ const d=document.createElement('div'); d.className='
 async function castConsole(el, model){
   const feed=el.querySelector('.bscreen');
   const prog=el.querySelector('.cprog'), costEl=el.querySelector('.ccost'), bar=el.querySelector('.bbar2');
-  const ts=t=>{const d=new Date((t||0)*1000),p=n=>String(n).padStart(2,'0');
-    return '<span class="dim">['+p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds())+']</span> ';};
   function setBar(f){ if(!bar) return; f=Math.max(0,Math.min(1,f)); const k=Math.round(f*10);
     bar.textContent='█'.repeat(k)+'░'.repeat(10-k); }
-  let ev=[];
-  try{ const r=await fetch('experimenter/session-1.jsonl?_='+Date.now(),{cache:'no-store'});
-    ev=(await r.text()).split('\n').filter(Boolean).map(l=>{try{return JSON.parse(l)}catch(_){return null}}).filter(Boolean);
-  }catch(_){ return idle(el, model); }
-  const mine=ev.filter(e=>
-    e.kind==='proposition' || e.kind==='done' || e.kind==='consensus' ||
-    (e.kind==='running' && (e.model||'').toLowerCase()===model) ||
-    (e.kind==='result' && (e.model||'').toLowerCase()===model));
-  if(!mine.some(e=>e.kind==='result')) return idle(el, model);
-  let total=mine.filter(e=>e.kind==='proposition').length, cost=0;
-  while(true){ feed.innerHTML=''; cost=0; if(costEl) costEl.textContent='$0.0000'; setBar(0);
-    ln(feed,'dim','* labless consensus-lab · 被试席 · 直播回放');
-    for(const e of mine){
-      if(e.kind==='proposition'){ if(prog) prog.textContent='命题 '+e.idx+'/'+e.total;
-        ln(feed,'bprop','\n<span class="bb">●</span> 命题 '+e.idx+'/'+e.total+' · <b>'+esc(e.title)+'</b>'); }
-      else if(e.kind==='running') ln(feed,'',ts(e.t)+'<span class="bb">●</span> Run(<span class="bcode">lab eval "'+esc(e.title)+'" --model='+model+'</span>)');
-      else if(e.kind==='result'){ cost+=e.cost||0; if(costEl) costEl.textContent='$'+cost.toFixed(4);
-        ln(feed,'','  <span class="bbr">⎿</span>  '+e.ok+'/'+e.n+'  <span class="dim">'+(e.n?Math.round(e.ok/e.n*100):0)+'%  $'+(e.cost||0).toFixed(4)+'</span>'); }
-      else if(e.kind==='consensus'){ ln(feed,'','<span class="bb">●</span> 共识:'+esc(e.text)); setBar((e.idx||0)/(total||3)); }
-      else if(e.kind==='done'){ setBar(1); ln(feed,'dim','\n* session complete · 本场考毕'); }
-      await sleep(620);
+  let blocks=[];
+  try{ const r=await fetch('cast-feed.json?_='+Date.now(),{cache:'no-store'});
+    blocks=(await r.json())[model]||[];
+  }catch(_){ }
+  if(!blocks.length) return idle(el, model);
+  const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+  while(true){
+    const seq=shuffle(blocks);
+    feed.innerHTML=''; let cost=0; if(costEl) costEl.textContent='$0.0000'; setBar(0);
+    ln(feed,'dim','* labless 哨兵体检流 · '+model+' 族 · 共 '+seq.length+' 条真档(乱序轮播)');
+    for(let i=0;i<seq.length;i++){ const b=seq[i];
+      ln(feed,'bprop','<span class="bb">●</span> 体检 <span class="dim">'+b.d+'</span> · <b>'+b.case+'</b>');
+      ln(feed,'','<span class="bcode">lab eval --model='+b.m+'</span>');
+      ln(feed,'','  <span class="bbr">⎿</span> 裸 '+b.b+' → 满配 '+b.t+' <span class="dim">'+b.e+'s $'+b.c.toFixed(4)+'</span>');
+      cost+=b.c; if(costEl) costEl.textContent='$'+cost.toFixed(4);
+      if(prog) prog.textContent='档 '+(i+1)+'/'+seq.length; setBar((i+1)/seq.length);
+      await sleep(420);
     }
-    await sleep(4200);
+    ln(feed,'dim','* 一轮播毕,重洗再来');
+    await sleep(2600);
   }
 }
 function idle(el, model){
@@ -121,6 +116,6 @@ const CAST_NAME={claude:'claude-sonnet-4.6',gemini:'gemini-3.5-flash',gpt:'gpt-5
 document.querySelectorAll('.cterm').forEach(el=>{
   const m=el.getAttribute('data-model');
   const tag=el.querySelector('.cstat .m'); if(tag&&CAST_NAME[m]) tag.textContent='['+CAST_NAME[m]+']';
-  if(m==='claude'||m==='gemini') castConsole(el,m); else idle(el,m);
+  castConsole(el,m);
 });
 })();
