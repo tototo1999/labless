@@ -117,8 +117,10 @@ function idle(el, model){
   ln(feed,'dim','  下一批命题排期中…');
   ln(feed,'','<span class="dim">❯</span> <span class="ccur">&nbsp;</span>');
 }
+const CAST_NAME={claude:'claude-sonnet-4.6',gemini:'gemini-3.5-flash',gpt:'gpt-5.5',deepseek:'deepseek-v3.2',grok:'grok-4.3'};
 document.querySelectorAll('.cterm').forEach(el=>{
   const m=el.getAttribute('data-model');
+  const tag=el.querySelector('.cstat .m'); if(tag&&CAST_NAME[m]) tag.textContent='['+CAST_NAME[m]+']';
   if(m==='claude'||m==='gemini') castConsole(el,m); else idle(el,m);
 });
 })();
