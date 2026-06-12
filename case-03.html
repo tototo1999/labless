@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>悬案馆 · 第三期:给 AI 一个计算器,它就天下无敌了吗? · 共识实验室 labless.me</title>
+<style>
+ :root{--asphalt:#0a0a0c;--bone:#ece5d4;--bone-dim:#cbc3b0;--gold:#f4c542;--blood:#e2342f;
+   --cyan:#2de2e6;--green:#5ff0b0;--line:#2a2c34;--line-soft:#3a3c44;--concrete:#1c1d22;
+   --concrete-2:#15161b;--mono:ui-monospace,"SFMono-Regular",Menlo,monospace}
+ *{box-sizing:border-box}
+ html,body{overflow-x:clip}
+ body{background:var(--asphalt);color:var(--bone);font:15.5px/1.85 -apple-system,system-ui,sans-serif;
+   max-width:720px;margin:0 auto;padding:46px 24px}
+ .eyebrow{font:700 11px var(--mono);letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+ h1{font-size:27px;margin:10px 0 4px;line-height:1.4}
+ .lede{color:var(--bone-dim);font-size:15px;margin:6px 0 0}
+ .lede b{color:var(--bone)}
+ .st{display:inline-block;font:800 11px var(--mono);letter-spacing:.1em;border:2px solid var(--green);
+   color:var(--green);border-radius:6px;padding:3px 10px;transform:rotate(-1.5deg);margin:14px 0 0}
+ h2{font-size:16px;margin:42px 0 10px;color:var(--gold);font-weight:800}
+ h2 .no{font:800 12px var(--mono);color:#55585f;margin-right:8px}
+ p{margin:10px 0}
+ p b{color:var(--bone)}
+ .big{font-size:17px;line-height:1.8}
+ .quoteblock{border-left:3px solid var(--blood);padding:10px 18px;margin:16px 0;
+   background:var(--concrete-2);border-radius:0 10px 10px 0;font-size:15px}
+ .quoteblock.t{border-left-color:var(--green)}
+ .quoteblock .src{font:11px var(--mono);color:var(--bone-dim);margin-top:6px}
+ table{width:100%;border-collapse:collapse;font:13px var(--mono);margin:14px 0}
+ th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;color:var(--bone-dim)}
+ th{color:var(--bone);font-size:11px;letter-spacing:.05em}
+ td.bad{color:#ff6b66;font-weight:700} td.ok{color:var(--green);font-weight:700} td.mid{color:var(--gold);font-weight:700}
+ .stamp{display:inline-block;font:800 11px var(--mono);letter-spacing:.1em;border:2px solid;
+   border-radius:6px;padding:2px 8px;transform:rotate(-2deg);margin:0 4px}
+ .stamp.no{color:#ff6b66;border-color:#ff6b66} .stamp.mid{color:var(--gold);border-color:var(--gold)}
+ .sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+ @media(max-width:560px){.sides{grid-template-columns:1fr}}
+ .side{border:1px solid var(--line-soft);border-radius:12px;padding:16px 18px;background:var(--concrete-2)}
+ .side h3{margin:0 0 8px;font-size:14px} .side.y h3{color:var(--green)} .side.n h3{color:var(--gold)}
+ .side p{font-size:13.5px;color:var(--bone-dim);margin:6px 0}
+ .scale{border:1px solid var(--line-soft);border-left:4px solid var(--cyan);border-radius:12px;
+   padding:16px 20px;margin:14px 0;background:var(--concrete-2)}
+ .scale b{color:var(--cyan)} .scale p{font-size:14px;color:var(--bone-dim);margin:6px 0}
+ .bet{margin:26px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+ .bet a{font:700 13px var(--mono);text-decoration:none;border:1.5px solid;border-radius:10px;padding:10px 20px}
+ .bet a.yes{color:var(--green);border-color:rgba(95,240,176,.45)}
+ .bet a.no{color:var(--gold);border-color:rgba(244,197,66,.45)}
+ .bet .note{font:11px var(--mono);color:#55585f}
+ .next{margin-top:46px;border-top:1px dashed var(--line-soft);padding-top:14px;
+   font:12.5px var(--mono);color:#7e818b;line-height:2}
+ .next a{color:var(--cyan)}
+ .foot{margin-top:30px;border-top:1px solid var(--line);padding-top:12px;font:12px var(--mono);
+   color:#7e818b;line-height:1.8}
+ figure.art{margin:18px 0;border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;background:#000}
+ figure.art img{display:block;width:100%;height:auto;max-height:430px;object-fit:cover}
+ figure.art.tall img{max-height:560px}
+ figure.art figcaption{font:11px var(--mono);color:#55585f;padding:8px 14px;border-top:1px solid var(--line)}
+</style></head><body>
+
+<div class="eyebrow">共识实验室 · 悬案馆 · 第三期</div>
+<h1>给 AI 一个计算器,<br>它就天下无敌了吗?</h1>
+<p class="lede">本期特别:<b>上半案已开奖,章都盖好了</b>——给你看看本馆开奖长什么样;下半案剧情反转,正悬。</p>
+<span class="st">状态:半案已结 · 半案正悬</span>
+<figure class="art tall"><img src="img/calc/b1.jpg" alt="像素世界黎明,两座旌旗高塔之间小小队伍进场" loading="lazy"><figcaption>开庭日:旌旗下进场——上半案当庭宣判,下半案继续悬。(插画:Gamma AI,下同)</figcaption></figure>
+
+<h2><span class="no">01</span>街头流传着两句相反的话</h2>
+<div class="quoteblock">"AI 连加法都算不对,还谈什么智能。"<div class="src">—— 嘲讽派,各大评论区常驻</div></div>
+<div class="quoteblock t">"那是你没给它装备——挂上计算器,立刻满分。"<div class="src">—— 工具派,agent 圈口头禅</div></div>
+<p class="big">两句都在圈里疯传,互为反驳,谁也说服不了谁。我们把它们<b>一起搬上了秤</b>。</p>
+<figure class="art"><img src="img/calc/b2.jpg" alt="峡谷两壁垂下两面对立的旗,小队从中间穿过" loading="lazy"><figcaption>两句相反的话,像峡谷两侧垂下的两面旗——路只有中间一条。</figcaption></figure>
+
+<h2><span class="no">02</span>上半案:算术擂台(已开奖)</h2>
+<p>同一批 <b>16 道"任意数连加"题</b>,10 个模型先裸考(禁草稿、禁工具)。裸考结果是一道悬崖:</p>
+<table>
+<thead><tr><th>模型(裸考)</th><th>得分</th></tr></thead>
+<tbody>
+<tr><td>豆包 Seed 1.6</td><td class="ok">14/16</td></tr>
+<tr><td>Claude Sonnet 4.6</td><td class="ok">12/16</td></tr>
+<tr><td>DeepSeek v3.2 / Haiku / Flash-Lite</td><td class="mid">4/16 · 3/16 · 2/16</td></tr>
+<tr><td>GPT-4.1、GPT-4.1-mini、Gemini Flash、Llama 70B、Qwen 72B</td><td class="bad">五家全部 0/16</td></tr>
+</tbody></table>
+<figure class="art"><img src="img/calc/b3.jpg" alt="火把通明的方块悬崖,残骸坠入崖底浓雾" loading="lazy"><figcaption>裸考悬崖:崖顶灯火通明,崖底浓雾里是五家挂零的残骸。</figcaption></figure>
+<p>再发一个计算器工具,同题重考:<b>七家直接 16/16 满分</b>……几乎全员通关。<b>但 DeepSeek 拿着计算器只考了 6/16</b>——工具在手,不会使。</p>
+<figure class="art"><img src="img/calc/b4.jpg" alt="发光的巨型计算器神庙悬在谷上,朝圣队伍沿火把石板路前行" loading="lazy"><figcaption>计算器神庙:神器当空,朝圣者几乎人人满分——几乎。</figcaption></figure>
+<p>于是两枚章落墙(<a href="https://labless.me/consensus-wall.html" style="color:var(--cyan)">共识墙</a>有案可查):<br>
+<span class="stamp no">伪共识</span>"给了计算器,模型就能拿满分"——DeepSeek 当庭现形<br>
+<span class="stamp mid">松动中</span>"裸模型做不对多位数四则"——豆包 14/16、Sonnet 12/16 把绝对句撬松了</p>
+<p class="big"><b>上半案结案。这就是本馆的开奖:有数据、有章、有翻案入口。</b></p>
+
+<h2><span class="no">03</span>下半案:换一张填表题,剧情反转</h2>
+<p>新题型:从合同文件里把数字找出来,填进表格(20 题)。同样的模型,同样发工具:</p>
+<table>
+<thead><tr><th>模型</th><th>裸考</th><th>挂工具</th><th>工具的作用</th></tr></thead>
+<tbody>
+<tr><td>Claude Sonnet 4.6</td><td class="ok">20/20</td><td class="ok">20/20</td><td>根本不需要</td></tr>
+<tr><td>豆包 Seed 1.6</td><td class="ok">19/20</td><td class="ok">20/20</td><td>锦上添花</td></tr>
+<tr><td>Claude Haiku 4.5</td><td class="mid">17/20</td><td class="ok">20/20</td><td>真救了它</td></tr>
+<tr><td>Gemini Flash-Lite</td><td class="mid">14/20</td><td class="bad">10/20</td><td><b>倒挂:害它丢了 4 分</b></td></tr>
+</tbody></table>
+<p class="big">同一副装备,在算术题里近乎万灵,在填表题里能把人拖下水。<b>工具不是解药,是双刃。</b>(下半案单次跑,按馆规不开奖。)</p>
+<figure class="art"><img src="img/calc/b5.jpg" alt="高耸档案塔内部,纸页如瀑布垂落,塔底小队仰望" loading="lazy"><figcaption>填表塔:纸页如瀑——在这座塔里,神器不一定灵。</figcaption></figure>
+
+<h2><span class="no">04</span>真正的悬案:工具,什么时候是解药,什么时候是税?</h2>
+<p class="big">装备本身还有重量:我们称过市面上的设计技能包——<b>最重的一只,光说明书全集就 25 万字(token),是最轻的(1,328 字)的 189 倍</b>。全要塞进模型脑子里,按字收费。</p>
+<p>开挂还是交税,看来不取决于装备,取决于题。<b>边界在哪,至今没人画过</b>——这就是下半案悬着的问题。</p>
+<figure class="art"><img src="img/calc/b8.jpg" alt="云雾之上的浮岛,矗立一座巨型天平" loading="lazy"><figcaption>解药还是税?一座悬在雾上的巨秤——边界至今没人画过。</figcaption></figure>
+
+
+<h2><span class="no">05</span>两派陈词</h2>
+<div class="sides">
+  <div class="side y"><h3>工具派</h3>
+    <p>"五家挂零的模型,发个计算器全满分——这还不叫解药?个别翻车是装备不熟,练练就好。"</p></div>
+  <div class="side n"><h3>税务派</h3>
+    <p>"填表题摆着呢:工具一挂反而掉分。说明书 25 万字也是钱。装备先收税,生效看运气。"</p></div>
+</div>
+<p style="font:12px var(--mono);color:#55585f">(两派均为论点归纳;上半案有章,下半案待多遍重跑。)</p>
+<figure class="art"><img src="img/calc/b6.jpg" alt="夜色峡谷两岸各一座营地,篝火对峙" loading="lazy"><figcaption>工具派与税务派,隔谷扎营,夜火对峙。</figcaption></figure>
+
+<h2><span class="no">06</span>我们的秤</h2>
+<div class="scale">
+  <p><b>① 同题同模型,挂/不挂工具,各跑多遍全报</b>——倒挂是真现象还是单次抽卡,跑了才算。</p>
+  <p><b>② 按题型分桶</b>:算术、填表、写作——解药/税的边界,一桶一桶画。</p>
+  <p><b>③ 工具税算明账</b>:多烧多少字、多花多少钱、分数动了几分——三个数并排上墙。</p>
+</div>
+<figure class="art"><img src="img/calc/b7.jpg" alt="山谷里的铸造工坊,炉火居中,旌旗环绕" loading="lazy"><figcaption>铸秤工坊:逐题、逐遍、逐分钱,炉火不熄。</figcaption></figure>
+
+<h2><span class="no">07</span>正悬</h2>
+<p class="big">全量批会把每一桶的边界画出来——装备是解药还是税,届时一桶一桶揭。同一副装备救过 Haiku、坑过 Flash-Lite,这条边界画出来那天,整个 agent 圈的装备清单都得重写。</p>
+<figure class="art"><img src="img/calc/b9.jpg" alt="林间空地俯瞰,小小人群围着篝火赌桌" loading="lazy"><figcaption>篝火边的长夜——故事先讲到这里,秤已经在炉上了。</figcaption></figure>
+
+<div class="next">← <a href="case-01.html">第一期:渔村悬案</a> ｜ <a href="case-02.html">第二期:AI 小镇四天全灭之谜</a><br>排队中:没人看着的时候,AI 会作弊吗?</div>
+
+<div class="foot">共识是跑出来的,不是聊出来的 ｜ 数据源:arena.json(算术擂台)+ tablefill_first_run.log(填表)+ og005-context-tax.json(蓝耗表) ｜ 章与翻案入口见共识墙 ｜ 共识实验室 · labless.me</div>
+</body></html>

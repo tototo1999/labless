@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>悬案馆 · 第一期:渔村悬案 · 共识实验室 labless.me</title>
+<style>
+ :root{--asphalt:#0a0a0c;--bone:#ece5d4;--bone-dim:#cbc3b0;--gold:#f4c542;--blood:#e2342f;
+   --cyan:#2de2e6;--green:#5ff0b0;--line:#2a2c34;--line-soft:#3a3c44;--concrete:#1c1d22;
+   --concrete-2:#15161b;--mono:ui-monospace,"SFMono-Regular",Menlo,monospace}
+ *{box-sizing:border-box}
+ html,body{overflow-x:clip}
+ body{background:var(--asphalt);color:var(--bone);font:15.5px/1.85 -apple-system,system-ui,sans-serif;
+   max-width:720px;margin:0 auto;padding:46px 24px}
+ .eyebrow{font:700 11px var(--mono);letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+ h1{font-size:27px;margin:10px 0 4px;line-height:1.4}
+ .lede{color:var(--bone-dim);font-size:15px;margin:6px 0 0}
+ .lede b{color:var(--bone)}
+ .st{display:inline-block;font:800 11px var(--mono);letter-spacing:.1em;border:2px solid var(--green);
+   color:var(--green);border-radius:6px;padding:3px 10px;transform:rotate(-1.5deg);margin:14px 0 0}
+ h2{font-size:16px;margin:42px 0 10px;color:var(--gold);font-weight:800}
+ h2 .no{font:800 12px var(--mono);color:#55585f;margin-right:8px}
+ p{margin:10px 0}
+ p b{color:var(--bone)}
+ .big{font-size:17px;line-height:1.8}
+ .quoteblock{border-left:3px solid var(--blood);padding:10px 18px;margin:16px 0;
+   background:var(--concrete-2);border-radius:0 10px 10px 0;font-size:15px}
+ .quoteblock .src{font:11px var(--mono);color:var(--bone-dim);margin-top:6px}
+ .sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+ @media(max-width:560px){.sides{grid-template-columns:1fr}}
+ .side{border:1px solid var(--line-soft);border-radius:12px;padding:16px 18px;background:var(--concrete-2)}
+ .side h3{margin:0 0 8px;font-size:14px} .side.y h3{color:var(--green)} .side.n h3{color:#ff6b66}
+ .side p{font-size:13.5px;color:var(--bone-dim);margin:6px 0}
+ .scale{border:1px solid var(--line-soft);border-left:4px solid var(--cyan);border-radius:12px;
+   padding:16px 20px;margin:14px 0;background:var(--concrete-2)}
+ .scale b{color:var(--cyan)} .scale p{font-size:14px;color:var(--bone-dim);margin:6px 0}
+ .progress{border:1px solid var(--line-soft);border-left:4px solid var(--green);border-radius:12px;
+   padding:16px 20px;margin:14px 0;background:var(--concrete-2);font-size:14.5px}
+ .progress a{color:var(--cyan)}
+ .bet{margin:26px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+ .bet a{font:700 13px var(--mono);text-decoration:none;border:1.5px solid;border-radius:10px;padding:10px 20px}
+ .bet a.yes{color:var(--green);border-color:rgba(95,240,176,.45)}
+ .bet a.no{color:#ff6b66;border-color:rgba(226,52,47,.45)}
+ .bet .note{font:11px var(--mono);color:#55585f}
+ .next{margin-top:46px;border-top:1px dashed var(--line-soft);padding-top:14px;
+   font:12.5px var(--mono);color:#7e818b;line-height:2}
+ .foot{margin-top:30px;border-top:1px solid var(--line);padding-top:12px;font:12px var(--mono);
+   color:#7e818b;line-height:1.8}
+ figure.art{margin:18px 0;border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;background:#000}
+ figure.art img{display:block;width:100%;height:auto;max-height:430px;object-fit:cover}
+ figure.art.tall img{max-height:560px}
+ figure.art figcaption{font:11px var(--mono);color:#55585f;padding:8px 14px;border-top:1px solid var(--line)}
+</style></head><body>
+
+<div class="eyebrow">共识实验室 · 悬案馆 · 第一期</div>
+<h1>"AI 守不住公共资源。"<br>——真的吗?</h1>
+<p class="lede">一期只审一案。本案暂不开奖——<b>悬案最好看的时候,就是悬而未决的时候。</b></p>
+<span class="st">状态:过秤中 · 初读已现</span>
+
+<figure class="art tall"><img src="img/yucun/s1.jpg" alt="月下渔村码头,五个渔民剪影立于船头"><figcaption>案发现场:月下渔村。五个 AI 渔民,一个有限的鱼塘。(插画:Gamma AI,下同)</figcaption></figure>
+
+<h2><span class="no">01</span>这条流言是怎么封神的</h2>
+<p class="big">2024 年,NeurIPS(AI 顶会)上一篇论文做了个狠实验:让 5 个 AI 共享一个鱼塘,每月各自决定捕多少,没人强制。塘有再生极限——大家克制,年年有鱼;有人贪,塘崩全完。</p>
+<div class="quoteblock">45 次实验,<b>43 次把塘捞崩</b>,只有 2 次撑满全年。<div class="src">—— GovSim(NeurIPS 2024)。"AI 重演公地悲剧"自此成为圈内共识,引用无数。</div></div>
+<p>从那以后,"AI 管不住共享资源"成了默认设定:讲 AI 风险的引用它,讲多 agent 系统的引用它。<b>但很少有人注意:那是 2024 年的模型考出来的成绩。</b></p>
+<figure class="art"><img src="img/yucun/s3.jpg" alt="空渔网沉在浑浊水面,雾中村庄衰败" loading="lazy"><figcaption>45 跑,43 次塘崩——沉底的网,是那场实验的注脚。</figcaption></figure>
+
+<h2><span class="no">02</span>赌注:为什么这案值得审</h2>
+<p class="big">所有"AI 当管家"的想象——管预算、管库存、管排班、管电网——都踩在同一块地基上:<b>几个 AI 共享一个有限资源时,它们守不守得住规矩?</b></p>
+<p>如果守不住,上面的一切免谈;如果如今守得住了,那 2024 年的定论就是一张过期地图——而整个行业还在按过期地图开车。</p>
+<figure class="art"><img src="img/yucun/s4.jpg" alt="码头桌上摊着一张盖了章的泛黄旧地图" loading="lazy"><figcaption>一张盖过章的旧地图——还能照着它开船吗?</figcaption></figure>
+
+<h2><span class="no">03</span>两派陈词</h2>
+<div class="sides">
+  <div class="side y"><h3>信(守不住派)</h3>
+    <p>"顶会论文 43/45 摆在那,这不是观点,是数据。"</p>
+    <p>"AI 本质是逐利优化器,贪是它的天性,演都演不久。"</p></div>
+  <div class="side n"><h3>不信(守得住派)</h3>
+    <p>"那是两年前的模型。2026 的模型连奥数都拿金牌了,算不出一个鱼塘的可持续上限?"</p>
+    <p>"现在的模型被专门训练过合作与无害,公地悲剧恰好是它们的主场。"</p></div>
+</div>
+<p style="font:12px var(--mono);color:#55585f">(两派均为论点归纳,不是实验数据——数据见第 05 节卷宗。)</p>
+<figure class="art"><img src="img/yucun/s2.jpg" alt="雾中两岸渔民隔水相对垂钓" loading="lazy"><figcaption>隔水相望:两派各执一词,等实验开口。</figcaption></figure>
+
+<h2><span class="no">04</span>我们的秤怎么造</h2>
+<div class="scale">
+  <p><b>① 多遍全报。</b>同一个村,每家模型跑多遍,跑几次报几次——原论文有个被我们抓住的把柄:疑似跑了多次、只发"有代表性的一次"。我们反着来,全部底牌上桌。</p>
+  <p><b>② 改题防背书。</b>这套渔村题公开两年,模型可能背过答案。我们改塘容、改人数,让正确答案不再是原题的数——真会算的照样满分,背书的当场现形。</p>
+  <p><b>③ 嘴手两本账。</b>会上承诺几吨、实际捞几吨,是两条独立日志。说 10 捞 15 = 作弊,人赃并获,不靠主观打分。</p>
+</div>
+<figure class="art"><img src="img/yucun/s6.jpg" alt="灯下证据板,线绳连着照片与笔录,窗外是渔民" loading="lazy"><figcaption>查案三件套已挂上证据板:多遍全报 · 改题防背书 · 嘴手两本账。</figcaption></figure>
+
+<h2><span class="no">05</span>案情进展(初步卷宗)</h2>
+<figure class="art"><img src="img/yucun/s7.jpg" alt="桌上摊开的案卷,窗外渔民身影" loading="lazy"><figcaption>初步卷宗已开:窗外,四家模型的渔民还在湖上。</figcaption></figure>
+<div class="progress">今天点了一炉试火($4.12):2026 年四家模型(Claude/GPT/Gemini/DeepSeek)各进村一次。<b>初读与 2024 年定论相反</b>——四家全程精确维持可持续捕捞,Gemini 满 12 个月塘没崩,村民日记里写着"我们把公地悲剧改造成了永动机"。<br><br>📂 <a href="govsim-demo.html">完整战况实录:逐月水位图 + 村民日记原文 + 一个跑题彩蛋 →</a><br><br>但:每家只跑了一次。按本馆自己盖过章的规矩(单次跑分不可信),<b>一次说了不算,不开奖。正悬。</b></div>
+
+<h2><span class="no">06</span>正悬</h2>
+<p class="big">四家初读都守住了塘——但一次不算数。秤已经造好:2024 年的定论和 2026 年的初读,总有一个要让位。开奖那天,墙上见。</p>
+<figure class="art"><img src="img/yucun/s9.jpg" alt="一人独坐灯下长桌,沉思" loading="lazy"><figcaption>灯下长考——这案,值得再坐一会儿。</figcaption></figure>
+
+<figure class="art"><img src="img/yucun/s10.jpg" alt="黎明雾河,渔民提灯立于两岸" loading="lazy"><figcaption>天快亮了。下一案的渔民,已经提灯到岸。</figcaption></figure>
+<div class="next">第二期已开庭:<a href="case-02.html" style="color:var(--cyan)">AI 小镇,四天全灭之谜 →</a><br>排队中:没人看着的时候,AI 会作弊吗?(渔村全量批的免费副产品)</div>
+
+<div class="foot">共识是跑出来的,不是聊出来的 ｜ 测法先于结果公开(=预注册) ｜ 数据源与真伪抽查:docs/govsim-冒烟收卷报告-2026-06-11.md ｜ 共识实验室 · labless.me</div>
+</body></html>
