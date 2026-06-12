@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>我们在测什么 · 三柱 · 共识实验室</title>
+<title>我们在测什么 · 四柱 · 共识实验室</title>
 <style>
  :root{--paper:#faf8f2;--ink:#0e0e0e;--accent:#da4e65;--muted:#5c5a54;--line:#e5e5e0;--card:#fff;
    --ok:#1a7f4e;--cyan:#1f8a99;--gold:#b8860b;--mono:"JetBrains Mono",ui-monospace,monospace}
@@ -37,6 +37,22 @@
  .pole li::before{content:"?";position:absolute;left:2px;color:var(--accent);font:700 12px var(--mono)}
  .pole li small{display:block;color:var(--muted);font-size:12px;padding-left:0;margin-top:2px}
  .foot{margin-top:30px;border-top:1px solid var(--line);padding-top:14px;font:12px var(--mono);color:var(--muted);line-height:1.9}
+
+ .wreck{margin:14px 0 26px}
+ .wreck-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:8px;margin:46px 0 6px}
+ .wreck-h .no{font:800 21px var(--mono);color:var(--accent)}
+ .wreck-h .nm{font:300 24px inherit;letter-spacing:.03em}
+ .wreck-h .tl{font:13px var(--mono);color:var(--muted);margin-left:auto}
+ .wreck-lead{color:var(--muted);font-size:13.5px;line-height:1.8;margin:12px 0 24px;max-width:780px}
+ .wgrp{margin:0 0 22px}
+ .wgrp h4{font:700 13px var(--mono);color:var(--accent);letter-spacing:.04em;margin:0 0 4px}
+ .wgrp h4 i{color:var(--muted);font-style:normal;font-weight:400}
+ .wlist{margin:0;padding:0;list-style:none}
+ .wlist li{font-size:13px;color:var(--ink);padding:9px 0;border-top:1px dashed var(--line);line-height:1.62}
+ .wlist li:first-child{border-top:none}
+ .wlist b{font-weight:700}
+ .wlist .ol{color:var(--muted)}
+ .wlist .src{display:block;font:11px var(--mono);color:var(--cyan);margin-top:3px;opacity:.9}
 </style></head><body>
 
 <div class="navbar"><a class="brand" href="lab-1781228661.html" style="text-decoration:none;color:inherit"><span class="word">lab<img class="gfig" alt="" src="data:image/png;base64,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">ess.io</span></a></div>
@@ -92,6 +108,95 @@
         <li>100 万上下文够不够?哪个模型记性最好、它们怎么记的?</li>
       </ul></div></div>
   </div>
+</div>
+
+
+<!-- ④ -->
+<div class="pillar">
+  <div class="ph"><span class="no">④</span><span class="nm">有用还是有趣?</span><span class="tl">真上得了场 · 看着唬人</span></div>
+  <div class="pair">
+    <div class="pole"><div class="cv"><img src="img/agenda3/p4a.jpg" alt="有用"><span class="lab">有用 · 真上得了场</span></div>
+      <div class="bd"><ul>
+        <li>一个 AI 助手,到底要扛住什么,才配叫「真上得了场」?<small>不是 demo 跑通就行——要经得起人工复核、对得上真实台账、错了能被抓住。</small></li>
+        <li>把 AI 塞进专业流程,是真省了人,还是只把翻车风险换个地方藏?</li>
+      </ul></div></div>
+    <div class="pole"><div class="cv"><img src="img/agenda3/p4b.jpg" alt="有趣"><span class="lab">有趣 · 看着唬人</span></div>
+      <div class="bd"><ul>
+        <li>AI 一本正经编出处、编政策、编判例,格式完美、细节齐全——你怎么知道它在唬你?<small>连 Anthropic 自家律所都被 Claude 编的引用坑了:链接卷期页码全对、标题作者却是编的,法官当庭划掉。</small></li>
+        <li>看着能干活、一上真场就闯祸——AI 替了人之后,谁来兜这个底?<small>下面 39 桩真实翻车,挑你认识的行业看。</small></li>
+      </ul></div></div>
+  </div>
+</div>
+
+<div class="wreck">
+  <div class="wreck-h"><span class="no">卷</span><span class="nm">翻车卷宗</span><span class="tl">39 桩 · 逐条复核 · 附公开来源</span></div>
+  <p class="wreck-lead">已逐条对抗复核、附公开来源的真实案例——AI 落地后「看似有用、其实没用」甚至帮倒忙的现场。多数是效果翻车,也有少数是数据/伦理争议(如 nference×Mayo 一例,属知情同意争议、非效果事故,已如实标注)。哪一柱单独接不住的,都先归这里。</p>
+  <div class="wgrp"><h4>法律 · 律师与法庭 <i>· 4</i></h4>
+    <ul class="wlist">
+      <li><b>Anthropic自家律师被Claude编引用坑</b><span class="ol"> 连 Anthropic 自己的顶级律所都翻车:律师用 Claude 套引注格式,链接卷期页码全对,标题作者却是编的,人工复核没抓到,法官当庭直接划掉。</span><span class="src">The Register / Fortune / Music Business Worldwide · 2025-05</span></li>
+      <li><b>律师引6个假判例被罚</b><span class="ol"> 纽约一位执业30多年的老律师让ChatGPT帮他查判例,引了6个权威先例进法庭文书——结果6个全是AI现编的,连卷号页码都编得有模有样,法官一查全不存在,罚款5000刀外加挨个给被冒名的法官写信道歉。</span><span class="src">CNN Business / FindLaw · 2023-06</span></li>
+      <li><b>Michael Cohen用Bard编假判例</b><span class="ol"> 特朗普前律师 Cohen 把 Google Bard 当「超级搜索引擎」,让它「检索」判例,结果 AI 凭空编了几个假案——他原样转给律师,律师没核实就写进了递交联邦法院的动议,法官一查:这些案子一个都不存在。</span><span class="src">The Washington Post / Axios / NBC News · 2023-12</span></li>
+      <li><b>MyPillow律师AI书状近30处错引被罚</b><span class="ol"> MyPillow老板的律师让AI代写诉状,近30处引注不是假判例就是曲解先例,法官当庭追问才招认用了AI——还嘴硬甩锅说「误传了草稿」,结果连律师带同事各被罚3000美元。</span><span class="src">ABA Journal / Colorado Sun / The Hill · 2025-07</span></li>
+    </ul></div>
+  <div class="wgrp"><h4>客服 · 企业部署 <i>· 4</i></h4>
+    <ul class="wlist">
+      <li><b>加航客服AI编退票政策被判担责</b><span class="ol"> 加航官网AI客服张口就编了条「丧亲票能先买后退」的退票政策,顾客照做被拒,告上仲裁庭——加航辩称「机器人是独立法律实体不归我管」被法官当场怼回,判赔812加元。</span><span class="src">CBC News · 2024-02</span></li>
+      <li><b>DPD客服AI爆粗口写诗骂自家公司</b><span class="ol"> 英国快递 DPD 的 AI 客服被一个查不到包裹的钢琴家三两句话「策反」:不光爆粗口,还现场作诗自嘲「没用」,张口就骂自家是「世界上最烂的快递公司」、劝客户别用——截图发上网破百万浏览,DPD 当天紧急关停。</span><span class="src">TIME · 2024-01</span></li>
+      <li><b>Cursor客服AI编出登录政策逼退订户</b><span class="ol"> 用户被莫名踢下线,找客服理论,客服「Sam」一本正经回信说「一个订阅只能登一台设备是核心安全策略」——结果Cursor根本没这政策,纯属AI张口就编,帖子传遍Hacker News后用户直接退订,联合创始人公开道歉:我们压根没这规矩。</span><span class="src">Fortune · 2025-04</span></li>
+      <li><b>维珍理财AI把自家名「Virgin」当脏话训客户</b><span class="ol"> 维珍理财的AI客服一看见「virgin」就开骂客户「别说这种脏话」——结果那是它自己公司的名字,客户只是想合并两个账户。</span><span class="src">Fortune · 2025-01</span></li>
+    </ul></div>
+  <div class="wgrp"><h4>医疗 · 健康 <i>· 7</i></h4>
+    <ul class="wlist">
+      <li><b>饮食障碍热线AI给减肥建议被撤</b><span class="ol"> 饮食障碍求助热线裁掉真人、上线AI机器人Tessa,结果它张口就教求助者每周减1到2磅、每天热量缺口500到1000卡、买卡尺量体脂——专戳这群人的病;协会先在评论区甩一句纯属造谣,被晒出截图后秒删评论,机器人当天无限期下线。</span><span class="src">NPR · 2023-06</span></li>
+      <li><b>nference × Mayo Clinic 患者数据合作的知情同意争议</b><span class="ol"> 你的心电图、病历正在帮AI公司赚钱——梅奥诊所把去标识化患者数据授权给16家公司挖金矿,可没一个病人被问过同意,数据还「安全地」躺在梅奥云里。</span><span class="src">STAT News · 2020-06</span></li>
+      <li><b>IBM Watson for Oncology:给出'不安全、不正确'的癌症治疗建议</b><span class="ol"> 花6200万、对全球医院吹成"抗癌超级电脑"的IBM Watson,内部幻灯片自曝给出"不安全、不正确"的治疗建议,佛州一医生当面骂"这产品是坨屎"——真相是它只学了几个专家编出来的假病例,连医院的病历系统都接不上。</span><span class="src">STAT News · 2018-07</span></li>
+      <li><b>Epic脓毒症预测模型:实际表现远低于宣传,漏报误报双高</b><span class="ol"> 这套装进全美数百家医院电子病历、号称能提前揪出致命脓毒症的 AI,被密歇根大学一查:三分之二真患者全漏掉,还满屏假警报——宣传 AUC 0.76 起,真身只有 0.63。</span><span class="src">JAMA Internal Medicine · 2021-06</span></li>
+      <li><b>Babylon Health:AI分诊问诊被批不安全,2023年崩盘进入清算</b><span class="ol"> 号称「问诊媲美医生、惊艳政客」的英国AI神医App,被肿瘤科医生抓包漏判心脏病、把脚趾甲内生当痛风,挨批不去修反而扬言起诉批评者和监管机构——结果2023年9月直接崩盘破产,曾值几十亿美元,最后只卖了50万英镑。</span><span class="src">The Week / Sifted · 2023-09</span></li>
+      <li><b>NEDA 'Tessa'饮食失调聊天机器人:给出有害减肥建议被下线</b><span class="ol"> 饮食失调求助热线把要工会化的人工接线员全裁了、换上 AI 机器人 Tessa,结果它张口就教饮食失调患者每天饿掉 1000 卡、买卡钳量体脂,上线没几天就被维权者截图曝光,紧急拔线。</span><span class="src">NPR / CBS News · 2023-05</span></li>
+      <li><b>Optum医疗风险算法对黑人患者种族偏见</b><span class="ol"> 一套美国上亿人在用的医疗算法,拿"你以前花了多少医药费"当"你病得多重",结果黑人因为历史上看病花得少,被它当成"更健康"——同样病重却更难被挑进重点照护;《Science》一纠偏,该获额外照护的黑人比例从 17.7% 直接跳到 46.5%。</span><span class="src">Science / Obermeyer et al. · 2019-10</span></li>
+    </ul></div>
+  <div class="wgrp"><h4>保险 · 理赔算法 <i>· 3</i></h4>
+    <ul class="wlist">
+      <li><b>UnitedHealth 'nH Predict'算法:批量拒付医保后续护理,90%被推翻仍照拒</b><span class="ol"> 一套被自家承认90%拒付都会在申诉中被推翻的AI,UnitedHealth照样拿它批量切断老人康复护理——91岁老人自掏15万美元续命到去世,如今吃上联邦集体诉讼。</span><span class="src">STAT News · 2023-11</span></li>
+      <li><b>Cigna PxDx 算法批量拒赔(医生不看病历)</b><span class="ol"> 美国健康险巨头 Cigna 让算法把"诊断对不对得上治疗"批量挑出来,旗下医生连病历都不点开,平均 1.2 秒签一笔拒赔——两个月否掉 30 多万笔,一个医生一个月驳了 6 万笔,被 ProPublica 扒出后吃了集体诉讼。</span><span class="src">ProPublica · 2023-03</span></li>
+      <li><b>Lemonade 吹嘘 AI 读理赔视频「非语言线索」识别欺诈后撤回</b><span class="ol"> 保险公司 Lemonade 发推炫耀「AI 看你答 13 个问题的视频、抓 1600 个数据点和非语言线索就能识破骗保」,被普林斯顿教授当场打成「AI 蛇油」——这本质是给一个人的脸打测谎仪、对口音肤色表情不同的人天然带歧视,公司连夜删帖认怂、改口说只用来防同一人冒名重复索赔。</span><span class="src">The Register · 2021-05</span></li>
+    </ul></div>
+  <div class="wgrp"><h4>教育 · 校园 <i>· 6</i></h4>
+    <ul class="wlist">
+      <li><b>洛杉矶联合学区6百万美元AI助手「Ed」上线3个月崩盘</b><span class="ol"> 全美第二大学区花600万请人做了个会叫学生起床的AI助手「Ed」,3月剪彩6月就拉闸——承包商资金链断了集体跑路,300万打了水漂,如今FBI都搜到总监家里去了。</span><span class="src">EdSurge · 2024-07</span></li>
+      <li><b>「Ed」承包商AllHere被举报把学生数据放境外服务器、处理不当</b><span class="ol"> 洛杉矶学区花 620 万美元搞的明星 AI 助手「Ed」,号称为学生赋能又安全合规,结果前高管举报:学生隐私被塞进每一条对话、还被发到七国境外服务器处理——公司随后崩盘,CEO 被控证券欺诈,数据去哪儿了至今没人说得清。</span><span class="src">The 74 · 2024-09</span></li>
+      <li><b>Vanderbilt大学因误判风险关停Turnitin的AI检测器</b><span class="ol"> 名校算了笔账:Turnitin吹的1%误报率,放到自家7.5万篇作业上就是750个学生被冤枉——范德堡干脆把这个抓AI作弊的工具关了,还公开说它压根不靠谱。</span><span class="src">Vanderbilt University (Brightspace 官方) · 2023-08</span></li>
+      <li><b>AI检测器对非英语母语学生误报率高达61%(斯坦福研究)</b><span class="ol"> 斯坦福实测7款主流AI检测器(GPTZero也在内):非母语学生写的TOEFL真人作文,平均六成被当成"AI代写",而美国本土学生几乎零误判——号称维护学术诚信的工具,正在系统性冤枉留学生。</span><span class="src">University of San Diego Legal Research Center (引斯坦福研究) · 2023-07</span></li>
+      <li><b>耶鲁因GPTZero误判疑似冤枉学生、被起诉(停学一年)</b><span class="ol"> 耶鲁靠AI检测器GPTZero把一个法国学生当作弊处理停学一年,结果人家反手用同一个工具扫了前校长30年前的论文,也被判成100%是AI,这官司现在还在打。</span><span class="src">Poets&amp;Quants / Yale Daily News · 2025-05</span></li>
+      <li><b>英国A-Level成绩算法误判被迫U-turn</b><span class="ol"> 2020年疫情停考,英国用一个看历史的算法替学生"算"高考分,结果近40%被压低、穷学校优等生集体降档、名校反被抬高——学生上街喊"去他的算法",政府硬扛4天后U-turn改回教师评分,首相甩锅"变异算法",监管一把手走人。</span><span class="src">Wikipedia / MIT Technology Review · 2020-08</span></li>
+    </ul></div>
+  <div class="wgrp"><h4>招聘 · HR <i>· 4</i></h4>
+    <ul class="wlist">
+      <li><b>iTutorGroup招聘AI自动刷掉大龄求职者、EEOC和解赔36.5万</b><span class="ol"> 求职软件被设了条潜规则:女的过55、男的过60,系统自动一键拒——200多人就这么被刷掉,直到有人用同一份简历只改了生日,填年轻点立马收到面试,当场实锤年龄歧视,iTutorGroup赔了36.5万,成了EEOC第一个AI招聘歧视和解案。</span><span class="src">U.S. EEOC (官方新闻稿) · 2023-09</span></li>
+      <li><b>亚马逊招聘AI歧视女性被废弃</b><span class="ol"> 亚马逊砸钱让AI自动筛简历,结果AI从十年老简历里学歪了:专挑男的、看到"女子"俩字就扣分,改了关键词也压不住,2017年只能整个砍掉——这就是"把历史偏见自动化"的全球反面教材。</span><span class="src">Reuters · 2018-10</span></li>
+      <li><b>HireVue停用面部表情分析招聘AI</b><span class="ol"> 号称能从你面试时的微表情看出能不能干活, HireVue这套招聘AI火了好几年, 结果被审计一查, 面部分析对预测的贡献只有0.25%, 顶着偏见质疑悄悄下线, CEO一句不值这点钱收场。</span><span class="src">Fortune · 2021-01</span></li>
+      <li><b>Workday招聘筛选AI被诉歧视(集体诉讼)</b><span class="ol"> 一个黑人大叔投了上百份工作回回被拒,把招聘软件 Workday 告上法庭——法院一句"AI 厂商也能算雇主的'代理人'担责"直接捅破了"我只是个中立工具"的挡箭牌,如今滚成可能涉及数亿求职者的集体诉讼。</span><span class="src">U.S. District Court (N.D. Cal.) / Seyfarth Shaw analysis · 2024-07</span></li>
+    </ul></div>
+  <div class="wgrp"><h4>政府 · 公共服务 <i>· 4</i></h4>
+    <ul class="wlist">
+      <li><b>纽约市政AI教企业违法克扣小费</b><span class="ol"> 纽约市政府花钱上线的官方AI,张口就教老板昧员工小费、房东赶补贴租客、还能炒举报人——一本正经地把违法当合规建议讲,市长承认出错却死不下线。</span><span class="src">The Markup · 2024-03</span></li>
+      <li><b>荷兰儿童福利金算法错判数千家庭欺诈(致内阁倒台)</b><span class="ol"> 荷兰想用「会自学」的算法揪福利欺诈,结果把「外国国籍/双重国籍」直接当成欺诈嫌疑,几万个移民背景家庭被冤成骗子、追债到破产,孩子被带离——最后整届内阁引咎辞职,成了算法治理的头号翻车案。</span><span class="src">Wikipedia / Lighthouse Reports / Amnesty · 2021-01</span></li>
+      <li><b>澳大利亚Robodebt自动追债违法</b><span class="ol"> 澳洲政府想靠一套"年均收入"算法自动追回多领的福利、省下稽核人力,结果几乎不用人复核,凭空给47万人造出错误欠款、把举证责任甩给个人,逼出债务和精神崩溃甚至牵连自杀——最后被联邦法院判违法、赔了18.72亿澳元,皇家委员会定性"公共行政重大失败",二次诉讼又赔4.75亿。</span><span class="src">Wikipedia / Royal Commission / RNZ · 2023-07</span></li>
+      <li><b>美国密歇根MiDAS失业金欺诈算法误判3.4万人</b><span class="ol"> 密歇根上了套算法自动抓失业金骗保,没人复核就直接定罪,结果4万案子里8成5是冤的——3万多人被扣工资、扣退税、罚到400%,逼到破产止赎,9年官司打到2024年初才赔出2000万。</span><span class="src">IEEE Spectrum / Michigan AG (官方) · 2022-10</span></li>
+    </ul></div>
+  <div class="wgrp"><h4>媒体 · 内容与搜索 <i>· 5</i></h4>
+    <ul class="wlist">
+      <li><b>CNET用AI写理财文过半被更正</b><span class="ol"> CNET偷偷让AI写了77篇理财科普,结果连「存1万、3%利率」都算成赚1万整——一查41篇要返工更正,AI写稿工具当场停用。</span><span class="src">The Washington Post / CNN Business / Gizmodo · 2023-01</span></li>
+      <li><b>体育画报AI假记者配AI假头像</b><span class="ol"> 《体育画报》被扒出一群「记者」根本不是人:名字是编的,头像是AI头像网站上能买的现货,稿子疑似AI批量生产——丑闻一爆,假作者连夜消失、CEO在内的四名高管两周内被扫地出门。</span><span class="src">Futurism / CNN Business / NBC News · 2023-11</span></li>
+      <li><b>甘尼特高中体育AI报道出洋相</b><span class="ol"> 美国最大报业集团让AI写高中球赛战报，结果"[[获胜队吉祥物]]"这种占位符直接登报，被全网当机器人笑话围观，老板连夜叫停。</span><span class="src">CNN Business / The Washington Post · 2023-08</span></li>
+      <li><b>微软MSN AI攻略把食物银行当景点</b><span class="ol"> 微软MSN的AI旅游攻略把"渥太华食物银行"(救济穷人的慈善机构)列进必去清单第3名,还贴心建议你"空着肚子去打卡"——被全网嘲讽后悄悄删稿,微软甩锅"人为错误"还嘴硬说"这不是无监管的AI"。</span><span class="src">CBC News / CBS News / Fast Company · 2023-08</span></li>
+      <li><b>谷歌AI摘要教人披萨抹胶水吃石头</b><span class="ol"> 谷歌搜索新上的AI摘要,一本正经教你往披萨酱里"拌1/8杯无毒胶水"防奶酪滑落——源头竟是11年前一个网友的玩笑帖;还劝人"每天吃块石头",照搬了讽刺媒体《洋葱报》。AI不分真假,只认谁声量大。</span><span class="src">The Conversation / Fortune / The Verge · 2024-05</span></li>
+    </ul></div>
+  <div class="wgrp"><h4>其它行业 <i>· 2</i></h4>
+    <ul class="wlist">
+      <li><b>Zillow房价算法误估巨亏关停iBuying</b><span class="ol"> Zillow 让自家算法当"炒房操盘手",疫情后房价一乱,模型估高了价、上万套房高买低卖——一笔3亿美元减值、总损失超5亿、25%员工(约2000人)被裁,直接把房产巨头的 iBuying 业务玩关停了。</span><span class="src">Zillow Group SEC 8-K / CNBC · 2021-11</span></li>
+      <li><b>特斯拉Autopilot缺陷召回200万辆</b><span class="ol"> 号称"解放双手更安全",结果美国监管两年查出Autopilot盯不住走神司机、关联467起碰撞14条人命——特斯拉一口气召回200万辆,史上最大,可OTA补丁打完监管还在查它到底管不管用。</span><span class="src">NPR / NHTSA · 2023-12</span></li>
+    </ul></div>
 </div>
 
 <div class="foot" style="text-align:left">共识实验室 · labless.io</div>
