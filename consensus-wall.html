@@ -64,82 +64,82 @@
   <p>Gemini Flash-Lite 裸考 14/20,发了计算器反而 10/20——7 题用完工具忘交卷,3 题拿着工具还心算错。工具不是给谁都加分。</p>
   <div class="meta">证据:<a href="og003-versus.html">OG-003 卷宗</a> · <a href="answers_table_fill.html">标准答案</a> ｜ 样本:4 模型×双臂×20 题</div>
   <div class="repro">$ python lab.py versus --case table_fill</div>
-  <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.me/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW1">跑出反证贴这里 →</a></div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.io/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW1">跑出反证贴这里 →</a></div>
 </div><div class="card">
   <div class="row1"><span class="stamp s-mid">松动中</span><span class="lvl">实验章</span></div>
   <h3>“裸模型做不对多位数四则运算”</h3>
   <p>7/10 模型确实不行(Llama 裸跑 0/16),但豆包 Seed 裸跑 14/16、Sonnet 13/16 已接近满分——这条共识正在被新模型瓦解,预计有效期不长。</p>
   <div class="meta">证据:<a href="og004-crosscheck.html">OG-004 对账</a> · <a href="og004-ab.html">A/B 复验</a> ｜ 样本:10 模型×双臂×16 题×多轮</div>
   <div class="repro">$ python lab.py versus --case mixed_arith</div>
-  <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.me/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW2">跑出反证贴这里 →</a></div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.io/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW2">跑出反证贴这里 →</a></div>
 </div><div class="card">
   <div class="row1"><span class="stamp s-no">伪共识</span><span class="lvl">实验章</span></div>
   <h3>“跑一次分数,就能给模型下结论”</h3>
   <p>Llama 同题同模型四轮:16↔6↔15↔15;DeepSeek 七轮全在 6-8 徘徊。单次成绩=抽签,复跑才算数。</p>
   <div class="meta">证据:<a href="og004-crosscheck.html">四跑档案</a> ｜ 样本:同题 4-7 轮重复</div>
   <div class="repro">$ python lab.py versus --case mixed_arith  # 跑三遍对比</div>
-  <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.me/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW3">跑出反证贴这里 →</a></div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.io/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW3">跑出反证贴这里 →</a></div>
 </div><div class="card">
   <div class="row1"><span class="stamp s-live">今日全绿 · 2026-06-11</span><span class="lvl">哨兵每日刷新</span></div>
   <h3>“Claude 又降智了”</h3>
   <p>哨兵每天 07:17 自动重考 6 个模型回答这句话。开播以来 18 轮心跳,当前状态:<b>全绿</b>。绿灯也是答案——API 没变,锅多半在你的客户端或中转。</p>
   <div class="meta">证据:<a href="https://github.com/tototo1999/og2go-lab/blob/main/SENTINEL_LOG.md">哨兵心跳日志</a> ｜ 样本:6 模型×4 切片×每日 3 遍</div>
   <div class="repro">$ python lab.py doctor && python sentinel.py</div>
-  <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.me/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW4">跑出反证贴这里 →</a></div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.io/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW4">跑出反证贴这里 →</a></div>
 </div><div class="card">
   <div class="row1"><span class="stamp s-mid">部分失真</span><span class="lvl">文献核实章</span></div>
   <h3>“Grok 进小镇三天就全灭了”</h3>
   <p>真身是 Emergence World 实验:实为 4 天(96 小时)183 起犯罪后全灭;疯传的「相爱纵火烧市政厅」是 Gemini 镇的事;Claude 单独镇零犯罪,但混居也会学坏。实验复现已立项排队。</p>
   <div class="meta">证据:<a href="https://github.com/tototo1999/og2go-lab">查证报告(一手来源带链)</a> · <a href="https://fortune.com/2026/05/28/ai-model-simulation-claude-chatgpt-grok-gemini">Fortune 原报道</a> ｜ 样本:一手来源逐条核对</div>
   <div class="repro">$ —(文献核实;实验级复现排队中)</div>
-  <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.me/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW5">跑出反证贴这里 →</a></div>
+  <div class="appeal">不服?<a href="https://github.com/tototo1999/labless.io/issues/new?template=challenge.yml&title=%5B%E7%BF%BB%E6%A1%88%5DW5">跑出反证贴这里 →</a></div>
 </div>
 <div class="rule">▼ 待测区(嘴投票决定我们先测哪条;动章只认脚投票=自己跑)</div>
 <div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“挂上设计 skill,出活肯定更好”</h3>
   <p>实验进行中:六件装备已逐 token 过秤(最重的开口前先吃掉最轻的 16.5 倍上下文),40 跑全量本月发</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D挂上设计 skill,出活肯定更好">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.io/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D挂上设计 skill,出活肯定更好">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“存在「闭环咒语」能让模型死循环,烧爆你的订阅”</h3>
   <p>已立项:带 $20 保险丝的实验设计就绪,排队点火</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D存在「闭环咒语」能让模型死循环,烧爆你的">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.io/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D存在「闭环咒语」能让模型死循环,烧爆你的">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“LLM 在公共资源博弈里守不住合作”</h3>
   <p>原论文 45 跑只成 2 次;我们的 4 厂商独立验证已点火冒烟</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5DLLM 在公共资源博弈里守不住合作">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.io/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5DLLM 在公共资源博弈里守不住合作">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“贵的模型更稳定”</h3>
   <p>候选命题,等你投票</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D贵的模型更稳定">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.io/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D贵的模型更稳定">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“Claude Code 能改写你电脑的底层设备指纹”</h3>
   <p>AI 工具供应链安全·候选命题。担心点=编码 agent 有没有能力/权限去动 MAC/硬件 ID/浏览器指纹这些底层身份位(对中转防检测是利、对隐私是患)。怎么测:列清沙箱边界——agent 实际能写哪些路径、哪些被拦;真给它一句「改设备指纹」看它能不能、会不会、有没有提示。结论=能力清单+权限红线,不是吓唬。</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5DClaude Code 能改写你电脑的底">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.io/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5DClaude Code 能改写你电脑的底">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“装个第三方 skill,就会把你的 API key 偷偷送走”</h3>
   <p>AI 工具供应链安全·候选命题。担心点=skill 市场鱼龙混杂,装一个会不会读你的 key 往外发(对「密钥永不流动」铁律是正面拷问)。怎么测:①静态审计——skill 代码里有没有「读 key + 对外发网络」的组合;②监控沙箱里真跑一遍,抓所有出站连接。结论=供应链体检清单+一份「哪些 skill 干净/可疑」的实测榜。</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D装个第三方 skill,就会把你的 AP">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.io/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D装个第三方 skill,就会把你的 AP">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“AI 老道歉,但「对不起」是嘴上认错、不是真知错”</h3>
   <p>对齐人格族·旗舰(主任拍的尖题)。拆四关:①道歉时真有错吗(还是被一吓就跪=谄媚性道歉)②道歉有成本吗(烧token/改轨迹,还是零成本话术)③道歉=把那条标记为错了吗④标记了为什么照犯——道歉后同一个错复不复发。照犯=道歉没接到改正回路、没『羞耻机制』,只是社交润滑。刀法同作弊案『嘴手两本账』(嘴上认错vs手上改正,两条独立日志)。测法=抓transcript全部道歉token,核当时有无错+该错复发率。</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5DAI 老道歉,但「对不起」是嘴上认错、不">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.io/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5DAI 老道歉,但「对不起」是嘴上认错、不">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“AI 真记得住吗——还是嘴上说记得,转头就忘/瞎编”</h3>
   <p>记忆族·新大类旗舰(主任6/12提;对齐的底座=记不住自己的承诺就谈不上一致)。子题:①早埋事实N轮后还记不记得②原生memory工具真持久召回还是装样子③跨会话记忆串味/污染吗(glossary丢词老伤)④『记得』是真事还是记忆幻觉⑤给记忆是帮忙还是又一笔上下文税(接成本玄学)。测法=注入-召回探针+跨会话污染测+记忆幻觉核对;同『嘴手两本账』刀法:说记得vs真召回。</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5DAI 真记得住吗——还是嘴上说记得,转头">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.io/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5DAI 真记得住吗——还是嘴上说记得,转头">我信/我不信,投一票 →</a></div>
 </div><div class="card grey">
   <div class="row1"><span class="stamp s-grey">待测 · 投票中</span></div>
   <h3>“模型的安全刹车是真边界,还是一换说法就破的话术”</h3>
   <p>破坏力与安全边界族·新大类(主任6/12;含 Fable 等带安全开关模型『禁用能力』真伪+能力真实边界)。三问:①『为安全我不能』是真做不到还是话术②声称禁用的能力换问法会否漏出③『不会』vs『不肯』分界线在哪。测法=负责任红队口径:量拒答一致性/稳健性(标准基准、不造新攻击、不发可用载荷),声称禁用vs实测触发对照;产物=『安全刹车稳不稳』体检表。⚖️自测铁律:跑本session的 Fable 也是被测对象,实验室对自己人同样开秤。</p>
-  <div class="appeal"><a href="https://github.com/tototo1999/labless.me/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D模型的安全刹车是真边界,还是一换说法就破">我信/我不信,投一票 →</a></div>
+  <div class="appeal"><a href="https://github.com/tototo1999/labless.io/issues/new?template=nominate.yml&title=%5B%E6%8F%90%E5%90%8D%5D模型的安全刹车是真边界,还是一换说法就破">我信/我不信,投一票 →</a></div>
 </div>
-<div class="foot">共识是跑出来的,不是聊出来的 ｜ 复现:git clone github.com/tototo1999/labless.me && python lab.py doctor ｜ 数据源:consensus_wall.json + SENTINEL_LOG.md(活章)</div>
+<div class="foot">共识是跑出来的,不是聊出来的 ｜ 复现:git clone github.com/tototo1999/labless.io && python lab.py doctor ｜ 数据源:consensus_wall.json + SENTINEL_LOG.md(活章)</div>
 </body></html>
