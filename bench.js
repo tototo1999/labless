@@ -71,3 +71,45 @@ function makeTerminal(tile, streamUrl){
 const floor=document.getElementById('benchfloor');
 if(floor){ for(const s of SESSIONS){ const t=document.createElement('div'); t.className='btile'; t.innerHTML=card(s); floor.appendChild(t); makeTerminal(t, s.stream); } }
 })();
+
+/* ── 人物谱考场:每位角色肖像正下方一台小考屏(按被试过滤真日志;没上台的挂候考室) ── */
+(function(){
+const esc=s=>(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function ln(feed,cls,html){ const d=document.createElement('div'); d.className='bln '+cls; d.innerHTML=html; feed.appendChild(d); feed.scrollTop=feed.scrollHeight; }
+async function castConsole(el, model){
+  const feed=el.querySelector('.bscreen');
+  let ev=[];
+  try{ const r=await fetch('experimenter/session-1.jsonl?_='+Date.now(),{cache:'no-store'});
+    ev=(await r.text()).split('\n').filter(Boolean).map(l=>{try{return JSON.parse(l)}catch(_){return null}}).filter(Boolean);
+  }catch(_){ return idle(el, model); }
+  const mine=ev.filter(e=>
+    e.kind==='proposition' || e.kind==='done' ||
+    (e.kind==='running' && (e.model||'').toLowerCase()===model) ||
+    (e.kind==='result' && (e.model||'').toLowerCase()===model));
+  if(!mine.some(e=>e.kind==='result')) return idle(el, model);
+  while(true){ feed.innerHTML='';
+    ln(feed,'dim','* 被试席 · 直播回放');
+    for(const e of mine){
+      if(e.kind==='proposition') ln(feed,'bprop','<span class="bb">●</span> 命题 '+e.idx+'/'+e.total+' · <b>'+esc(e.title)+'</b>');
+      else if(e.kind==='running') ln(feed,'','<span class="bcode">lab eval --model='+model+'</span>');
+      else if(e.kind==='result') ln(feed,'','  <span class="bbr">⎿</span> '+e.ok+'/'+e.n+' <span class="dim">$'+(e.cost||0).toFixed(4)+'</span>');
+      else if(e.kind==='done') ln(feed,'dim','* 本场考毕 · 等下一批命题');
+      await sleep(700);
+    }
+    await sleep(4500);
+  }
+}
+function idle(el, model){
+  const feed=el.querySelector('.bscreen');
+  feed.innerHTML='';
+  ln(feed,'dim','* 候考室');
+  ln(feed,'','<span class="bb">●</span> 本场未上台');
+  ln(feed,'dim','  下一批命题排期中…');
+  ln(feed,'','<span class="dim">❯</span> <span class="ccur">&nbsp;</span>');
+}
+document.querySelectorAll('.cterm').forEach(el=>{
+  const m=el.getAttribute('data-model');
+  if(m==='claude'||m==='gemini') castConsole(el,m); else idle(el,m);
+});
+})();

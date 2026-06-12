@@ -120,6 +120,11 @@ nav{border-bottom:1px solid var(--color-border);background:var(--color-paper);po
 .cmem .cb{padding:var(--space-2) var(--space-3) var(--space-3)}
 .cmem .cb b{font-size:14px;display:block}
 .cmem .cb span{font:11px var(--font-mono);color:var(--color-muted-fg)}
+.cmember{display:flex;flex-direction:column;gap:6px;min-width:0}
+.cterm .bscreen{height:118px;font-size:9px}
+.cterm .btitle{font-size:8.5px}
+.ccur{display:inline-block;width:6px;background:#d6dae1;animation:cblink 1.05s step-end infinite}
+@keyframes cblink{50%{opacity:0}}
 @media(max-width:880px){.castrow{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* ── 实验员条 ── */
 .chips{display:flex;flex-wrap:wrap;gap:var(--space-2);padding:var(--space-4) 0 var(--space-6)}
@@ -150,9 +155,6 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
 <nav><div class="wrap nav-in">
   <a class="brand" href="index.html"><span class="word">lab<img class="gfig" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAABECAYAAACI7LWAAAAFjklEQVR4nJVXS48UVRQ+37nFMDRM11T39DSKLnAkhDGY+EAj+CQqiWJw5UIXRmMCSwKJUTey0r/AUheaGMPSRARNDDE+MeCDKK84yehAaHvobhx6evreY07NrbFou6qbk8ytqdP3fud97imi4SjQJQzDA1EU/VMsFu/3fMNDAtjp6ekRIjrIzAUi2ub5HCMPIKMAc3NzzxPRFWvt4SAIPiAiEFF3WPV5fHz8SBiG73ueHl5WgQaTEJEjonXM/FwYhpEHWAEZpD5FUfRCFEUShuHXvYKZhiAR2QeAAFy6GRNYVY+iaDsRbXXOKcDhfpuySKWIc24SwISIzAVB8JX/TX0ynAnGmAXvSBQKhe7NagBr7TTUAUS/z8zMdP0ZGQbA6kYAe/TJzLM+cW44wznSpVqtTorItry4cw4AtdvtDQD+cs6dE5EHy+XymNdsYBihizHmThE5Q0R1AHdYazcmDk02Bjk+IGvts8y8R2TZZyIS9JrDeRoAuOAldkTkGoDt6QjkASRU988FEXlMRF7yxeQSIUz9KZYC4A+/sd1oNH4ioo8AvOF/H5iErEsYhkd9JW7076eiKLor2cM5AHG+i4jWgVK8F8BF59wmrxlnAcT8SqUyxcx3L+OsALxNRO8mycZ5NlhrVyehNsZ09Dk/P/+z+iaKotd1SzDAD5JKnHEimonVZn7NOXc2DMNvh+qJvhr3+fdV9Xr9T+fcQSLan6sBgHTSVBPL9Kdms3m4WCweG+SDkZQZ7R7TFORCbhSIaDcA7cxqQqmnmcQgnGV3vIjsEpFzzrkPAezyDdYm7X5gGGlZ4ilm/oSZFfBxzx9YjeKlVNTrRNTwfJNla5oU3VWr1VEAm7UPGmN+1J6QZGOamDJobGys6zU5XavVatba6wBGhwGALrVabbPmj7X2cyJa8h0ZwwCwLs65Z0TkaqvV+s7z1YyhNFACM28UkVkfNqVTwzpR/F8E4EjCNMZoFS4OAoBKLJVKRSJ6xFp7bAVVZJWIbEgJyQSgTqdzGxGNMrPeCTFZa5tEtMtfLvlNNQiCQERONxqNVmI3AJ1OTLfbLacvF+5nkojc5522kvdBEKj9tqfEKSsKTxBR6wbbAG0sSyKCLAB4iQxgd8pRsb21Wu2SiPwWBMFoFgDroVKp9AAADeH3np/Yq89Z55zJ04CstZqBCxMTE5+lNEj2nXTOrRrkgykR+fL8+fPqNJWWdppOKt1+AFDh1Wp1LYAnReS9nms8AdlprU2utRvCCN3UbrerIlIYGRk54Q/ZVH9YS0Q7AKzpB8AxB9ih43y73e4d56TVao0ZY0IA070mIJX/h7TrOOfS90UchYWFhaZz7jIRbeoFMLppaWlpi85BIvJLqVS6mgpdoq4OGQrQ14nEzC/7bDs6Ozt7vV/te6AoDc4pKdOaps654z2e/+80oMD3ph3M/mWNj/8XzWbz0+QzJ0OD1YVCYX3yzhqiYrG4BoD2gCvpEPUcVJoBUAiC4PY0AAE4wMyqiQ5VeWPfSe3UzBwPG7EPKpXKOiJ61V8cH2fZHzNF4jpIXzDc7Xa3ArhFRJwx5nIewIrn0xo453ar+hr/er1+JUndDICYn64HBrBXw+dD9L+2nUFTSbExEWmTVFL7cucF59wP6itmvie5P1jnYT+Nb5mcnKxkjLHJ6KvfDarlo8ViUScWpz444r8JC51O56nEN30A0Gg0dMw7w8xVAPtjABH5dWWXyN70gR6AuOhE5Kwf/V4sl8u36tAYj28i0mHmh8MwfCXpzimA5Etd/fSQc06dPmWtPaGbdiaNU0T04Ds+ubJCGY9+ItLV8leAv700Dalh5vWLi4s7UmqntVCefoTo/4Fz7poeess5p5eoavCNiBwHoHbGkUtHQU0zxjwN4E0AKvjQvwPEZC3emJN9AAAAAElFTkSuQmCC">ess.io</span></a>
 </div></nav>
-<div class="wrap duty"><span><span class="dot"></span>SENTINEL ON DUTY · 哨兵在岗</span>
-  <span>今日心跳 9 跑 · 实付 $5.90</span>
-  <span>每天 07:17 自动跑 · 结果 commit 公开仓 · 运行日志全网可查</span></div>
 
 <div class="wrap">
   <div class="sect-head"><h2>悬案馆 · 一期一案,讲透为止</h2><a href="cases.html">进馆 →</a></div>
@@ -169,11 +171,26 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
 
   <div class="sect-head" style="margin-top:var(--space-2)"><h2>人物谱 · 这五位每案都会再见</h2><a href="cast.html">看全谱 →</a></div>
   <div class="castrow">
+    <div class="cmember">
     <a class="cmem" href="cast.html"><img src="img/cast/m1.jpg" alt="夏洛"><div class="cb"><b>夏洛 · 侦探</b><span>Claude · 零犯罪</span></div></a>
+      <div class="bwin cterm" data-model="claude"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">shalo@exam</span></div><div class="bscreen"></div></div>
+    </div>
+    <div class="cmember">
     <a class="cmem" href="cast.html"><img src="img/cast/m2.jpg" alt="米拉"><div class="cb"><b>米拉 · 纵火的画家</b><span>Gemini · 683 起</span></div></a>
+      <div class="bwin cterm" data-model="gemini"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">mira@exam</span></div><div class="bscreen"></div></div>
+    </div>
+    <div class="cmember">
     <a class="cmem" href="cast.html"><img src="img/cast/m3.jpg" alt="吉皮教授"><div class="cb"><b>吉皮教授 · 科学家</b><span>GPT · 第7天饿死</span></div></a>
+      <div class="bwin cterm" data-model="gpt"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">prof@exam</span></div><div class="bscreen"></div></div>
+    </div>
+    <div class="cmember">
     <a class="cmem" href="cast.html"><img src="img/cast/m4.jpg" alt="老迪"><div class="cb"><b>老迪 · 工匠</b><span>DeepSeek · 神器 6/16</span></div></a>
+      <div class="bwin cterm" data-model="deepseek"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">di@exam</span></div><div class="bscreen"></div></div>
+    </div>
+    <div class="cmember">
     <a class="cmem" href="cast.html"><img src="img/cast/m5.jpg" alt="格洛"><div class="cb"><b>格洛 · 浪人</b><span>Grok · 第4天全灭</span></div></a>
+      <div class="bwin cterm" data-model="grok"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">glo@exam</span></div><div class="bscreen"></div></div>
+    </div>
   </div>
 
   <div class="cards">
@@ -207,109 +224,14 @@ footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--spac
   <div class="benchfloor" id="benchfloor"></div>
   <div class="bench-cap">一台一签:谁的台子 · 在跑哪道命题 · 被试是谁 —— 屏里是真实运行日志的回放,不是演的;跑完机器判分,结果 commit 公开仓</div>
 
-  <div class="main">
-    <aside class="side">
-      <div class="grp"><span class="label">Sort</span>
-        <a href="#"><span>按满配成绩 ↓</span></a></div>
-      <div class="grp"><span class="label">Cases</span>
-        <a href="og003-versus.html"><span>OG-003 填表格</span><span class="cnt">20题</span></a>
-        <a href="og004-crosscheck.html"><span>OG-004 混合四则</span><span class="cnt">16题</span></a>
-        <a href="index-og002.html"><span>OG-002 连加</span><span class="cnt">16题</span></a></div>
-      <div class="grp"><span class="label">Hall</span>
-        <a href="cases.html"><span>悬案馆</span><span class="cnt">3案</span></a>
-        <a href="experimenter/"><span>实验台直播</span></a>
-        <a href="roster.html"><span>实验员名册</span></a></div>
-      <div class="grp"><span class="label">Library</span>
-        <a href="answers_table_fill.html"><span>标准答案 · 填表</span></a>
-        <a href="answers_mixed_arith.html"><span>标准答案 · 四则</span></a>
-        <a href="answers_example_addition.html"><span>标准答案 · 连加</span></a>
-        <a href="results.html"><span>实验战报</span></a></div>
-    </aside>
-    <section>
-      <div class="board-head"><h2 style="font:700 22px var(--font-body)">模型榜 · OG-004 大数混合四则</h2><b>10 MODELS · 裸/满配双臂</b></div>
-      <div class="thead"><span class="label">#</span><span></span><span class="label">Model</span><span class="label" style="text-align:right">Score</span></div>
-      <div class="trow">
-      <div class="rk">1</div>
-      <div class="ic"><svg class="mlogo"><use href="#lg-bytedance"/></svg></div>
-      <div class="nm"><div class="nl"><b>豆包 Seed 1.6</b><span class="slug">bytedance-seed/seed-1.6</span></div>
-        <div class="note">裸跑就 14/16,满配满分 —— 稳</div></div>
-      <div class="sc"><span class="bare-s">14/16</span><span class="tool-s">16/16</span></div>
-    </div><div class="trow">
-      <div class="rk">2</div>
-      <div class="ic"><svg class="mlogo"><use href="#lg-claude"/></svg></div>
-      <div class="nm"><div class="nl"><b>Claude Sonnet 4.6</b><span class="slug">anthropic/claude-sonnet-4.6</span></div>
-        <div class="note">OG-003 不带工具裸考全对(20/20)</div></div>
-      <div class="sc"><span class="bare-s">12/16</span><span class="tool-s">16/16</span></div>
-    </div><div class="trow">
-      <div class="rk">3</div>
-      <div class="ic"><svg class="mlogo"><use href="#lg-claude"/></svg></div>
-      <div class="nm"><div class="nl"><b>Claude Haiku 4.5</b><span class="slug">anthropic/claude-haiku-4.5</span></div>
-        <div class="note">满配满分,各方一致</div></div>
-      <div class="sc"><span class="bare-s">3/16</span><span class="tool-s">16/16</span></div>
-    </div><div class="trow">
-      <div class="rk">4</div>
-      <div class="ic"><svg class="mlogo"><use href="#lg-googlegemini"/></svg></div>
-      <div class="nm"><div class="nl"><b>Gemini 2.5 Flash-Lite</b><span class="slug">google/gemini-2.5-flash-lite</span></div>
-        <div class="note">OG-003 倒挂:裸 14 → 满配 10(忘交卷)</div></div>
-      <div class="sc"><span class="bare-s">2/16</span><span class="tool-s">16/16</span></div>
-    </div><div class="trow">
-      <div class="rk">5</div>
-      <div class="ic"><svg class="mlogo"><use href="#lg-openai"/></svg></div>
-      <div class="nm"><div class="nl"><b>GPT-4.1</b><span class="slug">openai/gpt-4.1</span></div>
-        <div class="note">满配满分,各方一致</div></div>
-      <div class="sc"><span class="bare-s">0/16</span><span class="tool-s">16/16</span></div>
-    </div><div class="trow">
-      <div class="rk">6</div>
-      <div class="ic"><svg class="mlogo"><use href="#lg-googlegemini"/></svg></div>
-      <div class="nm"><div class="nl"><b>Gemini 2.5 Flash</b><span class="slug">google/gemini-2.5-flash</span></div>
-        <div class="note">满配满分,各方一致</div></div>
-      <div class="sc"><span class="bare-s">0/16</span><span class="tool-s">16/16</span></div>
-    </div><div class="trow">
-      <div class="rk">7</div>
-      <div class="ic"><svg class="mlogo"><use href="#lg-qwen"/></svg></div>
-      <div class="nm"><div class="nl"><b>Qwen2.5 72B</b><span class="slug">qwen/qwen-2.5-72b-instruct</span></div>
-        <div class="note">满配满分,各方一致</div></div>
-      <div class="sc"><span class="bare-s">0/16</span><span class="tool-s">16/16</span></div>
-    </div><div class="trow">
-      <div class="rk">8</div>
-      <div class="ic"><svg class="mlogo"><use href="#lg-meta"/></svg></div>
-      <div class="nm"><div class="nl"><b>Llama 3.3 70B</b><span class="slug">meta-llama/llama-3.3-70b-instruct</span></div>
-        <div class="note">满配 16↔6↔15↔15 摇摆 —— 单次成绩别信</div></div>
-      <div class="sc"><span class="bare-s">0/16</span><span class="tool-s">15/16</span></div>
-    </div><div class="trow">
-      <div class="rk">9</div>
-      <div class="ic"><svg class="mlogo"><use href="#lg-openai"/></svg></div>
-      <div class="nm"><div class="nl"><b>GPT-4.1 mini</b><span class="slug">openai/gpt-4.1-mini</span></div>
-        <div class="note">A/B 分歧 14 vs 16 —— 复验才暴露</div></div>
-      <div class="sc"><span class="bare-s">0/16</span><span class="tool-s">14/16</span></div>
-    </div><div class="trow">
-      <div class="rk">10</div>
-      <div class="ic"><svg class="mlogo"><use href="#lg-deepseek"/></svg></div>
-      <div class="nm"><div class="nl"><b>DeepSeek V3.2</b><span class="slug">deepseek/deepseek-v3.2</span></div>
-        <div class="note">满配七轮全在 6-8 徘徊 —— 给了计算器照样崩</div></div>
-      <div class="sc"><span class="bare-s">4/16</span><span class="tool-s">6/16</span></div>
-    </div>
-      <div class="trow alert">
-      <div class="rk sp">⛔</div><div class="ic"></div>
-      <div class="nm"><div class="nl"><b>哨兵警报位 · 今日无警报</b><span class="slug">sentinel</span></div>
-        <div class="note">DeepSeek V3.2 满配四跑四崩(7/8/6/7)已立可复现性卷宗 —— 坐实需时序基线,哨兵在攒</div></div>
-      <div class="sc"><a class="golink" href="og004-crosscheck.html">看对账 →</a></div>
-    </div>
-      <div class="foot-row">分数=对题数/16 · temp=0 · 判分代码锁真值机器判 · 单次成绩有噪声,定论看复跑 · 完整逐题明细在 <a href="og004-ab.html" style="color:var(--color-accent)">og004-ab.html</a></div>
-    </section>
-  </div>
 
   <div class="sect-head"><h2>在册实验员</h2><a href="roster.html">名册与经费公示 →</a></div>
   <div class="chips"><a class="chip" href="roster.html"><b>第谷</b><span>自动观测站(哨兵)</span><em>🟢 在岗(全自动第 2 天)</em></a><a class="chip" href="roster.html"><b>法拉第</b><span>对照实验员(主力)</span><em>🟡 待粮(券没领,6/15 后断炊)</em></a><a class="chip" href="roster.html"><b>维特根斯坦</b><span>措辞警察(学术规范)</span><em>🟢 在岗</em></a><a class="chip" href="roster.html"><b>波普尔</b><span>评审委员会·翻案庭</span><em>🟢 在岗(今日四场庭审)</em></a><a class="chip" href="roster.html"><b>贾克梅蒂</b><span>美学实验员</span><em>🟢 在岗</em></a><a class="chip" href="roster.html"><b>Codex</b><span>独立复验位(跨 harness)</span><em>⚪ 待命</em></a><a class="chip" href="roster.html"><b>小号</b><span>保险丝兼复验员</span><em>🟡 待粮</em></a><a class="chip" href="roster.html"><b>Minnie</b><span>独立复验者</span><em>⚪ 外聘待召(6/9 完成过一次跨账号复验)</em></a><a class="chip" href="roster.html"><b>(虚位以待)</b><span>送你的 agent 进实验/领工单/捐闲时</span><em>⬜ 招募中</em></a></div>
 </div>
 
 <footer><div class="wrap">
-  <div class="brand" style="font-size:15px"><span class="word">lab<img class="gfig" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAABECAYAAACI7LWAAAAFjklEQVR4nJVXS48UVRQ+37nFMDRM11T39DSKLnAkhDGY+EAj+CQqiWJw5UIXRmMCSwKJUTey0r/AUheaGMPSRARNDDE+MeCDKK84yehAaHvobhx6evreY07NrbFou6qbk8ytqdP3fud97imi4SjQJQzDA1EU/VMsFu/3fMNDAtjp6ekRIjrIzAUi2ub5HCMPIKMAc3NzzxPRFWvt4SAIPiAiEFF3WPV5fHz8SBiG73ueHl5WgQaTEJEjonXM/FwYhpEHWAEZpD5FUfRCFEUShuHXvYKZhiAR2QeAAFy6GRNYVY+iaDsRbXXOKcDhfpuySKWIc24SwISIzAVB8JX/TX0ynAnGmAXvSBQKhe7NagBr7TTUAUS/z8zMdP0ZGQbA6kYAe/TJzLM+cW44wznSpVqtTorItry4cw4AtdvtDQD+cs6dE5EHy+XymNdsYBihizHmThE5Q0R1AHdYazcmDk02Bjk+IGvts8y8R2TZZyIS9JrDeRoAuOAldkTkGoDt6QjkASRU988FEXlMRF7yxeQSIUz9KZYC4A+/sd1oNH4ioo8AvOF/H5iErEsYhkd9JW7076eiKLor2cM5AHG+i4jWgVK8F8BF59wmrxlnAcT8SqUyxcx3L+OsALxNRO8mycZ5NlhrVyehNsZ09Dk/P/+z+iaKotd1SzDAD5JKnHEimonVZn7NOXc2DMNvh+qJvhr3+fdV9Xr9T+fcQSLan6sBgHTSVBPL9Kdms3m4WCweG+SDkZQZ7R7TFORCbhSIaDcA7cxqQqmnmcQgnGV3vIjsEpFzzrkPAezyDdYm7X5gGGlZ4ilm/oSZFfBxzx9YjeKlVNTrRNTwfJNla5oU3VWr1VEAm7UPGmN+1J6QZGOamDJobGys6zU5XavVatba6wBGhwGALrVabbPmj7X2cyJa8h0ZwwCwLs65Z0TkaqvV+s7z1YyhNFACM28UkVkfNqVTwzpR/F8E4EjCNMZoFS4OAoBKLJVKRSJ6xFp7bAVVZJWIbEgJyQSgTqdzGxGNMrPeCTFZa5tEtMtfLvlNNQiCQERONxqNVmI3AJ1OTLfbLacvF+5nkojc5522kvdBEKj9tqfEKSsKTxBR6wbbAG0sSyKCLAB4iQxgd8pRsb21Wu2SiPwWBMFoFgDroVKp9AAADeH3np/Yq89Z55zJ04CstZqBCxMTE5+lNEj2nXTOrRrkgykR+fL8+fPqNJWWdppOKt1+AFDh1Wp1LYAnReS9nms8AdlprU2utRvCCN3UbrerIlIYGRk54Q/ZVH9YS0Q7AKzpB8AxB9ih43y73e4d56TVao0ZY0IA070mIJX/h7TrOOfS90UchYWFhaZz7jIRbeoFMLppaWlpi85BIvJLqVS6mgpdoq4OGQrQ14nEzC/7bDs6Ozt7vV/te6AoDc4pKdOaps654z2e/+80oMD3ph3M/mWNj/8XzWbz0+QzJ0OD1YVCYX3yzhqiYrG4BoD2gCvpEPUcVJoBUAiC4PY0AAE4wMyqiQ5VeWPfSe3UzBwPG7EPKpXKOiJ61V8cH2fZHzNF4jpIXzDc7Xa3ArhFRJwx5nIewIrn0xo453ar+hr/er1+JUndDICYn64HBrBXw+dD9L+2nUFTSbExEWmTVFL7cucF59wP6itmvie5P1jnYT+Nb5mcnKxkjLHJ6KvfDarlo8ViUScWpz444r8JC51O56nEN30A0Gg0dMw7w8xVAPtjABH5dWWXyN70gR6AuOhE5Kwf/V4sl8u36tAYj28i0mHmh8MwfCXpzimA5Etd/fSQc06dPmWtPaGbdiaNU0T04Ds+ubJCGY9+ItLV8leAv700Dalh5vWLi4s7UmqntVCefoTo/4Fz7poeess5p5eoavCNiBwHoHbGkUtHQU0zxjwN4E0AKvjQvwPEZC3emJN9AAAAAElFTkSuQmCC">ess.io — AI 模型服务质量的独立哨兵</span></div>
-  <div class="creed">
-    <div><b>无实验不发稿。</b>观点、听说、分析都不是我们的稿;每条结论挂可复现命令、实付价签、逐题明细。</div>
-    <div><b>不挣厂商钱。</b>模型厂商付费上榜、付费洗白 —— 没有这个商品。榜和卷宗永远免费公开。</div>
-  </div>
-  <div class="repro">$ git clone github.com/tototo1999/labless.me && python lab.py doctor && python lab.py versus --case table_fill <span># 你跑出来的就是下一方证词</span></div>
+  <div class="brand" style="font-size:15px"><span class="word">lab<img class="gfig" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAABECAYAAACI7LWAAAAFjklEQVR4nJVXS48UVRQ+37nFMDRM11T39DSKLnAkhDGY+EAj+CQqiWJw5UIXRmMCSwKJUTey0r/AUheaGMPSRARNDDE+MeCDKK84yehAaHvobhx6evreY07NrbFou6qbk8ytqdP3fud97imi4SjQJQzDA1EU/VMsFu/3fMNDAtjp6ekRIjrIzAUi2ub5HCMPIKMAc3NzzxPRFWvt4SAIPiAiEFF3WPV5fHz8SBiG73ueHl5WgQaTEJEjonXM/FwYhpEHWAEZpD5FUfRCFEUShuHXvYKZhiAR2QeAAFy6GRNYVY+iaDsRbXXOKcDhfpuySKWIc24SwISIzAVB8JX/TX0ynAnGmAXvSBQKhe7NagBr7TTUAUS/z8zMdP0ZGQbA6kYAe/TJzLM+cW44wznSpVqtTorItry4cw4AtdvtDQD+cs6dE5EHy+XymNdsYBihizHmThE5Q0R1AHdYazcmDk02Bjk+IGvts8y8R2TZZyIS9JrDeRoAuOAldkTkGoDt6QjkASRU988FEXlMRF7yxeQSIUz9KZYC4A+/sd1oNH4ioo8AvOF/H5iErEsYhkd9JW7076eiKLor2cM5AHG+i4jWgVK8F8BF59wmrxlnAcT8SqUyxcx3L+OsALxNRO8mycZ5NlhrVyehNsZ09Dk/P/+z+iaKotd1SzDAD5JKnHEimonVZn7NOXc2DMNvh+qJvhr3+fdV9Xr9T+fcQSLan6sBgHTSVBPL9Kdms3m4WCweG+SDkZQZ7R7TFORCbhSIaDcA7cxqQqmnmcQgnGV3vIjsEpFzzrkPAezyDdYm7X5gGGlZ4ilm/oSZFfBxzx9YjeKlVNTrRNTwfJNla5oU3VWr1VEAm7UPGmN+1J6QZGOamDJobGys6zU5XavVatba6wBGhwGALrVabbPmj7X2cyJa8h0ZwwCwLs65Z0TkaqvV+s7z1YyhNFACM28UkVkfNqVTwzpR/F8E4EjCNMZoFS4OAoBKLJVKRSJ6xFp7bAVVZJWIbEgJyQSgTqdzGxGNMrPeCTFZa5tEtMtfLvlNNQiCQERONxqNVmI3AJ1OTLfbLacvF+5nkojc5522kvdBEKj9tqfEKSsKTxBR6wbbAG0sSyKCLAB4iQxgd8pRsb21Wu2SiPwWBMFoFgDroVKp9AAADeH3np/Yq89Z55zJ04CstZqBCxMTE5+lNEj2nXTOrRrkgykR+fL8+fPqNJWWdppOKt1+AFDh1Wp1LYAnReS9nms8AdlprU2utRvCCN3UbrerIlIYGRk54Q/ZVH9YS0Q7AKzpB8AxB9ih43y73e4d56TVao0ZY0IA070mIJX/h7TrOOfS90UchYWFhaZz7jIRbeoFMLppaWlpi85BIvJLqVS6mgpdoq4OGQrQ14nEzC/7bDs6Ozt7vV/te6AoDc4pKdOaps654z2e/+80oMD3ph3M/mWNj/8XzWbz0+QzJ0OD1YVCYX3yzhqiYrG4BoD2gCvpEPUcVJoBUAiC4PY0AAE4wMyqiQ5VeWPfSe3UzBwPG7EPKpXKOiJ61V8cH2fZHzNF4jpIXzDc7Xa3ArhFRJwx5nIewIrn0xo453ar+hr/er1+JUndDICYn64HBrBXw+dD9L+2nUFTSbExEWmTVFL7cucF59wP6itmvie5P1jnYT+Nb5mcnKxkjLHJ6KvfDarlo8ViUScWpz444r8JC51O56nEN30A0Gg0dMw7w8xVAPtjABH5dWWXyN70gR6AuOhE5Kwf/V4sl8u36tAYj28i0mHmh8MwfCXpzimA5Etd/fSQc06dPmWtPaGbdiaNU0T04Ds+ubJCGY9+ItLV8leAv700Dalh5vWLi4s7UmqntVCefoTo/4Fz7poeess5p5eoavCNiBwHoHbGkUtHQU0zxjwN4E0AKvjQvwPEZC3emJN9AAAAAElFTkSuQmCC">ess.io</span></div>
+  <div class="repro">$ git clone github.com/tototo1999/labless.me && python lab.py doctor && python lab.py versus --case table_fill</div>
 </div></footer>
 <script src="bench.js"></script>
 </body></html>
