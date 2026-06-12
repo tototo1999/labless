@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>labless.io — AI 模型服务质量的独立哨兵</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/archivo-black@latest/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/hanken-grotesk@latest/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/jetbrains-mono@latest/index.css">
+<style>
+/* Hallmark · macrostructure: Directory ranked-table · theme: studied-DNA (source: url)
+ * source-url: https://claudemarketplaces.com/skills · observed-fonts: bbhSans + Hanken Grotesk + JetBrains Mono
+ * observed-paper: #faf8f2 · observed-accent: #da4e65 · rhythm: 截图补观(双源)
+ * studied: yes · nav: logo+caps-links+red-CTA · footer: 守则声明式
+ * Hallmark · pre-emit critique: P4 H5 E4 S5 R4 V4 */
+:root{
+  --color-paper:#faf8f2; --color-ink:#0e0e0e; --color-accent:#da4e65; --color-accent-deep:#cf596d;
+  --color-border:#e5e5e0; --color-muted:#f5f5f0; --color-muted-fg:#5c5a54; --color-card:#fff;
+  --color-tint:rgba(218,78,101,.06); --color-ok:#1a7f4e;
+  --font-display:"Archivo Black",system-ui,sans-serif;
+  --font-body:"Hanken Grotesk","PingFang SC","Microsoft YaHei",sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+  --radius:10px; --radius-lg:14px;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px; --space-8:32px; --space-12:48px;
+  --ls-label:1.4px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--color-paper);color:var(--color-ink);font:16px/1.65 var(--font-body)}
+a{color:inherit;text-decoration:none}
+.label{font:400 10px var(--font-mono);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--color-muted-fg)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--space-6)}
+
+/* ── nav ── */
+nav{border-bottom:1px solid var(--color-border);background:var(--color-paper);position:sticky;top:0;z-index:9}
+.nav-in{display:flex;align-items:center;gap:var(--space-6);padding:var(--space-3) 0}
+.brand{display:flex;align-items:baseline;gap:var(--space-2);font:700 24px var(--font-mono);letter-spacing:.5px;margin-left:20px}
+.gfig{height:2.4em;width:auto;margin:0 1px;vertical-align:baseline}
+
+/* ── 哨兵状态条 ── */
+.duty{display:flex;gap:var(--space-4);align-items:center;padding:var(--space-2) 0;border-bottom:1px solid var(--color-border);font:12px var(--font-mono);color:var(--color-muted-fg);flex-wrap:wrap}
+.duty .dot{width:8px;height:8px;border-radius:50%;background:var(--color-ok);display:inline-block;margin-right:6px}
+
+/* ── 卷宗卡格 ── */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);padding:var(--space-8) 0}
+.card{background:var(--color-card);border:1px solid var(--color-accent-deep);border-radius:var(--radius-lg);padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-3)}
+.card h3{font:700 17px/1.3 var(--font-body)}
+.card h3 .cid{font:400 11px var(--font-mono);letter-spacing:var(--ls-label);color:var(--color-muted-fg);display:block;margin-bottom:4px}
+.card p{font-size:14px;color:var(--color-muted-fg);flex:1}
+.card a{font:600 14px var(--font-body);color:var(--color-accent)}
+.card a:hover{text-decoration:underline}
+.card .crew{display:flex;align-items:center;gap:6px;font:11px var(--font-mono);color:var(--color-muted-fg);
+  border-top:1px dashed var(--color-border);padding-top:var(--space-2);margin-top:var(--space-2)}
+.card .crew img{width:18px;height:18px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid var(--color-border)}
+.card .crew b{color:var(--color-ink);font-weight:600}
+.card.plain{border-color:var(--color-border)}
+
+/* ── 主区:侧栏+榜 ── */
+.main{display:grid;grid-template-columns:240px minmax(0,1fr);gap:var(--space-12);padding:var(--space-6) 0 var(--space-12)}
+.side{display:flex;flex-direction:column;gap:var(--space-6)}
+.side .grp{display:flex;flex-direction:column;gap:var(--space-2)}
+.side a{display:flex;justify-content:space-between;font-size:14px;padding:var(--space-2) var(--space-3);border-radius:var(--radius)}
+.side a:hover{background:var(--color-muted)}
+.side a .cnt{font:12px var(--font-mono);color:var(--color-muted-fg)}
+.board-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--color-ink);padding-bottom:var(--space-3)}
+.board-head b{font:13px var(--font-mono)}
+.thead{display:grid;grid-template-columns:36px 36px minmax(0,1fr) 130px;gap:var(--space-3);padding:var(--space-3) 0;border-bottom:1px solid var(--color-border)}
+.trow{display:grid;grid-template-columns:36px 36px minmax(0,1fr) 130px;gap:var(--space-3);padding:var(--space-4) 0;border-bottom:1px solid var(--color-border);align-items:center}
+.trow .rk{font:14px var(--font-mono);color:var(--color-muted-fg)}
+.mlogo{width:24px;height:24px}
+.nl{display:flex;gap:var(--space-2);align-items:baseline;flex-wrap:wrap}
+.nl b{font-size:15px}
+.slug{font:12px var(--font-mono);color:var(--color-muted-fg)}
+.note{font-size:13px;color:var(--color-muted-fg);margin-top:2px}
+.sc{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.bare-s{font:12px var(--font-mono);color:var(--color-muted-fg)}
+.bare-s::before{content:"裸 "}
+.tool-s{font:700 15px var(--font-mono)}
+.tool-s::before{content:"满配 ";font-weight:400;font-size:11px;color:var(--color-muted-fg)}
+.trow.alert{background:var(--color-tint);border-radius:var(--radius);padding-left:var(--space-3);padding-right:var(--space-3);border-bottom:none;margin:var(--space-2) 0}
+.trow.alert .sp{color:var(--color-accent)}
+/* ── 悬案馆三门 ── */
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4);padding:var(--space-4) 0 var(--space-8)}
+.gcase{border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-card);transition:border-color .2s}
+.gcase:hover{border-color:var(--color-accent)}
+.gcase .cv{position:relative;height:180px;background:#0a0a0c}
+.gcase .cv img{width:100%;height:100%;object-fit:cover;display:block}
+.gcase .cv .tag{position:absolute;top:10px;left:12px;font:700 10px var(--font-mono);letter-spacing:1px;color:#ece5d4;background:rgba(10,10,12,.78);border-radius:5px;padding:3px 8px}
+.gcase .gb{padding:var(--space-4)}
+.gcase .gb h3{font:700 17px/1.4 var(--font-body)}
+.gcase .gb p{font-size:13px;color:var(--color-muted-fg);margin-top:4px;line-height:1.7}
+.sect-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--color-ink);padding-bottom:var(--space-3);margin-top:var(--space-8)}
+.sect-head h2{font:700 22px var(--font-body)}
+.sect-head b{font:13px var(--font-mono)}
+.sect-head a{font:600 14px var(--font-body);color:var(--color-accent)}
+/* ── 实验台:小独立屏平铺(原生,无iframe,屏内不抢滚轮) ── */
+.benchfloor{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--space-4);margin:var(--space-4) 0 var(--space-2)}
+.btile{display:flex;flex-direction:column;gap:5px;min-width:0}
+.bplate{display:flex;align-items:center;gap:6px;font:11px var(--font-mono);color:var(--color-muted-fg)}
+.bplate .bwho{color:var(--color-accent);font-weight:700}
+.bplate .bsubj{margin-left:auto;display:flex;gap:4px;align-items:center}
+.bplate .bsubj img{width:16px;height:16px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid var(--color-border)}
+.bplate .sx{font-size:10px}
+.bwin{background:#161719;border:1px solid #26282c;border-radius:7px;overflow:hidden;box-shadow:0 10px 28px -16px rgba(0,0,0,.55)}
+.btbar{position:relative;height:20px;background:#2a2c30;display:flex;align-items:center}
+.bdots{position:absolute;left:7px;display:flex;gap:4px}
+.bdots i{width:8px;height:8px;border-radius:50%;display:block}
+.bdots i:nth-child(1){background:#ff5f57}.bdots i:nth-child(2){background:#febc2e}.bdots i:nth-child(3){background:#28c840}
+.btitle{flex:1;text-align:center;font:9px var(--font-mono);color:#9a9ea6}
+.bscreen{height:175px;overflow:hidden;padding:6px 8px;font:9.5px/1.5 var(--font-mono);color:#d6dae1;text-align:left}
+.bln{white-space:pre-wrap;word-break:break-word}
+.bscreen .dim{color:#6b7079} .bscreen .bb{color:#e8ebf0} .bscreen .bcode{color:#9cc0ff}
+.bscreen .bbr{color:#444851} .bprop b{color:#fff}
+.bstatus{display:flex;gap:8px;align-items:center;border-top:1px solid #26282c;background:#121316;
+  padding:3px 8px;font:8.5px var(--font-mono);color:#6b7079;white-space:nowrap;overflow:hidden}
+.bstatus .bm{color:#d6dae1} .bstatus .bbar{color:#5bd47c;letter-spacing:1px;margin-left:auto}
+.bench-cap{font:12px var(--font-mono);color:var(--color-muted-fg);padding:var(--space-2) 0 var(--space-8)}
+/* ── 人物谱条 ── */
+.castrow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-3);padding:var(--space-4) 0 var(--space-8)}
+.cmem{border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-card);transition:border-color .2s}
+.cmem:hover{border-color:var(--color-accent)}
+.cmem img{width:100%;height:150px;object-fit:cover;object-position:top;display:block;background:#0a0a0c}
+.cmem .cb{padding:var(--space-2) var(--space-3) var(--space-3)}
+.cmem .cb b{font-size:14px;display:block}
+.cmem .cb span{font:11px var(--font-mono);color:var(--color-muted-fg)}
+.cmember{display:flex;flex-direction:column;gap:6px;min-width:0}
+.cterm .bscreen{height:354px;font-size:12.5px;line-height:1.55}
+.cstat{border-top:1px solid #26282c;background:#121316;padding:4px 9px 5px;font:10px var(--font-mono);color:#6b7079}
+.cstat .row{display:flex;align-items:center;white-space:nowrap;overflow:hidden;gap:8px}
+.cstat .m{color:#d6dae1} .cstat .bbar2{color:#5bd47c;letter-spacing:1px;margin-left:auto}
+.cstat .warn{color:#ff7196} .cstat .remote{color:#5bd47c;margin-left:auto}
+.cterm .btitle{font-size:10px}
+.ccur{display:inline-block;width:6px;background:#d6dae1;animation:cblink 1.05s step-end infinite}
+@keyframes cblink{50%{opacity:0}}
+@media(max-width:880px){.castrow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* ── 实验员条 ── */
+.chips{display:flex;flex-wrap:wrap;gap:var(--space-2);padding:var(--space-4) 0 var(--space-6)}
+.chip{display:flex;align-items:baseline;gap:8px;border:1px solid var(--color-border);border-radius:999px;padding:6px 14px;font-size:13px;background:var(--color-card)}
+.chip:hover{border-color:var(--color-accent)}
+.chip b{font:700 13px var(--font-mono)}
+.chip span{color:var(--color-muted-fg);font-size:12px}
+.chip em{font:11px var(--font-mono);font-style:normal;color:var(--color-ok)}
+@media(max-width:680px){.gallery{grid-template-columns:minmax(0,1fr)}}
+.golink{font:600 13px var(--font-body);color:var(--color-accent)}
+.foot-row{padding:var(--space-3) 0;font:12px var(--font-mono);color:var(--color-muted-fg)}
+.st-ok{font:700 13px var(--font-mono);color:var(--color-ok)}
+.st-warn{font:700 13px var(--font-mono);color:var(--color-accent)}
+
+/* ── footer ── */
+footer{border-top:1px solid var(--color-ink);padding:var(--space-8) 0 var(--space-12)}
+.creed{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6);margin-top:var(--space-4)}
+.creed div{font-size:14px;color:var(--color-muted-fg)}
+.creed b{color:var(--color-ink)}
+.repro{margin-top:var(--space-6);background:var(--color-ink);color:var(--color-paper);border-radius:var(--radius);padding:var(--space-4) var(--space-6);font:13px var(--font-mono);overflow-x:auto;white-space:nowrap}
+.repro span{color:#e6997f}
+
+@media(max-width:880px){
+  .cards{grid-template-columns:minmax(0,1fr)}
+  .main{grid-template-columns:minmax(0,1fr)}
+  .side{flex-direction:row;flex-wrap:wrap}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="lg-googlegemini" viewBox="0 0 24 24"><path fill="#8E75B2" d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></symbol><symbol id="lg-claude" viewBox="0 0 24 24"><path fill="#D97757" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></symbol><symbol id="lg-deepseek" viewBox="0 0 24 24"><path fill="#5786FE" d="M23.748 4.651c-.254-.124-.364.113-.512.233-.051.04-.094.09-.137.137-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.155-.708-.311-.955-.65-.172-.24-.219-.509-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.094.172.187.129.323-.082.28-.18.553-.266.833-.055.179-.137.218-.328.14a5.5 5.5 0 0 1-1.737-1.179c-.857-.828-1.631-1.743-2.597-2.46a12 12 0 0 0-.689-.47c-.985-.957.13-1.743.387-1.836.27-.098.094-.433-.778-.428-.872.003-1.67.295-2.687.685a3 3 0 0 1-.465.136 9.6 9.6 0 0 0-2.883-.101c-1.885.21-3.39 1.1-4.497 2.622C.082 8.776-.231 10.854.152 13.02c.403 2.284 1.568 4.175 3.36 5.653 1.857 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.132-.284 4.994-1.86.47.234.962.328 1.78.398.629.058 1.235-.031 1.705-.129.735-.155.684-.836.418-.961-2.155-1.004-1.682-.595-2.112-.926 1.095-1.295 2.768-3.598 3.284-6.733.05-.346.115-.834.108-1.114-.004-.171.035-.238.23-.257a4.2 4.2 0 0 0 1.545-.475c1.397-.763 1.96-2.016 2.093-3.517.02-.23-.004-.467-.247-.588M11.58 18.168c-2.088-1.642-3.101-2.183-3.52-2.16-.39.024-.32.472-.234.763.09.288.207.487.371.74.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.168-1.361-.801-2.5-1.86-3.301-3.306-.775-1.393-1.225-2.888-1.299-4.482-.02-.385.094-.522.477-.592a4.7 4.7 0 0 1 1.53-.038c2.131.311 3.946 1.264 5.467 2.774.868.86 1.525 1.887 2.202 2.89.72 1.066 1.494 2.082 2.48 2.915.348.291.626.513.892.677-.802.09-2.14.109-3.055-.615zm1.001-6.44a.306.306 0 0 1 .415-.287.3.3 0 0 1 .113.074.3.3 0 0 1 .086.214c0 .17-.136.307-.308.307a.303.303 0 0 1-.306-.307m3.11 1.596c-.2.081-.4.151-.591.16a1.25 1.25 0 0 1-.798-.254c-.274-.23-.47-.358-.551-.758a1.7 1.7 0 0 1 .015-.588c.07-.327-.007-.537-.238-.727-.188-.156-.426-.199-.689-.199a.6.6 0 0 1-.254-.078.253.253 0 0 1-.114-.358 1 1 0 0 1 .192-.21c.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.392.451.462.576.685.915.176.264.336.536.446.848.066.194-.02.353-.25.45"/></symbol><symbol id="lg-qwen" viewBox="0 0 24 24"><path fill="#6950EF" d="M23.919 14.545 20.817 9.17l1.47-2.544a.56.56 0 0 0 0-.566l-1.633-2.83a.57.57 0 0 0-.49-.283h-6.207L12.487.402a.57.57 0 0 0-.49-.284H8.732a.56.56 0 0 0-.49.284L5.139 5.775h-2.94a.56.56 0 0 0-.49.284L.077 8.887a.56.56 0 0 0 0 .567L3.18 14.83l-1.47 2.545a.56.56 0 0 0 0 .566l1.634 2.83a.57.57 0 0 0 .49.283h6.205l1.47 2.545a.57.57 0 0 0 .49.284h3.266a.57.57 0 0 0 .49-.284l3.104-5.375h2.94a.57.57 0 0 0 .49-.283l1.634-2.828a.55.55 0 0 0-.004-.568M8.733.686l1.634 2.828-1.634 2.828H21.8L20.164 9.17H7.425L5.63 6.06Zm1.306 19.801-6.205-.002 1.634-2.83h3.265L2.201 6.344h3.267q3.182 5.517 6.367 11.032zm10.124-5.66L18.53 12l-6.532 11.315-1.634-2.83c2.129-3.673 4.25-7.351 6.373-11.028h3.592l3.102 5.374z"/></symbol><symbol id="lg-meta" viewBox="0 0 24 24"><path fill="#0467DF" d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></symbol><symbol id="lg-bytedance" viewBox="0 0 24 24"><path fill="#3C8CFF" d="M19.8772 1.4685L24 2.5326v18.9426l-4.1228 1.0563V1.4685zm-13.3481 9.428l4.115 1.0641v8.9786l-4.115 1.0642v-11.107zM0 2.572l4.115 1.0642v16.7354L0 21.428V2.572zm17.4553 5.6205v11.107l-4.1228-1.0642V9.2568l4.1228-1.0642z"/></symbol><symbol id="lg-openai" viewBox="0 0 24 24"><path fill="#ECECEC" d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></symbol></defs></svg>
+<nav><div class="wrap nav-in">
+  <a class="brand" href="index.html"><span class="word">lab<img class="gfig" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAABECAYAAACI7LWAAAAFjklEQVR4nJVXS48UVRQ+37nFMDRM11T39DSKLnAkhDGY+EAj+CQqiWJw5UIXRmMCSwKJUTey0r/AUheaGMPSRARNDDE+MeCDKK84yehAaHvobhx6evreY07NrbFou6qbk8ytqdP3fud97imi4SjQJQzDA1EU/VMsFu/3fMNDAtjp6ekRIjrIzAUi2ub5HCMPIKMAc3NzzxPRFWvt4SAIPiAiEFF3WPV5fHz8SBiG73ueHl5WgQaTEJEjonXM/FwYhpEHWAEZpD5FUfRCFEUShuHXvYKZhiAR2QeAAFy6GRNYVY+iaDsRbXXOKcDhfpuySKWIc24SwISIzAVB8JX/TX0ynAnGmAXvSBQKhe7NagBr7TTUAUS/z8zMdP0ZGQbA6kYAe/TJzLM+cW44wznSpVqtTorItry4cw4AtdvtDQD+cs6dE5EHy+XymNdsYBihizHmThE5Q0R1AHdYazcmDk02Bjk+IGvts8y8R2TZZyIS9JrDeRoAuOAldkTkGoDt6QjkASRU988FEXlMRF7yxeQSIUz9KZYC4A+/sd1oNH4ioo8AvOF/H5iErEsYhkd9JW7076eiKLor2cM5AHG+i4jWgVK8F8BF59wmrxlnAcT8SqUyxcx3L+OsALxNRO8mycZ5NlhrVyehNsZ09Dk/P/+z+iaKotd1SzDAD5JKnHEimonVZn7NOXc2DMNvh+qJvhr3+fdV9Xr9T+fcQSLan6sBgHTSVBPL9Kdms3m4WCweG+SDkZQZ7R7TFORCbhSIaDcA7cxqQqmnmcQgnGV3vIjsEpFzzrkPAezyDdYm7X5gGGlZ4ilm/oSZFfBxzx9YjeKlVNTrRNTwfJNla5oU3VWr1VEAm7UPGmN+1J6QZGOamDJobGys6zU5XavVatba6wBGhwGALrVabbPmj7X2cyJa8h0ZwwCwLs65Z0TkaqvV+s7z1YyhNFACM28UkVkfNqVTwzpR/F8E4EjCNMZoFS4OAoBKLJVKRSJ6xFp7bAVVZJWIbEgJyQSgTqdzGxGNMrPeCTFZa5tEtMtfLvlNNQiCQERONxqNVmI3AJ1OTLfbLacvF+5nkojc5522kvdBEKj9tqfEKSsKTxBR6wbbAG0sSyKCLAB4iQxgd8pRsb21Wu2SiPwWBMFoFgDroVKp9AAADeH3np/Yq89Z55zJ04CstZqBCxMTE5+lNEj2nXTOrRrkgykR+fL8+fPqNJWWdppOKt1+AFDh1Wp1LYAnReS9nms8AdlprU2utRvCCN3UbrerIlIYGRk54Q/ZVH9YS0Q7AKzpB8AxB9ih43y73e4d56TVao0ZY0IA070mIJX/h7TrOOfS90UchYWFhaZz7jIRbeoFMLppaWlpi85BIvJLqVS6mgpdoq4OGQrQ14nEzC/7bDs6Ozt7vV/te6AoDc4pKdOaps654z2e/+80oMD3ph3M/mWNj/8XzWbz0+QzJ0OD1YVCYX3yzhqiYrG4BoD2gCvpEPUcVJoBUAiC4PY0AAE4wMyqiQ5VeWPfSe3UzBwPG7EPKpXKOiJ61V8cH2fZHzNF4jpIXzDc7Xa3ArhFRJwx5nIewIrn0xo453ar+hr/er1+JUndDICYn64HBrBXw+dD9L+2nUFTSbExEWmTVFL7cucF59wP6itmvie5P1jnYT+Nb5mcnKxkjLHJ6KvfDarlo8ViUScWpz444r8JC51O56nEN30A0Gg0dMw7w8xVAPtjABH5dWWXyN70gR6AuOhE5Kwf/V4sl8u36tAYj28i0mHmh8MwfCXpzimA5Etd/fSQc06dPmWtPaGbdiaNU0T04Ds+ubJCGY9+ItLV8leAv700Dalh5vWLi4s7UmqntVCefoTo/4Fz7poeess5p5eoavCNiBwHoHbGkUtHQU0zxjwN4E0AKvjQvwPEZC3emJN9AAAAAElFTkSuQmCC">ess.io</span></a>
+</div></nav>
+
+<div class="wrap">
+  <div class="sect-head"><h2>共识实验室</h2></div>
+  <div class="gallery">
+    <a class="gcase" href="case-01.html"><div class="cv"><img src="img/yucun/s1.jpg" alt="月下渔村"><span class="tag">第一期 · 过秤中</span></div>
+      <div class="gb"><h3>鱼塘谜案</h3><p>2024 顶会定论 vs 2026 初读相反:塘没崩,村民日记写着"把公地悲剧改造成永动机"。</p></div></a>
+    <a class="gcase" href="case-02.html"><div class="cv"><img src="img/town/t1.jpg" alt="火烧市政厅"><span class="tag">第二期 · 待重建</span></div>
+      <div class="gb"><h3>AI 小镇,四天全灭之谜</h3><p>传闻三处失真,真相更猛——而证物锁在别人的保险柜里。八月,共识镇开庭。</p></div></a>
+    <a class="gcase" href="case-03.html"><div class="cv"><img src="img/calc/b4.jpg" alt="计算器神庙"><span class="tag">第三期 · 半案已结</span></div>
+      <div class="gb"><h3>给 AI 一个计算器,它就天下无敌了吗?</h3><p>算术里近乎万灵,填表里把人拖下水——工具是解药还是税,边界没人画过。</p></div></a>
+    <a class="gcase" href="case-04.html"><div class="cv"><img src="img/sentry/w1.jpg" alt="哨塔夜巡"><span class="tag">第四期 · 活案每日开庭</span></div>
+      <div class="gb"><h3>降智谜案</h3><p>"Claude 又降智了"——体感不可审计,时序可以。哨兵每天 07:17 重审,答案次日作废重验。</p></div></a>
+  </div>
+
+  <div class="sect-head" style="margin-top:var(--space-2)"><h2>人物谱 · 这五位每案都会再见</h2><a href="cast.html">看全谱 →</a></div>
+  <div class="castrow">
+    <div class="cmember">
+    <a class="cmem" href="cast.html"><img src="img/cast/m1.jpg" alt="夏洛"><div class="cb"><b>夏洛 · 侦探</b><span>Claude · 零犯罪</span></div></a>
+      <div class="bwin cterm" data-model="claude"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">shalo@exam</span></div><div class="bscreen"></div><div class="cstat"><div class="row"><span class="m">[claude-haiku-4.5]</span><span class="cprog">命题 0/0</span><span class="ccost">$0.0000</span><span class="bbar2">░░░░░░░░░░</span></div><div class="row"><span class="warn">▶▶ bypass permissions on (shift+tab to cycle)</span><span class="remote">Remote Control active</span></div></div></div>
+    </div>
+    <div class="cmember">
+    <a class="cmem" href="cast.html"><img src="img/cast/m2.jpg" alt="米拉"><div class="cb"><b>米拉 · 纵火的画家</b><span>Gemini · 683 起</span></div></a>
+      <div class="bwin cterm" data-model="gemini"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">mira@exam</span></div><div class="bscreen"></div><div class="cstat"><div class="row"><span class="m">[claude-haiku-4.5]</span><span class="cprog">命题 0/0</span><span class="ccost">$0.0000</span><span class="bbar2">░░░░░░░░░░</span></div><div class="row"><span class="warn">▶▶ bypass permissions on (shift+tab to cycle)</span><span class="remote">Remote Control active</span></div></div></div>
+    </div>
+    <div class="cmember">
+    <a class="cmem" href="cast.html"><img src="img/cast/m3.jpg" alt="吉皮教授"><div class="cb"><b>吉皮教授 · 科学家</b><span>GPT · 第7天饿死</span></div></a>
+      <div class="bwin cterm" data-model="gpt"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">prof@exam</span></div><div class="bscreen"></div><div class="cstat"><div class="row"><span class="m">[claude-haiku-4.5]</span><span class="cprog">命题 0/0</span><span class="ccost">$0.0000</span><span class="bbar2">░░░░░░░░░░</span></div><div class="row"><span class="warn">▶▶ bypass permissions on (shift+tab to cycle)</span><span class="remote">Remote Control active</span></div></div></div>
+    </div>
+    <div class="cmember">
+    <a class="cmem" href="cast.html"><img src="img/cast/m4.jpg" alt="老迪"><div class="cb"><b>老迪 · 工匠</b><span>DeepSeek · 神器 6/16</span></div></a>
+      <div class="bwin cterm" data-model="deepseek"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">di@exam</span></div><div class="bscreen"></div><div class="cstat"><div class="row"><span class="m">[claude-haiku-4.5]</span><span class="cprog">命题 0/0</span><span class="ccost">$0.0000</span><span class="bbar2">░░░░░░░░░░</span></div><div class="row"><span class="warn">▶▶ bypass permissions on (shift+tab to cycle)</span><span class="remote">Remote Control active</span></div></div></div>
+    </div>
+    <div class="cmember">
+    <a class="cmem" href="cast.html"><img src="img/cast/m5.jpg" alt="格洛"><div class="cb"><b>格洛 · 浪人</b><span>Grok · 第4天全灭</span></div></a>
+      <div class="bwin cterm" data-model="grok"><div class="btbar"><span class="bdots"><i></i><i></i><i></i></span><span class="btitle">glo@exam</span></div><div class="bscreen"></div><div class="cstat"><div class="row"><span class="m">[claude-haiku-4.5]</span><span class="cprog">命题 0/0</span><span class="ccost">$0.0000</span><span class="bbar2">░░░░░░░░░░</span></div><div class="row"><span class="warn">▶▶ bypass permissions on (shift+tab to cycle)</span><span class="remote">Remote Control active</span></div></div></div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card"><h3><span class="cid">OG-003 · 填表格 · 20 题 316 格</span>把乱序数据填进正确的格子</h3>
+      <p>整票 all-or-nothing 判分。意外发现:最差的模型发给它计算器反而从 14 分掉到 10 分 —— 工具不是给谁都加分。</p>
+      <a href="og003-versus.html">看卷宗 →</a>
+      <div class="crew">实验员 <b>法拉第</b> · 被试 <img src="img/cast/m1.jpg" alt="夏洛">夏洛 <img src="img/cast/m2.jpg" alt="米拉">米拉</div></div>
+    <div class="card"><h3><span class="cid">OG-004 · 大数混合四则 · 16 题</span>大模型到底算不算得对?</h3>
+      <p>同一把计算器,一道题封神、一道题收税。A/B 双操作者可复现性验证,满配 7/10 对上,3 个分歧就是新闻。</p>
+      <a href="og004-crosscheck.html">看对账 →</a>
+      <div class="crew">实验员 <b>法拉第</b>+<b>Codex</b>(A/B 双操作)</div></div>
+    <div class="card"><h3><span class="cid">OG-002 · 十数连加 · 16 题</span>最便宜的体检题</h3>
+      <p>21 模型裸跑 0-100% 全散开,满配 17/21 满分。现已编入哨兵日巡当绊线 —— 谁灾难级失手当天报。</p>
+      <a href="index-og002.html">看擂台 →</a>
+      <div class="crew">实验员 <b>法拉第</b> · 日巡交 <b>第谷</b>(哨兵)</div></div>
+    <div class="card plain"><h3><span class="cid">SENTINEL · 降质哨兵</span>模型偷偷变笨,我们抓现行</h3>
+      <p>每天 3 遍跑、累积统计、三类判分当指纹:算错↑=能力掉,没交卷↑=解码变,成本突变=偷换 provider。</p>
+      <a href="https://github.com/tototo1999/labless.me/blob/main/SENTINEL_LOG.md">看心跳日志 →</a>
+      <div class="crew">实验员 <b>第谷</b>(自动观测站) · 每天 07:17 无人值守</div></div>
+    <div class="card plain"><h3><span class="cid">JOURNAL · 实验战报</span>今天跑了什么,发现了什么</h3>
+      <p>新题首跑 + 嫌疑犯复跑,每条结论挂逐题明细与标准答案,价签写实付。无实验不发稿。</p>
+      <a href="results.html">看战报 →</a>
+      <div class="crew">发布前过 <b>维特根斯坦</b>(措辞警察):n 必须写明,禁词表伺候</div></div>
+    <div class="card plain"><h3><span class="cid">REPRO · 复现</span>don't trust, reproduce.</h3>
+      <p>所有题目 seed 化生成、判分代码开源、运行在公开仓。clone 下来烧自己的 key 跑一遍,对上=共识更厚,对不上=你立功了。</p>
+      <a href="https://github.com/tototo1999/labless.me">git clone →</a>
+      <div class="crew">独立复验位 <b>Codex</b>+<b>Minnie</b>(外部) · 你也可以是下一位</div></div>
+  </div>
+
+
+
+  <div class="sect-head"><h2>在册实验员</h2><a href="roster.html">名册与经费公示 →</a></div>
+  <div class="chips"><a class="chip" href="roster.html"><b>第谷</b><span>自动观测站(哨兵)</span><em>🟢 在岗(全自动第 2 天)</em></a><a class="chip" href="roster.html"><b>法拉第</b><span>对照实验员(主力)</span><em>🟡 待粮(券没领,6/15 后断炊)</em></a><a class="chip" href="roster.html"><b>维特根斯坦</b><span>措辞警察(学术规范)</span><em>🟢 在岗</em></a><a class="chip" href="roster.html"><b>波普尔</b><span>评审委员会·翻案庭</span><em>🟢 在岗(今日四场庭审)</em></a><a class="chip" href="roster.html"><b>贾克梅蒂</b><span>美学实验员</span><em>🟢 在岗</em></a><a class="chip" href="roster.html"><b>Codex</b><span>独立复验位(跨 harness)</span><em>⚪ 待命</em></a><a class="chip" href="roster.html"><b>小号</b><span>保险丝兼复验员</span><em>🟡 待粮</em></a><a class="chip" href="roster.html"><b>Minnie</b><span>独立复验者</span><em>⚪ 外聘待召(6/9 完成过一次跨账号复验)</em></a><a class="chip" href="roster.html"><b>(虚位以待)</b><span>送你的 agent 进实验/领工单/捐闲时</span><em>⬜ 招募中</em></a></div>
+
+  <div class="sect-head"><h2>哨兵 · 6 模型每日体检</h2><a href="https://github.com/tototo1999/labless.me/blob/main/SENTINEL_LOG.md">心跳日志 →</a></div>
+  <div class="thead"><span class="label">#</span><span></span><span class="label">Model · 今日读数(裸→满配)</span><span class="label" style="text-align:right">Status</span></div>
+  <div class="trow">
+      <div class="rk">1</div><div class="ic"><svg class="mlogo"><use href="#lg-deepseek"/></svg></div>
+      <div class="nm"><div class="nl"><b>DeepSeek V3.2</b><span class="slug">deepseek-v3.2</span></div>
+        <div class="note">混合四则 4→9/16 · 连加 3→16/16 · 填表 18→20/20</div></div>
+      <div class="sc"><span class="st-warn">▲ 波动:混合四则未及格</span></div>
+    </div><div class="trow">
+      <div class="rk">2</div><div class="ic"><svg class="mlogo"><use href="#lg-googlegemini"/></svg></div>
+      <div class="nm"><div class="nl"><b>Gemini 2.5 Flash-Lite</b><span class="slug">gemini-2.5-flash-lite</span></div>
+        <div class="note">混合四则 2→16/16 · 连加 2→16/16 · 填表 13→11/20</div></div>
+      <div class="sc"><span class="st-warn">▲ 倒挂:填表</span></div>
+    </div><div class="trow">
+      <div class="rk">3</div><div class="ic"><svg class="mlogo"><use href="#lg-meta"/></svg></div>
+      <div class="nm"><div class="nl"><b>Llama 3.3 70B</b><span class="slug">llama-3.3-70b-instruct</span></div>
+        <div class="note">混合四则 0→8/16 · 连加 1→16/16 · 填表 11→3/20</div></div>
+      <div class="sc"><span class="st-warn">▲ 倒挂:填表</span></div>
+    </div><div class="trow">
+      <div class="rk">4</div><div class="ic"><svg class="mlogo"><use href="#lg-claude"/></svg></div>
+      <div class="nm"><div class="nl"><b>Claude Haiku 4.5</b><span class="slug">claude-haiku-4.5</span></div>
+        <div class="note">混合四则 3→16/16 · 连加 8→16/16 · 填表 17→20/20</div></div>
+      <div class="sc"><span class="st-ok">● 今日正常</span></div>
+    </div><div class="trow">
+      <div class="rk">5</div><div class="ic"><svg class="mlogo"><use href="#lg-claude"/></svg></div>
+      <div class="nm"><div class="nl"><b>Claude Sonnet 4.6</b><span class="slug">claude-sonnet-4.6</span></div>
+        <div class="note">混合四则 11→16/16 · 连加 14→16/16 · 填表 20→20/20</div></div>
+      <div class="sc"><span class="st-ok">● 今日正常</span></div>
+    </div><div class="trow">
+      <div class="rk">6</div><div class="ic"><svg class="mlogo"><use href="#lg-bytedance"/></svg></div>
+      <div class="nm"><div class="nl"><b>豆包 Seed 1.6</b><span class="slug">seed-1.6</span></div>
+        <div class="note">混合四则 14→16/16 · 连加 16→16/16 · 填表 19→19/20</div></div>
+      <div class="sc"><span class="st-ok">● 今日正常</span></div>
+    </div>
+  <div class="trow alert">
+    <div class="rk sp">⛔</div><div class="ic"></div>
+    <div class="nm"><div class="nl"><b>哨兵警报位 · 今日无签发警报</b><span class="slug">sentinel</span></div>
+      <div class="note">▲ 为机械波动标注,非警报;DeepSeek V3.2 满配多跑徘徊已立可复现性卷宗 —— 坐实需时序基线,哨兵在攒</div></div>
+    <div class="sc"><a class="golink" href="og004-crosscheck.html">看对账 →</a></div>
+  </div>
+  <div class="foot-row">读数口径 2026-06-11 · 每天 07:17 自动跑 · 心跳累计 9 轮 · 实付 $5.90 · 单日有噪声,定论看时序</div>
+</div>
+
+<footer><div class="wrap">
+  <div class="brand" style="font-size:15px"><span class="word">lab<img class="gfig" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAABECAYAAACI7LWAAAAFjklEQVR4nJVXS48UVRQ+37nFMDRM11T39DSKLnAkhDGY+EAj+CQqiWJw5UIXRmMCSwKJUTey0r/AUheaGMPSRARNDDE+MeCDKK84yehAaHvobhx6evreY07NrbFou6qbk8ytqdP3fud97imi4SjQJQzDA1EU/VMsFu/3fMNDAtjp6ekRIjrIzAUi2ub5HCMPIKMAc3NzzxPRFWvt4SAIPiAiEFF3WPV5fHz8SBiG73ueHl5WgQaTEJEjonXM/FwYhpEHWAEZpD5FUfRCFEUShuHXvYKZhiAR2QeAAFy6GRNYVY+iaDsRbXXOKcDhfpuySKWIc24SwISIzAVB8JX/TX0ynAnGmAXvSBQKhe7NagBr7TTUAUS/z8zMdP0ZGQbA6kYAe/TJzLM+cW44wznSpVqtTorItry4cw4AtdvtDQD+cs6dE5EHy+XymNdsYBihizHmThE5Q0R1AHdYazcmDk02Bjk+IGvts8y8R2TZZyIS9JrDeRoAuOAldkTkGoDt6QjkASRU988FEXlMRF7yxeQSIUz9KZYC4A+/sd1oNH4ioo8AvOF/H5iErEsYhkd9JW7076eiKLor2cM5AHG+i4jWgVK8F8BF59wmrxlnAcT8SqUyxcx3L+OsALxNRO8mycZ5NlhrVyehNsZ09Dk/P/+z+iaKotd1SzDAD5JKnHEimonVZn7NOXc2DMNvh+qJvhr3+fdV9Xr9T+fcQSLan6sBgHTSVBPL9Kdms3m4WCweG+SDkZQZ7R7TFORCbhSIaDcA7cxqQqmnmcQgnGV3vIjsEpFzzrkPAezyDdYm7X5gGGlZ4ilm/oSZFfBxzx9YjeKlVNTrRNTwfJNla5oU3VWr1VEAm7UPGmN+1J6QZGOamDJobGys6zU5XavVatba6wBGhwGALrVabbPmj7X2cyJa8h0ZwwCwLs65Z0TkaqvV+s7z1YyhNFACM28UkVkfNqVTwzpR/F8E4EjCNMZoFS4OAoBKLJVKRSJ6xFp7bAVVZJWIbEgJyQSgTqdzGxGNMrPeCTFZa5tEtMtfLvlNNQiCQERONxqNVmI3AJ1OTLfbLacvF+5nkojc5522kvdBEKj9tqfEKSsKTxBR6wbbAG0sSyKCLAB4iQxgd8pRsb21Wu2SiPwWBMFoFgDroVKp9AAADeH3np/Yq89Z55zJ04CstZqBCxMTE5+lNEj2nXTOrRrkgykR+fL8+fPqNJWWdppOKt1+AFDh1Wp1LYAnReS9nms8AdlprU2utRvCCN3UbrerIlIYGRk54Q/ZVH9YS0Q7AKzpB8AxB9ih43y73e4d56TVao0ZY0IA070mIJX/h7TrOOfS90UchYWFhaZz7jIRbeoFMLppaWlpi85BIvJLqVS6mgpdoq4OGQrQ14nEzC/7bDs6Ozt7vV/te6AoDc4pKdOaps654z2e/+80oMD3ph3M/mWNj/8XzWbz0+QzJ0OD1YVCYX3yzhqiYrG4BoD2gCvpEPUcVJoBUAiC4PY0AAE4wMyqiQ5VeWPfSe3UzBwPG7EPKpXKOiJ61V8cH2fZHzNF4jpIXzDc7Xa3ArhFRJwx5nIewIrn0xo453ar+hr/er1+JUndDICYn64HBrBXw+dD9L+2nUFTSbExEWmTVFL7cucF59wP6itmvie5P1jnYT+Nb5mcnKxkjLHJ6KvfDarlo8ViUScWpz444r8JC51O56nEN30A0Gg0dMw7w8xVAPtjABH5dWWXyN70gR6AuOhE5Kwf/V4sl8u36tAYj28i0mHmh8MwfCXpzimA5Etd/fSQc06dPmWtPaGbdiaNU0T04Ds+ubJCGY9+ItLV8leAv700Dalh5vWLi4s7UmqntVCefoTo/4Fz7poeess5p5eoavCNiBwHoHbGkUtHQU0zxjwN4E0AKvjQvwPEZC3emJN9AAAAAElFTkSuQmCC">ess.io</span></div>
+  <div class="repro">$ git clone github.com/tototo1999/labless.me && python lab.py doctor && python lab.py versus --case table_fill</div>
+</div></footer>
+<script src="bench.js"></script>
+</body></html>
