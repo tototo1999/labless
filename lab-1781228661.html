@@ -84,7 +84,7 @@ nav{background:var(--color-paper);position:sticky;top:0;z-index:9}
   opacity:0;transition:opacity .9s ease;display:block;text-decoration:none;pointer-events:none}
 .hslide.on{opacity:1;pointer-events:auto}
 .hmask{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,10,.82) 0%,rgba(8,8,10,.5) 42%,rgba(8,8,10,.05) 72%,transparent 100%)}
-.htext{position:absolute;left:7%;bottom:0;top:0;display:flex;flex-direction:column;justify-content:center;
+.htext{position:absolute;left:7%;bottom:0;top:0;display:flex;flex-direction:column;justify-content:flex-start;padding-top:78px;
   max-width:62%;gap:10px}
 .heyebrow{font:300 25px var(--font-body);letter-spacing:.03em;color:#fff;display:flex;align-items:baseline;gap:8px}
 .hno{font:800 22px var(--font-mono);color:var(--color-gold,#f4c542)}
@@ -95,7 +95,7 @@ nav{background:var(--color-paper);position:sticky;top:0;z-index:9}
 .hdots{position:absolute;right:24px;bottom:18px;display:flex;gap:8px;z-index:3}
 .hdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.34);cursor:pointer;transition:.25s}
 .hdot.on{background:#fff;width:22px;border-radius:5px}
-@media(max-width:760px){.hero{height:230px}.htext{max-width:84%}.hq{font-size:20px}}
+@media(max-width:760px){.hero{height:230px}.htext{max-width:84%;padding-top:44px}.hq{font-size:20px}}
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4);padding:var(--space-3) 0 var(--space-8)}
 .gcase{border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-card);transition:border-color .2s}
 .gcase:hover{border-color:var(--color-accent)}
